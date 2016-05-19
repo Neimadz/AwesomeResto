@@ -8,6 +8,7 @@
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/style.css">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -18,7 +19,7 @@
         <![endif]-->
     </head>
     <body>
-        <nav class="navbar navbar-default">
+        <nav class="navbar">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -31,6 +32,12 @@
               <a class="navbar-brand" href="index.php">Ristorante</a>
             </div>
 
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
@@ -39,24 +46,28 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recettes<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Entrées</a></li>
+
+
+                    <li role="separator" class="divider"></li>
                     <li><a href="#">Plats</a></li>
+                    <li role="separator" class="divider"></li>
                     <li><a href="#">Desserts</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="#">Contactez-nous</a></li>
+                <li><a href="contact.php">Contactez-nous</a></li>
               </ul>
-              <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form>
+
 
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
         <div class="container-fluid">
+            <div class="row">
+                <header>
+                    <div class="owl-carousel">
+                        <div class="item carousel-item-1"></div>
+                        <div class="item carousel-item-2"></div>
+                        <div class="item carousel-item-3"></div>
+                    </div>
+                </header>
+            </div>
