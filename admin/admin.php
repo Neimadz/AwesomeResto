@@ -29,10 +29,11 @@ if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'edit') {
 } // end of role edit
 if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') {
 ?>
+
 <div>
     <ul id="myTabs" class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#modify-article" aria-controls="modify-article" role="tab" data-toggle="tab">Ajouter un article</a></li>
-        <li role="presentation"><a href="#add-article" aria-controls="add-article" role="tab" data-toggle="tab">Modifier un article</a></li>
+        <li role="presentation"><a href="#add-article" aria-controls="add-articlet" role="tab" data-toggle="tab">Modifier un article</a></li>
         <li role="presentation"><a href="#modify-header" aria-controls="modify-header" role="tab" data-toggle="tab">Modifier header</a></li>
         <li role="presentation"><a href="#read-messages" aria-controls="read-messages" role="tab" data-toggle="tab">Lire les messages</a></li>
     </ul>
@@ -42,18 +43,19 @@ if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') {
            <?php require_once 'add_recipe.php'; ?>
        </div>
 
-       <div role="tabpanel" class="tab-pane" id="add-article">
-
-       </div>
+       <div role="tabpanel" class="tab-pane" id="add-article"></div>
 
        <div role="tabpanel" class="tab-pane" id="modify-header">
-
+           <?php include_once 'inc/update_infos.php'; ?>
        </div>
-
+       
        <div role="tabpanel" class="tab-pane" id="read-messages">
-           <?php require_once 'read_messages.php'; ?>
+           <?php require_once 'inc/read_messages.php'; ?>
        </div>
-     </div>
+
+    </div>
+
+
 </div>
 <?php
 }
