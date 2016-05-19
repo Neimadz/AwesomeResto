@@ -39,20 +39,18 @@ if(!empty($_POST)) {
     else {
         $formValid = true;
         
-        $res = $bdd->prepare('INSERT INTO articles (title, link, content, reco, date_add) VALUES(:title, :link, :content, :reco, NOW())');
+        $res = $bdd->prepare('INSERT INTO contact (name, email, message, date_send) VALUES(:name, :email, :message, NOW())');
 
-        $res->bindValue(':title', $post['title']);
-        $res->bindValue(':link', $post['link']);
-        $res->bindValue(':content', $post['content']);
-        $res->bindValue(':reco', $post['reco']);
+        $res->bindValue(':name', $post['name']);
+        $res->bindValue(':email', $post['email']);
+        $res->bindValue(':message', $post['message']);
     
-
         if($res->execute()){
             // Ici tout est ok, on fait la redirection
-            header('Location: accueil.php?id='.$bdd->lastInsertId());
+            header('Location: index.php?id='.$bdd->lastInsertId());
             die; // On met le die, uniquement pour être sur qu'on soit redirigé
         }
-    }
+        }
     }//emty
 
     require_once 'inc/header.php';
