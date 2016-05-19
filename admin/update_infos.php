@@ -78,15 +78,25 @@ $formValid = false;
 ?>
 
 <!-- formulaire changement à remplir pour changer coordonées user -->
-<div>
-	<form method="POST" class="pure-form">
-    	<fieldset class="pure-group">
-        	<input name="name" type="text" class="pure-input-1-2" placeholder="name">
-        	<input name="phone" type="text" class="pure-input-1-2" placeholder="phone">
-        	<input name="email" type="email" class="pure-input-1-2" placeholder="email">
-       		<input name="link" type="link" class="pure-input-1-2" placeholder="link">
-    	</fieldset>
-		<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">SUBMIT</button>
+
+	<form method="POST" class="pure-form" name="update_infos">
+  		<div class="form-group">
+    		<label for="exampleInputFile">File input</label>
+    		<input type="file" id="exampleInputFile">
+    		<p class="help-block">Example block-level help text here.</p>
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputFile">File input</label>
+    		<input type="file" id="exampleInputFile">
+    		<p class="help-block">Example block-level help text here.</p>
+  		</div>
+  		<div class="form-group">
+    		<label for="exampleInputFile">File input</label>
+    		<input type="file" id="exampleInputFile">
+    		<p class="help-block">Example block-level help text here.</p>
+  		</div>
+  		<input type="text" class="form-control" placeholder="Adress">
+  		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </div>
 
