@@ -6,7 +6,7 @@ include_once 'inc/header.php';
 if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'edit') {
 ?>
 <div>
-    <ul class="nav nav-tabs" role="tablist">
+    <ul id="myTabsEdit" class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#modify-article-edit" aria-controls="modify-article-edit" role="tab" data-toggle="tab">Ajouter un article</a></li>
         <li role="presentation"><a href="#add-article-edit" aria-controls="add-article-edit" role="tab" data-toggle="tab">Modifier un article</a></li>
     </ul>
@@ -30,7 +30,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'edit') {
 if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') {
 ?>
 <div>
-    <ul class="nav nav-tabs" role="tablist">
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#modify-article" aria-controls="modify-article" role="tab" data-toggle="tab">Ajouter un article</a></li>
         <li role="presentation"><a href="#add-article" aria-controls="add-article" role="tab" data-toggle="tab">Modifier un article</a></li>
         <li role="presentation"><a href="#modify-header" aria-controls="modify-header" role="tab" data-toggle="tab">Modifier header</a></li>
@@ -51,7 +51,7 @@ if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') {
        </div>
 
        <div role="tabpanel" class="tab-pane" id="read-messages">
-
+           <?php require_once 'read_messages.php'; ?>
        </div>
      </div>
 </div>
