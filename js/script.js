@@ -36,6 +36,8 @@ $("#header_search").on("submit", function (event) {
 function submitForm(){
     // get data
     var keyword = $("#header_keyword").val();
+    var url = window.location.href;
+    console.log(url);
 
     console.log(keyword);
     $.ajax({
@@ -48,6 +50,7 @@ function submitForm(){
             } else {
                 submitMSG(text);
             }
+            history.pushState(null, '', url+'?'+keyword);
         },
         error : function() {
             console.log('Ca va pas!');
