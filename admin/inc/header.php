@@ -43,10 +43,10 @@ require_once 'functions.php';
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Accueil<span class="sr-only">(current)</span></a></li>
+                <li><a href="admin.php">Accueil<span class="sr-only">(current)</span></a></li>
 
-                <li><a href="contact.php"></a></li>
-                <li><a href="contact.php">Lire les articles</a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#">Lire les articles</a></li>
                 <li><a href="inc/logout.php">Log out</a></li>
               </ul>
 
@@ -54,3 +54,4 @@ require_once 'functions.php';
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+        <div class="container">

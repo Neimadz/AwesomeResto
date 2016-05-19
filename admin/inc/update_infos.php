@@ -1,14 +1,10 @@
 <?php
 
-include_once 'header.php';
-
 // On instancie nos variables qu'on utilisera plus tard
 $post = array();
 $error = array();
 $displayErr = false;
 $formValid = false;
-
-
 
 	// On vérifie que notre formulaire n'est pas vide
 	if(!empty($_POST)){
@@ -20,7 +16,7 @@ $formValid = false;
 
 		if(strlen($post['name']) < 4 || strlen($post['name']) > 15){
 			$error[] = 'not a name';
-		}	
+		}
 
 		if(strlen($post['phone']) != 10 ){
 			$error[] = 'not a phone';
@@ -33,11 +29,11 @@ $formValid = false;
 		if(count($error) > 0){
 			$displayErr = true;
 		}
-	
+
 			else {
-		
+
 				// Ici je suis sur de ne pas avoir d'erreurs, donc je peux faire du traitement.
-		
+
 				$res = $db->prepare('UPDATE img_header SET img1 = :img1, img2 = :img2, img3 = :img3, adress = :adress WHERE id = 1');
 
 				// On complète les champs
@@ -45,12 +41,12 @@ $formValid = false;
 				$res->bindValue(':img2', $post['img2'], PDO::PARAM_STR);
 				$res->bindValue(':img3', $post['img3'], PDO::PARAM_STR);
 				$res->bindValue(':adress', $post['adress'], PDO::PARAM_STR);
-			
+
 
 				// retourne un booleen => true si tout est ok, false sinon
 				if($res->execute()){
 					// Pour afficher le message de réussite si tout est bon
-					$formValid = true; 
+					$formValid = true;
 				}
 				else {
 					// Permettra d'afficher les erreurs éventuelles
@@ -99,12 +95,3 @@ $formValid = false;
 
   		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
-</div>
-
-
-<?php 
-
-include_once 'footer.php';
-
-?>   
-

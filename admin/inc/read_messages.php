@@ -1,8 +1,13 @@
+<div id="msgRead"></div>
 <?php
-require_once 'connect.php';
+//require_once 'connect.php';
 
-$showMessages = $db->prepare('SELECT * FROM contact');
-$showMessages->execute();
+$allMsgs = checkNotReadMsg();
+foreach ($allMsgs as $key => $msg) {
+    showMessages($msg);
+}
 
-
+if (empty($allMsgs)) {
+    echo 'Vouz n\'avez pas de messages';
+}
 ?>
