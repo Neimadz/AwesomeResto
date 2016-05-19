@@ -1,4 +1,7 @@
-<?php require_once 'functions.php' ?>
+<?php
+require_once 'functions.php'
+require_once 'bdd/resto.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
