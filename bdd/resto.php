@@ -1,19 +1,11 @@
-<?php echo 'emmp';
+<?php 
+// création d'une data_base restaurant si elle n'existe pas.
+$db = new PDO('mysql:host=localhost;charset=utf8', 'root', '');
+$db->query("create database if not exists restaurant");
+$db->query("use restaurant"); 
 
-$link = mysql_connect('localhost', 'root', '');
-if (!$link) {
-    die('Connexion impossible : ' . mysql_error());
-}
 
-$sql = 'CREATE DATABASE IF NOT EXISTS restaurant';
-if (mysql_query($sql, $link)) {
-	echo ' ';
-} else {
-    echo 'Erreur lors de la création de la base de données : ' . mysql_error() . "\n";
-}
-
-$db = new PDO('mysql:host=localhost;dbname=restaurant;charset=utf8', 'root', '');
-
+// crée la talbe users si elle n'existe pas.
 $sql = $db->exec("CREATE TABLE IF NOT EXISTS `users` (
 	`id` INT NOT NULL AUTO_INCREMENT ,
 	`firstname` VARCHAR(255) NOT NULL ,
@@ -28,7 +20,8 @@ if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
-$sql = $db->exec("CREATE TABLE IF NOT EXISTS`recipes` (
+//crée la table recipes si elle n'existe pas.
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS `recipes` (
 	`id` INT NOT NULL AUTO_INCREMENT ,
 	`role` ENUM('entrance','dish','dessert') NOT NULL ,
 	`title` VARCHAR(255) NOT NULL ,
@@ -42,7 +35,7 @@ if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
-
+// crée la table contact si elle n'existe pas.
 $sql = $db->exec("CREATE TABLE IF NOT EXISTS `contact` (
 	`id` INT NOT NULL AUTO_INCREMENT ,
 	`name` VARCHAR(255) NOT NULL ,
@@ -54,8 +47,8 @@ $sql = $db->exec("CREATE TABLE IF NOT EXISTS `contact` (
 if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
-// Entrée 1    Griddled vegetables & feta with tabbouleh     recette 1
 
+// Entrée 1    Griddled vegetables & feta with tabbouleh     recette 1
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
 	'entrance',
