@@ -80,7 +80,7 @@ TABBOULEH
 // Entrée 2    Tasty fish tacos       recette 2
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
-	'dessert',
+	'entrance',
 	'Tasty fish tacos',
 	'“Just one haddock fillet provides us with a source of seven different essential vitamins and minerals, plus this colourful dish gives us three of our 5-a-day ”',
 	'http://cdn.jamieoliver.com/recipe-database/oldImages/xtra_med/1596_9_1439906088.jpg',
@@ -105,7 +105,7 @@ olive oil
 // Entrée 3   Delicious winter salad    recette 3
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
-	'dish',
+	'entrance',
 	'Delicious winter salad',
 	'“This is really nice served with a simple pasta, with leftover cold meats, in a sandwich or with a simple jacket potato and knob of butter. Any leftovers can be kept in the fridge then served as a really posh coleslaw. ”',
 	'http://cdn.jamieoliver.com/recipe-database/xtra_med/DxuXTkF3qgB9A24KjvZz-a.jpg',
