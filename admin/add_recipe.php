@@ -5,6 +5,7 @@ $error = array();
 $displayErr = false;
 $formValid = true;
 
+
 if(!empty($_POST)) {
     foreach($_POST as $key => $value){
       $post[$key] = trim(strip_tags($value));
@@ -25,9 +26,8 @@ if(!empty($_POST)) {
     if(count($error) > 0) {
       $displayErr = true;
       } else {
-        $formValid = true;
 
-require_once '../inc/connect.php';
+      require_once '../inc/connect.php';
 
       $sql = $db->prepare('INSERT INTO recipes (role, title, content, link, ingredients, date_publish) VALUES (:roleRecipe, :titleRecipe, :contentRecipe, :linkRecipe, :ingredientsRecipe, NOW()) ');
       $sql->bindValue(':roleRecipe', $post['role'], PDO::PARAM_STR);
@@ -37,43 +37,69 @@ require_once '../inc/connect.php';
       $sql->bindValue(':ingredientsRecipe', $post['ingredients'], PDO::PARAM_STR);
 
       if($sql->execute()) {
-        echo '<h1><center>Tout est bon, la recette est bien ajoutée';
+        $formValid = true;
         // echo'<br><a href="  .php?">Retour Accueil';
         }
         else {
           die(print_r($sql->errorInfo()));
         }  
       }
-}  else {
+}  
+include_once 'inc/header.php';
+
 ?>
-          <p><strong>- Ajouter une recette -</strong></p>
 
-      <form method="POST" action="add_recipe.php">
+<?php if($formValid == true){
+    echo '<h1><center>Tout est bon, la recette est bien ajoutée</center></h1>';
+  } 
 
-        <label for="role">Catégorie :</label>        
-        <SELECT name="role" size="1">        
-            <OPTION>Choisir une catégorie :
-            <OPTION>entrance
-            <OPTION>dish
-            <OPTION>dessert
-        </SELECT>        
-        <br><br>
-        <label for="title">Titre : </label>
-        <input type="text" id="title" name="title" placeholder="Entre votre titre ">
-        <br><br>
-        <label for="content">Description : </label><br>
-        <textarea name="content" row="60" cols="50"></textarea> 
-        <br><br> 
-        <label for="link">Votre image : </label>
-        <input type="text" id="link" name="link"  placeholder="Insérez votre image ici">
-        <br><br>
-        <label for="ingredients">Vos ingrédients : </label><br>
-        <textarea name="ingredients" row="60" cols="50"></textarea>        
-        <br><br> 
+  ?>
+<br>
+<br><center><?php echo $post['role']; ?><center>
+<br><center><?php echo $post['title']; ?><center>
+<br><center><?php echo $post['content']; ?><center>
+<br><center><?php echo $post['role']; ?><center>
+<br><center><img src="<?php echo $post['link'];?>" width="200px;"><center>
 
-        <a><input type="submit" value="Ajouter la recette"></a>        
-      </form>
- <?php
- }
- ?>    
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--         <p><strong>- Ajouter une recette -</strong></p>
+  
+        <form method="POST" action="add_recipe.php">
+  
+          <label for="role">Catégorie :</label>        
+          <SELECT name="role" size="1">        
+    <OPTION>Choisir une catégorie :
+    <OPTION>entrance
+    <OPTION>dish
+    <OPTION>dessert
+          </SELECT>        
+          <br><br>
+          <label for="title">Titre : </label>
+          <input type="text" id="title" name="title" placeholder="Entre votre titre ">
+          <br><br>
+          <label for="content">Description : </label><br>
+          <textarea name="content" row="60" cols="50"></textarea> 
+          <br><br> 
+          <label for="link">Votre image : </label>
+          <input type="text" id="link" name="link"  placeholder="Insérez votre image ici">
+          <br><br>
+          <label for="ingredients">Vos ingrédients : </label><br>
+          <textarea name="ingredients" row="60" cols="50"></textarea>        
+          <br><br> 
+  
+          <a><input type="submit" value="Ajouter la recette"></a>        
+        </form> -->
+ 
+<?php include_once 'inc/footer.php';?>
