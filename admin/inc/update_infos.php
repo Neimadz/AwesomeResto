@@ -38,13 +38,13 @@ $formValid = false;
 		
 				// Ici je suis sur de ne pas avoir d'erreurs, donc je peux faire du traitement.
 		
-				$res = $bdd->prepare('UPDATE editaside SET link = :link, name = :name, phone = :phone, email = :email WHERE id = 1');
+				$res = $db->prepare('UPDATE img_header SET img1 = :img1, img2 = :img2, img3 = :img3, adress = :adress WHERE id = 1');
 
 				// On complète les champs
-				$res->bindValue(':link', $post['link']);
-				$res->bindValue(':name', $post['name'], PDO::PARAM_STR);
-				$res->bindValue(':phone', $post['phone'], PDO::PARAM_STR);
-				$res->bindValue(':email', $post['email'], PDO::PARAM_BOOL);
+				$res->bindValue(':img1', $post['img1']);
+				$res->bindValue(':img2', $post['img2'], PDO::PARAM_STR);
+				$res->bindValue(':img3', $post['img3'], PDO::PARAM_STR);
+				$res->bindValue(':adress', $post['adress'], PDO::PARAM_STR);
 			
 
 				// retourne un booleen => true si tout est ok, false sinon
@@ -60,7 +60,7 @@ $formValid = false;
 		}//fin de if not empty $POST
 
 	// Prépare et execute la requète SQL pour récuperer notre nveau $changeprofil
-	$res = $bdd->prepare('SELECT * FROM editaside WHERE id = 1');
+	$res = $db->prepare('SELECT * FROM img_header WHERE id = 1');
 	$res->execute();
 
 	// $changeprofil contient mon article extrait de la bdd
@@ -82,20 +82,21 @@ $formValid = false;
 	<form method="POST" class="pure-form" name="update_infos">
   		<div class="form-group">
     		<label for="exampleInputFile">File input</label>
-    		<input type="file" id="exampleInputFile">
+    		<input name="img1" type="file" id="exampleInputFile">
     		<p class="help-block">Example block-level help text here.</p>
   		</div>
   		<div class="form-group">
     		<label for="exampleInputFile">File input</label>
-    		<input type="file" id="exampleInputFile">
+    		<input name="img2" type="file" id="exampleInputFile">
     		<p class="help-block">Example block-level help text here.</p>
   		</div>
   		<div class="form-group">
     		<label for="exampleInputFile">File input</label>
-    		<input type="file" id="exampleInputFile">
+    		<input name="img3" type="file" id="exampleInputFile">
     		<p class="help-block">Example block-level help text here.</p>
   		</div>
-  		<input type="text" class="form-control" placeholder="Adress">
+  		<input name="adress_resto" type="text" class="form-control" placeholder="Adress">
+
   		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </div>
@@ -103,8 +104,7 @@ $formValid = false;
 
 <?php 
 
-include_once 'aside.php';
-include_once 'inc/footer.php';
+include_once 'footer.php';
 
 ?>   
 
