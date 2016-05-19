@@ -59,25 +59,56 @@ TABBOULEH
 	'2016-19-05 11:20:5000')
 ");
 
+
+// Entrée 2    Tasty fish tacos       recette 2
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
 	'entrance',
-	'Griddled vegetables & feta with tabbouleh',
-	'',
-	'',
-	'',
+	'Tasty fish tacos',
+	'“Just one haddock fillet provides us with a source of seven different essential vitamins and minerals, plus this colourful dish gives us three of our 5-a-day ”
+	'http://cdn.jamieoliver.com/recipe-database/oldImages/xtra_med/1596_9_1439906088.jpg',
+	'100	g	plain wholemeal flour
+2	ripe kiwi fruit
+4	spring onions
+1	fresh jalapeño or green chilli
+1	bunch of	fresh coriander , (30g)
+2	limes
+Tabasco chipotle sauce
+¼	of a small	red cabbage	, (150g)
+1	tablespoon	red wine vinegar
+½ an	orange
+1	red or yellow pepper
+2 x 120g	fillets of firm white fish, such as haddock, skin on, scaled and pin-boned, from sustainable sources
+olive oil
+2	tablespoons	natural yoghurt
+	'2016-14-05 11:52:5020')
+");
+
+
+// Entrée 3   Delicious winter salad    recette 3
+$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+	VALUES (NULL,
+	'entrance',
+	'Delicious winter salad',
+	'“This is really nice served with a simple pasta, with leftover cold meats, in a sandwich or with a simple jacket potato and knob of butter. Any leftovers can be kept in the fridge then served as a really posh coleslaw. ”
+	'http://cdn.jamieoliver.com/recipe-database/xtra_med/DxuXTkF3qgB9A24KjvZz-a.jpg',
+	'½	a	red cabbage
+½	a	white cabbage
+2	large	carrots
+4	spring onions
+a few	shoots from winter cabbages, such as kale or cavolo nero , optional
+300	ml	milk
+4	anchovies, from sustainable sources
+6	cloves of	garlic
+2	tablespoons	white wine vinegar
+6	tablespoons	extra virgin olive oil
+1	tesapoons	Dijon mustard
+1	handful of	mixed seeds, such as poppy, sesame and sunflower
+½	a bunch of	fresh mint
 	'2016-19-05 11:20:5000')
 ");
 
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
-	VALUES (NULL,
-	'entrance',
-	'Griddled vegetables & feta with tabbouleh',
-	'',
-	'',
-	'',
-	'2016-19-05 11:20:5000')
-");
+
 
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
