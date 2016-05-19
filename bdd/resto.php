@@ -20,6 +20,40 @@ if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
+// ajoute des users a la bbd
+$sql = $db->exec("INSERT INTO `users` (
+	`id`, `firstname`, 
+	`lastname`,
+	`role`, 
+	`email`, 
+	`password`, 
+	`date_registration`) 
+	VALUES (NULL, 
+	'test', 
+	'test', 
+	'admin', 
+	'test@gmail.com', 
+	'test', 
+	'2016-05-19 00:00:00')"
+);
+$sql = $db->exec("INSERT INTO `users` (
+	`id`, 
+	`firstname`, 
+	`lastname`, 
+	`role`, 
+	`email`, 
+	`password`, 
+	`date_registration`) 
+	VALUES (NULL, 
+	'user', 
+	'user', 
+	'edit', 
+	'user@gmail.com', 
+	'user', 
+	'2016-05-19 08:18:13')"
+);
+
+
 //crée la table recipes si elle n'existe pas.
 $sql = $db->exec("CREATE TABLE IF NOT EXISTS `recipes` (
 	`id` INT NOT NULL AUTO_INCREMENT ,
