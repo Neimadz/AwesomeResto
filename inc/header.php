@@ -1,6 +1,6 @@
 <?php
 require_once 'functions.php';
-require_once '../bdd/resto.php';
+require_once 'bdd/resto.php';
 ?>
 <!DOCTYPE html>
 <html>
