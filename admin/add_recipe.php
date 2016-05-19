@@ -50,8 +50,7 @@ require_once '../inc/connect.php';
 
       <form method="POST" action="add_recipe.php">
 
-        <label for="role">Catégorie :</label>
-        <form> 
+        <label for="role">Catégorie :</label>        
         <SELECT name="role" size="1">        
             <OPTION>Choisir une catégorie :
             <OPTION>entrance
