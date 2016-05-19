@@ -106,8 +106,9 @@ header {
     font-family: 'Courgette', sans-serif;
     font-weight: bold;
     color: #FFF;
+    font-size: 3em;
     margin-top: 0;
-    padding-top: 20px;
+    padding-top: 60px;
     padding-bottom: 50px;
 }
 #wrapper-recettes{
@@ -135,6 +136,14 @@ header {
     font-family: 'Courgette', sans-serif; 
     background-color: #C0392B;
 }
+
+/*****Styles de la page2.php****/
+.titre-p2{
+    color: #FFF;
+}
+
+
+/******Styles du Footer*****/
 
 footer{
     text-align: center;

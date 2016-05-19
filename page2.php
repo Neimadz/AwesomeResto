@@ -14,6 +14,26 @@ function selectCategory($role){
 	return $debut->fetchAll(PDO::FETCH_ASSOC);
 }
 
+// création de la fonction curString à 4 paramètres
+// $string = la chaîne tronquer
+// $start = le caractère de départ
+// $length = la longueur de la chaîne (en caractère)
+// $endStr = paramètre optionnel qui termine l'extrait ([…] par défaut)
+function cutString($string, $start, $length, $endStr = '[&hellip]'){
+	// si la taille de la chaine est inférieure ou égale à celle
+	// attendue on la retourne telle qu'elle
+	if( strlen( $string ) <= $length ) return $string;
+	// autrement on continue
+ 
+	// permet de couper la phrase aux caractères définis tout
+	// en prenant en compte la taille de votre $endStr et en 
+	// re-précisant l'encodage du contenu récupéré
+	$str = mb_substr( $string, $start, $length - strlen( $endStr ) + 1, 'UTF-8');
+	// retourne la chaîne coupée avant la dernière espace rencontrée
+	// à laquelle s'ajoute notre $endStr
+	return substr( $str, 0, strrpos( $str,' ') ).$endStr;
+}
+
 require_once 'inc/header.php'; 
 ?>
 
@@ -25,9 +45,9 @@ require_once 'inc/header.php';
 			<br>
 			<?php
 				foreach(selectCategory('entrance') as $entree) {
-					echo '<h2>'.$entree['title'].'</h2><br>';
+					echo '<h2>'.cutString($entree['title'],0, 30, '...').'</h2><br>';
 					echo '<img id="img" src="'.$entree['link'].'"><br><br>';
-					echo '<p>'.$entree['content'].'</p><hr>';
+					echo '<p>'.cutString($entree['content'],0, 100, '...').'</p><hr>';
 				}
 			?>
 		</div>
@@ -36,9 +56,9 @@ require_once 'inc/header.php';
 			<br>
 			<?php
 				foreach (selectCategory('dish') as $plat) {
-					echo '<h2>'.$plat['title'].'</h2><br>';
+					echo '<h2>'.cutString($plat['title'],0, 30, '...').'</h2><br>';
 					echo '<img id="img" src="'.$plat['link'].'"><br><br>';
-					echo '<p>'.$plat['content'].'</p><hr>';
+					echo '<p>'.cutString($plat['content'],0, 100, '...').'</p><hr>';
 				}
 			?>
 		</div>
@@ -47,9 +67,9 @@ require_once 'inc/header.php';
 			<br>
 			<?php
 				foreach (selectCategory('dessert') as $dessert) {
-					echo '<h2>'.$dessert['title'].'</h2><br>';
+					echo '<h2>'.cutString($dessert['title'],0, 30, '...').'</h2><br>';
 					echo '<img id="img" src="'.$dessert['link'].'"><br><br>';
-					echo '<p>'.$dessert['content'].'</p><hr>';
+					echo '<p>'.cutString($dessert['content'],0, 100, '...').'</p><hr>';
 				}
 			?>
 		</div>
