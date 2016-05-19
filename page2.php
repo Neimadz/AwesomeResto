@@ -1,6 +1,5 @@
 <?php 
 require_once 'inc/connect.php';
-require_once 'inc/header.php'; 
 include_once 'inc/functions.php';
 
 function selectCategory($role){
@@ -15,49 +14,48 @@ function selectCategory($role){
 	return $debut->fetchAll(PDO::FETCH_ASSOC);
 }
 
-	echo '<h2> Recette </h2>';
-foreach (selectCategory('entrance') as $entrance) {
+require_once 'inc/header.php'; 
+?>
 
-	echo '<div>';
-	echo $entrance['role'];
-	echo '<h2>'.$entrance['title'].'</h2>
-			 <br>
-		 <img id="img" src="'.$entrance['link'].'">';
-	echo  '<p>'.$entrance['content'] .'</p>';// En récuperant l'id de l'article; je peux
-	echo '<span> Publié le'.date('d/m/Y', strtotime($entrance['date_publish'])).'<span>';
-	echo '<hr>';
-
-	echo '</div>';
-}
-
-foreach (selectCategory('dish') as $dish) {
-
-	echo '<div>';
-	echo $dish['role'];
-	echo '<h2>'.$dish['title'].'</h2>
-			 <br>
-		 <img id="img" src="'.$dish['link'].'">';
-	echo  '<p>'.$dish['content'] .'</p>';// En récuperant l'id de l'article; je peux
-	echo '<span> Publié le'.date('d/m/Y', strtotime($dish['date_publish'])).'<span>';
-	echo '<hr>';
-
-	echo '</div>';
-}
-
-foreach (selectCategory('dessert') as $des) {
-
-	echo '<div>';
-	echo $des['role'];
-	echo '<h2>'.$des['title'].'</h2>
-			 <br>
-		 <img id="img" src="'.$des['link'].'">';
-	echo  '<p>'.$des['content'] .'</p>';// En récuperant l'id de l'article; je peux
-	echo '<span> Publié le'.date('d/m/Y', strtotime($des['date_publish'])).'<span>';
-	echo '<hr>';
-
-	echo '</div>';
-}
-
+<div id="wrapper-index">
+	<h1 id="title-index" class="text-center">Toutes nos recettes de chef</h1>
+	<div id="wrapper-recettes" class="container">
+		<div class="recette col-sm-4 text-center">
+			<h2 class="titre-p2">Nos entrées</h2>
+			<br>
+			<?php
+				foreach(selectCategory('entrance') as $entree) {
+					echo '<h2>'.$entree['title'].'</h2><br>';
+					echo '<img id="img" src="'.$entree['link'].'"><br><br>';
+					echo '<p>'.$entree['content'].'</p><hr>';
+				}
+			?>
+		</div>
+		<div class="recette col-sm-4 text-center">
+			<h2 class="titre-p2">Nos plats</h2>
+			<br>
+			<?php
+				foreach (selectCategory('dish') as $plat) {
+					echo '<h2>'.$plat['title'].'</h2><br>';
+					echo '<img id="img" src="'.$plat['link'].'"><br><br>';
+					echo '<p>'.$plat['content'].'</p><hr>';
+				}
+			?>
+		</div>
+		<div class="recette col-sm-4 text-center">
+			<h2 class="titre-p2">Nos desserts</h2>
+			<br>
+			<?php
+				foreach (selectCategory('dessert') as $dessert) {
+					echo '<h2>'.$dessert['title'].'</h2><br>';
+					echo '<img id="img" src="'.$dessert['link'].'"><br><br>';
+					echo '<p>'.$dessert['content'].'</p><hr>';
+				}
+			?>
+		</div>
+	</div>
+</div>
+<?php
 
 include_once 'inc/footer.php';
 ?>

@@ -17,7 +17,7 @@ function selectCategory($role){
 include_once 'inc/header.php';
 ?>
 
-<div id="wrapper-index"> 
+<div id="wrapper-index">
 	<h1 id="title-index" class="text-center">Les recettes des chefs</h1>
 	<div id="wrapper-recettes" class="container">
 		<div class="recette col-sm-4 text-center">
