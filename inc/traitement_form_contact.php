@@ -12,7 +12,7 @@ if(!empty($_POST)) {
     foreach($_POST as $key => $value){
         $post[$key] = trim(strip_tags($value));
     }
-        
+      
     // Check if name has been entered
     if (!$post['name']) {
         $error[] = 'Please enter your name';
@@ -27,10 +27,6 @@ if(!empty($_POST)) {
     if (!$post['message']) {
         $error[] = 'Please enter your message';
     }
-    //Check if simple anti-bot test is correct
-    if ($human !== 11) {
-        $error[] = 'Your anti-spam is incorrect';
-    }
     
     if(count($error) > 0){
         $displayErr = true; 
@@ -38,22 +34,18 @@ if(!empty($_POST)) {
     else {
         $formValid = true;
         
-        $res = $bdd->prepare('INSERT INTO contact (name, email, message, date_send) VALUES(:name, :email, :message, NOW())');
+        $res = $db->prepare('INSERT INTO contact (name, email, message, date_send) VALUES(:name, :email, :message, NOW())');
 
         $res->bindValue(':name', $post['name']);
         $res->bindValue(':email', $post['email']);
         $res->bindValue(':message', $post['message']);
-    
-        if($res->execute()){
-            // the message has been sent to the data base
-             echo 'You did it!';
-        }//end if
+
+        $success = $res->execute();
+            // the message has been sent to the data base  
     }// end else
 }//end emty
 
     if ($displayErr){
         echo '<p>' .implode('<br>', $error). '<p>';
         }
-
-    require_once 'inc/header.php';
 ?>

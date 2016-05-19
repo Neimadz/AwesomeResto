@@ -29,14 +29,14 @@ function submitForm(){
             }
         },
         error : function() {
-            console.log('Ca va pas!');
+            console.log('try again');
         }
     });
 }
 
 function formSuccess(){
     $("#contact-form")[0].reset();
-    submitMSG("Message envoyé!");
+    submitMSG("Message sent");
 }
 
 function submitMSG(msg){
