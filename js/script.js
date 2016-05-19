@@ -64,8 +64,8 @@ function formSuccess(){
 }
 
 function submitMSG(msg){
-    $("#msgInsert").text(""); // to clear div
-    $("#msgInsert").append(msg);
+    $("#wrapper").text(""); // to clear div
+    $("#wrapper").append(msg);
 }
 
 

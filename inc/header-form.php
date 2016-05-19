@@ -1,5 +1,6 @@
 <?php
 require_once 'connect.php';
+require_once 'functions.php';
 
 $get = [];
 $errors = [];
@@ -9,11 +10,15 @@ if(!empty($_GET) && isset($_GET['keyword']) ) {
     $get = array_map('trim', $get);
     $keyword = $get['keyword'];
 
-    $searchKeyword = $db->prepare('SELECT * FROM WHERE title LIKE :keyword ORDER BY date DESC') ;
-    $serchKeyword->bindValue(':keyword', '%'.$keyword.'%');
-    if($searchKeyword->execute()) {
-        $searResult = $searchKeyword->fetchAll(PDO::FETCH_ASSOC); 
+    $searchKeyword = $db->prepare('SELECT * FROM recipes WHERE title OR content LIKE :keyword') ;
+    $searchKeyword->bindValue(':keyword', '%'.$keyword.'%');
+    $searchKeyword->execute();
+    $searchResult = $searchKeyword->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($searchResult as $article) {
+        showArticles($article);
     }
+
+
 
 }
 //

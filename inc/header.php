@@ -7,7 +7,7 @@
         <title>Notre resto magnifique</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/style.css">
 
@@ -71,5 +71,6 @@
                     </div>
                 </header>
 
-                <div id="msgInsert"></div>
+
             </div>
+            <div id="wrapper">
