@@ -1,6 +1,6 @@
 <?php
 
-include_once '../inc/header.php';
+include_once 'header.php';
 
 // On instancie nos variables qu'on utilisera plus tard
 $post = array();
@@ -93,8 +93,8 @@ $formValid = false;
 
 <?php 
 
-include_once '../inc/aside.php';
-include_once '../inc/footer.php';
+include_once 'aside.php';
+include_once 'inc/footer.php';
 
 ?>   
 
