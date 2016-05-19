@@ -34,7 +34,7 @@ if(!empty($_POST)){
 						'firstname' => $user['firstname'],
 						'lastname' 	=> $user['lastname'],
 						'email' 	=> $user['email'],
-						'gender' 	=> $user['gender'],
+                        'role'      => $user['role'],
 					];
 					// Je redirige vers la page "info_user.php"
 					header('Location: admin.php');
