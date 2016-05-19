@@ -1,4 +1,5 @@
 <?php
+require_once 'connect.php';
 //creation variables 
 $post = array();
 $error = array();
@@ -40,12 +41,13 @@ if(!empty($_POST)) {
         $res->bindValue(':email', $post['email']);
         $res->bindValue(':message', $post['message']);
 
-        $success = $res->execute();
+        if($success = $res->execute()){
+                echo 'success';
+        }
             // the message has been sent to the data base  
     }// end else
     
     if ($displayErr){
-
         echo '<p>' .implode('<br>', $error). '<p>';
         }
 }//end emty
