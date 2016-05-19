@@ -1,4 +1,4 @@
-<?php
+<?php echo 'emmp';
 
 $link = mysql_connect('localhost', 'root', '');
 if (!$link) {
