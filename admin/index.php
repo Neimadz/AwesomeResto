@@ -6,23 +6,44 @@ require_once 'inc/login.php';
 include_once 'inc/header.php';
 
 ?>
-<h1>Identifiez-vous, svp</h1>
-<form class="" method="post">
-    <input type="hidden" name="logok" value="ok">
 
-    <label for="email">Votre email</label>
-    <input type="email" name="email" id="email">
-    <br>
+<h1 class="text-center">Connexion</h1>
+<br>
+<?php if(count($error) > 0): // Si il y a des erreurs ?>
+    <div class="alert alert-danger">
+        <?=implode('<br>', $error); ?>
+    </div>
+<?php endif; ?>
 
-    <label for="password">Votre mot de passe</label>
-    <input type="password" name="password" id="password">
-    <br>
+<form class="form-horizontal well well-sm" method="post">
 
-    <label></label>
-    <input type="submit" value="Envoyer">
-    <br>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="email">Email</label>
+        <div class="col-md-4">
+            <input id="email" type="email" name="email" placeholder="votre@email.fr" class="form-control input-md" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="password">Mot de passe</label>
+        <div class="col-md-4">
+            <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-4">
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+        </div>
+    </div>
 </form>
 
+
+
 <?php
+if($showErrors) {
+    var_dump($errors);
+}
+
 include_once 'inc/footer.php';
  ?>
