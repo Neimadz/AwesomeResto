@@ -36,20 +36,17 @@ $("#header_search").on("submit", function (event) {
 function submitForm(){
     // get data
     var keyword = $("#header_keyword").val();
-    var check = $("#header_search_check").val();
+
     console.log(keyword);
     $.ajax({
         type: "GET",
         url: "inc/header-form.php",
-        data: "&keyword=" + keyword,
-
+        data: "keyword=" + keyword,
         success : function(text){
             if (text == "success"){
                 formSuccess();
-                console.log(text);
             } else {
                 submitMSG(text);
-                console.log(text);
             }
         },
         error : function() {
