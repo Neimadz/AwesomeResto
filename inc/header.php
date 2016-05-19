@@ -32,9 +32,9 @@
               <a class="navbar-brand" href="index.php">Ristorante</a>
             </div>
 
-            <form class="navbar-form navbar-right" role="search">
+            <form id="header_search" class="navbar-form navbar-right" role="search" method="GET">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" id="header_keyword" class="form-control" name="header_keyword" placeholder="Search">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -70,4 +70,6 @@
                         <div class="item carousel-item-3"></div>
                     </div>
                 </header>
+
+                <div id="msgInsert"></div>
             </div>
