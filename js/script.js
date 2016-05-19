@@ -46,7 +46,7 @@ function sendForm(){
         data: "keyword=" + keyword,
         success : function(text){
             if (text == "success"){
-                formSuccess();
+                formSuccessful();
             } else {
                 showMsg(text);
             }
@@ -58,7 +58,7 @@ function sendForm(){
     });
 }
 
-function formSuccess(){
+function formSuccessful(){
     $("#header_search")[0].reset();
     showMsg("Groot!");
 }
