@@ -27,9 +27,9 @@ if(!empty($_POST)) {
       } else {
         $formValid = true;
 
-//require 'inc/connect';
+require_once '../inc/connect.php';
 
-      $sql = $db->exec('INSERT INTO recipes (role, title, content, link, ingredients, date_publish) VALUES (:roleRecipe, :titleRecipe, :contentRecipe, :linkRecipe, :ingredientsRecipe, NOW5()) ');
+      $sql = $db->prepare('INSERT INTO recipes (role, title, content, link, ingredients, date_publish) VALUES (:roleRecipe, :titleRecipe, :contentRecipe, :linkRecipe, :ingredientsRecipe, NOW()) ');
       $sql->bindValue(':roleRecipe', $post['role'], PDO::PARAM_STR);
       $sql->bindValue(':titleRecipe', $post['title'], PDO::PARAM_STR);
       $sql->bindValue(':contentRecipe', $post['content'], PDO::PARAM_STR);
@@ -59,19 +59,20 @@ if(!empty($_POST)) {
             <OPTION>dessert
         </SELECT>        
         <br><br>
-        <label for="title">Titre :</label>
+        <label for="title">Titre : </label>
         <input type="text" id="title" name="title" placeholder="Entre votre titre ">
         <br><br>
-        <label for="content">Description :</label>
-        <textarea name="content" row="40" cols="50"></textarea> 
+        <label for="content">Description : </label><br>
+        <textarea name="content" row="60" cols="50"></textarea> 
         <br><br> 
-          <label for="link">Votre image :</label>
-          <input type="text" id="link" name="link"  placeholder="Insérez votre image ici">
-          <br><br>
-          <label for="ingredients">Vos ingrédients : </label><br>
-          <textarea name="ingredients" row="40" cols="50"></textarea>        
-          <br><br>          
-          <a><input type="submit" value="Ajouter la recette"></a>        
+        <label for="link">Votre image : </label>
+        <input type="text" id="link" name="link"  placeholder="Insérez votre image ici">
+        <br><br>
+        <label for="ingredients">Vos ingrédients : </label><br>
+        <textarea name="ingredients" row="60" cols="50"></textarea>        
+        <br><br> 
+
+        <a><input type="submit" value="Ajouter la recette"></a>        
       </form>
  <?php
  }
