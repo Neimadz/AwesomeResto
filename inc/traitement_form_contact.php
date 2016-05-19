@@ -40,7 +40,6 @@ if(!empty($_POST)) {
         $res->bindValue(':name', $post['name']);
         $res->bindValue(':email', $post['email']);
         $res->bindValue(':message', $post['message']);
-
         if($success = $res->execute()){
                 echo 'success';
         }
