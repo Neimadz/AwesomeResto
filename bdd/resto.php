@@ -19,10 +19,12 @@ $sql = $db->exec("CREATE TABLE IF NOT EXISTS `users` (
 if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
+$password = password_hash( 'test', PASSWORD_DEFAULT);
 
 // ajoute des users a la bbd
 $sql = $db->exec("INSERT INTO `users` (
-	`id`, `firstname`, 
+	`id`,
+	`firstname`, 
 	`lastname`,
 	`role`, 
 	`email`, 
@@ -33,7 +35,7 @@ $sql = $db->exec("INSERT INTO `users` (
 	'test', 
 	'admin', 
 	'test@gmail.com', 
-	'test', 
+	'$password', 
 	'2016-05-19 00:00:00')"
 );
 $sql = $db->exec("INSERT INTO `users` (
@@ -49,7 +51,7 @@ $sql = $db->exec("INSERT INTO `users` (
 	'user', 
 	'edit', 
 	'user@gmail.com', 
-	'user', 
+	'$password', 
 	'2016-05-19 08:18:13')"
 );
 
