@@ -43,9 +43,10 @@ if(!empty($_POST)) {
         $success = $res->execute();
             // the message has been sent to the data base  
     }// end else
-}//end emty
-
+    
     if ($displayErr){
+
         echo '<p>' .implode('<br>', $error). '<p>';
         }
+}//end emty
 ?>
