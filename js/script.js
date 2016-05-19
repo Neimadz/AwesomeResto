@@ -24,16 +24,16 @@ $('.owl-carousel').owlCarousel({
 $("#header_search").on("submit", function (event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
-        submitMSG("Vous avez rempli le formulaire correctement?");
+        showMsg("Vous avez rempli le formulaire correctement?");
     } else {
         // everything looks good!
         event.preventDefault();
-        submitForm();
+        sendForm();
     }
 });
 
 // ajax query
-function submitForm(){
+function sendForm(){
     // get data
     var keyword = $("#header_keyword").val();
     var url = window.location.href;
@@ -48,7 +48,7 @@ function submitForm(){
             if (text == "success"){
                 formSuccess();
             } else {
-                submitMSG(text);
+                showMsg(text);
             }
             history.pushState(null, '', url+'?'+keyword);
         },
@@ -60,10 +60,10 @@ function submitForm(){
 
 function formSuccess(){
     $("#header_search")[0].reset();
-    submitMSG("Groot!");
+    showMsg("Groot!");
 }
 
-function submitMSG(msg){
+function showMsg(msg){
     $("#wrapper").text(""); // to clear div
     $("#wrapper").append(msg);
 }
