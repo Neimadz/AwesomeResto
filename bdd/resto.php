@@ -73,7 +73,7 @@ TABBOULEH
 1	big bunch of	fresh flat-leaf parsley
 ½	a	cucumber
 1	lemon',
-'2016-19-05 11:20:50')
+ NOW())
 ");
 
 
@@ -98,7 +98,7 @@ Tabasco chipotle sauce
 2 x 120g	fillets of firm white fish, such as haddock, skin on, scaled and pin-boned, from sustainable sources
 olive oil
 2	tablespoons	natural yoghurt
-	','2016-14-05 21:08:20')
+	', NOW())
 ");
 
 
@@ -122,7 +122,7 @@ a few	shoots from winter cabbages, such as kale or cavolo nero , optional
 1	tesapoons	Dijon mustard
 1	handful of	mixed seeds, such as poppy, sesame and sunflower
 ½	a bunch of	fresh mint
-	','2016-19-05 10:08:30')
+	', NOW())
 ");
 
 // Plat 1        Piri piri chicken    recette 4
@@ -151,7 +151,7 @@ For the sweet potato wedges:
 For the jalapeño salsa:
 1 x 200	g jar of	pickled jalapeños
 1	bunch of fresh coriander',
-	'2016-08-04 18:02:42')
+	 NOW())
 ");
 
 
@@ -170,7 +170,7 @@ Worcestershire sauce	, to taste
 4	burger buns
 olive oil
 2	braeburn apples	, or cox\'s apples, sliced at the last minute to serve',
-	'2016-25-02 18:20:52')
+	 NOW())
 ");
 
 // Plat 3   Marmexican marinated pork tenderloin    recette 6
@@ -211,7 +211,7 @@ Avocado salsa:
 1/2	small bunch of	coriander	, leaves picked, roughly chopped
 1	lime	, zest and juice of
 Extra virgin olive oil',
-	'2016-29-03 16:30:40')
+	 NOW())
 ");
 
 // Dessert 1   Epic ice cream cake   recette 7
@@ -231,7 +231,7 @@ $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link
 30	g	dark chocolate (70% cocoa solids)
 50	ml	milk
 1.5	litres	ice cream (2-3 flavours)',
-	'2016-28-01 08:10:44')
+	 NOW())
 ");
 
 // Dessert 2    Chocolate battenberg  recette 8
@@ -251,7 +251,7 @@ $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link
 40	g	cocoa powder
 125	g	raspberry jam
 450	g	marzipan or almond paste',
-	'2015-14-12 18:20:55')
+	 NOW())
 ");
 
 // Dessert 3    Chocolate & salted caramel cake  recette 9
@@ -277,5 +277,5 @@ SALTED CARAMEL
 CHOCOLATE GANACHE
 50	g	dark chocolate (70% cocoa solids)
 50	ml	double cream',
-	'2015-12-08 11:20:52')
+	 NOW())
 "); 
