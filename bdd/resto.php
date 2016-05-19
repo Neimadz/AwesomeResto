@@ -1,5 +1,17 @@
 <?php 
 
+$link = mysql_connect('localhost', 'root', '');
+if (!$link) {
+    die('Connexion impossible : ' . mysql_error());
+}
+
+$sql = 'CREATE DATABASE IF NOT EXISTS restaurant';
+if (mysql_query($sql, $link)) {
+	echo ' ';
+} else {
+    echo 'Erreur lors de la création de la base de données : ' . mysql_error() . "\n";
+}
+
 $db = new PDO('mysql:host=localhost;dbname=restaurant;charset=utf8', 'root', ''); 
 
 $sql = $db->exec("CREATE TABLE IF NOT EXISTS `users` ( 
@@ -30,13 +42,25 @@ if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
+
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS `contact` ( 
+	`id` INT NOT NULL AUTO_INCREMENT , 
+	`name` VARCHAR(255) NOT NULL , 
+	`email` VARCHAR(255) NOT NULL , 
+	`message` VARCHAR(255) NOT NULL , 
+	`date_send` DATETIME NOT NULL , 
+	PRIMARY KEY (`id`)) 
+	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;");
+if($sql === false){	
+	die(var_dump($bdd->errorInfo()));
+}
 // Entrée 1    Griddled vegetables & feta with tabbouleh     recette 1
 
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
 	'entrance',
 	'Griddled vegetables & feta with tabbouleh',
-	'“This is a great meat-free recipe. Barbecuing a whole block of feta is a really interesting way to use it – you get a wicked texture contrast between the beautifully golden outside and the soft, creamy centre. The smoky flavour adds a subtle but beautiful twist to this delicious summery dish. ”
+	'This is a great meat-free recipe. Barbecuing a whole block of feta is a really interesting way to use it – you get a wicked texture contrast between the beautifully golden outside and the soft, creamy centre. The smoky flavour adds a subtle but beautiful twist to this delicious summery dish.',
 	'http://cdn.jamieoliver.com/recipe-database/xtra_med/BWh5WOT0420A1wV_XQz54o.jpg',
 	'½	a bunch of	fresh oregano
 ½	a bunch of	fresh flat-leaf parsley
@@ -55,17 +79,17 @@ TABBOULEH
 1	bunch of	fresh mint
 1	big bunch of	fresh flat-leaf parsley
 ½	a	cucumber
-1	lemon
-	'2016-19-05 11:20:5000')
+1	lemon', 
+'2016-19-05 11:20:5000')
 ");
 
 
 // Entrée 2    Tasty fish tacos       recette 2
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
-	'entrance',
+	'dessert',
 	'Tasty fish tacos',
-	'“Just one haddock fillet provides us with a source of seven different essential vitamins and minerals, plus this colourful dish gives us three of our 5-a-day ”
+	'“Just one haddock fillet provides us with a source of seven different essential vitamins and minerals, plus this colourful dish gives us three of our 5-a-day ”',
 	'http://cdn.jamieoliver.com/recipe-database/oldImages/xtra_med/1596_9_1439906088.jpg',
 	'100	g	plain wholemeal flour
 2	ripe kiwi fruit
@@ -81,16 +105,16 @@ Tabasco chipotle sauce
 2 x 120g	fillets of firm white fish, such as haddock, skin on, scaled and pin-boned, from sustainable sources
 olive oil
 2	tablespoons	natural yoghurt
-	'2016-14-05 11:52:5020')
+	','2016-14-05 11:52:5020')
 ");
 
 
 // Entrée 3   Delicious winter salad    recette 3
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
-	'entrance',
+	'dish',
 	'Delicious winter salad',
-	'“This is really nice served with a simple pasta, with leftover cold meats, in a sandwich or with a simple jacket potato and knob of butter. Any leftovers can be kept in the fridge then served as a really posh coleslaw. ”
+	'“This is really nice served with a simple pasta, with leftover cold meats, in a sandwich or with a simple jacket potato and knob of butter. Any leftovers can be kept in the fridge then served as a really posh coleslaw. ”',
 	'http://cdn.jamieoliver.com/recipe-database/xtra_med/DxuXTkF3qgB9A24KjvZz-a.jpg',
 	'½	a	red cabbage
 ½	a	white cabbage
@@ -105,7 +129,7 @@ a few	shoots from winter cabbages, such as kale or cavolo nero , optional
 1	tesapoons	Dijon mustard
 1	handful of	mixed seeds, such as poppy, sesame and sunflower
 ½	a bunch of	fresh mint
-	'2016-19-05 11:20:5000')
+	','2016-19-05 11:20:5000')
 ");
 
 
