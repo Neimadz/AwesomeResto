@@ -1,37 +1,59 @@
 <?php
 
-    if (isset($_POST["submit"])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $human = intval($_POST['human']);
-        $from = 'Demo Contact Form'; 
-        $to = 'contact.myriambugnazet@gmail.com'; 
-        $subject = 'Message from Contact Demo ';
-        
-    $body ="From: $name\n E-Mail: $email\n Message:\n $message";
+//creation variables 
+$post = array();
+$error = array();
+$displayErr = false;
+$formValid = false;
 
+//Check if form is not empty
+if(!empty($_POST)) {      
+    // Recreate clean up table 
+    // also for HTML / PHP
+    foreach($_POST as $key => $value){
+        $post[$key] = trim(strip_tags($value));
+    }
+        
     // Check if name has been entered
-    if (!$_POST['name']) {
-        $errName = 'Please enter your name';
+    if (!$post['name']) {
+        $error[] = 'Please enter your name';
     }
         
     // Check if email has been entered and is valid
-    if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $errEmail = 'Please enter a valid email address';
+    if (!$post['email'] || !filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+        $error[] = 'Please enter a valid email address';
     }
     
     //Check if message has been entered
-    if (!$_POST['message']) {
-        $errMessage = 'Please enter your message';
+    if (!$post['message']) {
+        $error[] = 'Please enter your message';
     }
     //Check if simple anti-bot test is correct
     if ($human !== 11) {
-        $errHuman = 'Your anti-spam is incorrect';
+        $error[] = 'Your anti-spam is incorrect';
     }
+    
+    if(count($error) > 0){
+        $displayErr = true; 
+    }
+    else {
+        $formValid = true;
+        
+        $res = $bdd->prepare('INSERT INTO articles (title, link, content, reco, date_add) VALUES(:title, :link, :content, :reco, NOW())');
 
-   // if no err send dbase
-    }//isset
+        $res->bindValue(':title', $post['title']);
+        $res->bindValue(':link', $post['link']);
+        $res->bindValue(':content', $post['content']);
+        $res->bindValue(':reco', $post['reco']);
+    
+
+        if($res->execute()){
+            // Ici tout est ok, on fait la redirection
+            header('Location: accueil.php?id='.$bdd->lastInsertId());
+            die; // On met le die, uniquement pour être sur qu'on soit redirigé
+        }
+    }
+    }//emty
 
     require_once 'inc/header.php';
 ?>
@@ -39,34 +61,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h1 class="page-header text-center">Contact Form Example</h1>
+                <h1 class="page-header text-center"> Contactez nous </h1>
                 <form class="form-horizontal" role="form" method="post" action="index.php">
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
-                            <?php echo "<p class='text-danger'>$errName</p>";?>
+                            
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
-                            <?php echo "<p class='text-danger'>$errEmail</p>";?>
+                            
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="message" class="col-sm-2 control-label">Message</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
-                            <?php echo "<p class='text-danger'>$errMessage</p>";?>
+                            
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="human" class="col-sm-2 control-label"> 8 + 3 = ?</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
-                            <?php echo "<p class='text-danger'>$errHuman</p>";?>
+                            
                         </div>
                     </div>
                     <div class="form-group">
@@ -76,7 +98,6 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10 col-sm-offset-2">
-                            <?php echo $result; ?>  
                         </div>
                     </div>
                 </form> 
@@ -84,4 +105,4 @@
         </div>
     </div>   
     
-<?php include_once 'inc/footer.php';  ?>
+<?php include_once 'inc/footer.php'; ?>
