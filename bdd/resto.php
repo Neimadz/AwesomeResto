@@ -84,6 +84,19 @@ if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
+$sql = $db->exec("INSERT INTO `contact` (
+	`id`, 
+	`name`, 
+	`email`, 
+	`message`, 
+	`date_send`) 
+	VALUES (NULL, 
+	'machado damien', 
+	'dams_m33@hotmail.fr', 
+	'Salut je recherche a manger des sushi c\'est ici ?', 
+	'2016-05-19 07:17:13')"
+);
+
 // Entrée 1    Griddled vegetables & feta with tabbouleh     recette 1
 $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
@@ -321,21 +334,25 @@ CHOCOLATE GANACHE
 
 $sql = $db->exec("CREATE TABLE IF NOT EXISTS `img_header` ( 
 	`id` INT NOT NULL AUTO_INCREMENT , 
-	`img` VARCHAR(255) NOT NULL , 
-	`name` VARCHAR(255) NOT NULL , 
+	`img1` VARCHAR(255) NOT NULL , 
+	`img2` VARCHAR(255) NOT NULL , 
+	`img3` VARCHAR(255) NOT NULL , 
+	`adress` VARCHAR(255) NOT NULL , 
 	PRIMARY KEY (`id`)) 
 	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;"
-);
-if($sql === false){
+);if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
-
-$sql=$db->exec("INSERT INTO `img_header` (
+$sql = $db->exec("INSERT INTO `img_header` (
 	`id`, 
-	`img`, 
-	`name`) 
-VALUES (NULL, 
-'http://www.sudarchitectes.com/medias/projets_diapo/restaurant-christian-tetedoie-lyon-antiquaille-france_46-2T1.jpg', 
-'img_header8')"
+	`img1`, 
+	`img2`, 
+	`img3`, 
+	`adress`) 
+	VALUES (NULL, 
+	'http://localhost/resto/img/img_header/img_header1.jpg', 
+	'http://localhost/resto/img/img_header/img_header2.jpg', 
+	'http://localhost/resto/img/img_header/img_header3.jpg', 
+	'Ristorante ! 32 rue rosa bonheur 33000 Bordeaux 0 805 62 23 45 ')"
 );
