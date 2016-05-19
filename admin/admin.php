@@ -1,27 +1,62 @@
 <?php
 session_start();
 
-include_once 'inc/header';
+include_once 'inc/header.php';
 
-if((isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') ||
-   (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'edit') {
+if (isset($_SESSION['user']) && $_SESSION['user']['role'] == 'edit') {
 ?>
 <div>
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        <li role="presentation" class="active"><a href="#modify-article-edit" aria-controls="modify-article-edit" role="tab" data-toggle="tab">Ajouter un article</a></li>
+        <li role="presentation"><a href="#add-article-edit" aria-controls="add-article-edit" role="tab" data-toggle="tab">Modifier un article</a></li>
     </ul>
 
     <div class="tab-content">
-       <div role="tabpanel" class="tab-pane active" id="home">...</div>
-       <div role="tabpanel" class="tab-pane" id="profile">...</div>
-       <div role="tabpanel" class="tab-pane" id="messages">...</div>
-       <div role="tabpanel" class="tab-pane" id="settings">...</div>
+       <div role="tabpanel" class="tab-pane active" id="modify-article-edit">
+           <?php require_once 'add_recipe.php'; ?>
+       </div>
+
+       <div role="tabpanel" class="tab-pane" id="add-article-edit">
+
+       </div>
+
+     </div>
+</div>
+
+
+
+<?php
+} // end of role edit
+if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') {
+?>
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#modify-article" aria-controls="modify-article" role="tab" data-toggle="tab">Ajouter un article</a></li>
+        <li role="presentation"><a href="#add-article" aria-controls="add-article" role="tab" data-toggle="tab">Modifier un article</a></li>
+        <li role="presentation"><a href="#modify-header" aria-controls="modify-header" role="tab" data-toggle="tab">Modifier header</a></li>
+        <li role="presentation"><a href="#read-messages" aria-controls="read-messages" role="tab" data-toggle="tab">Lire les messages</a></li>
+    </ul>
+
+    <div class="tab-content">
+       <div role="tabpanel" class="tab-pane active" id="modify-article">
+           <?php require_once 'add_recipe.php'; ?>
+       </div>
+
+       <div role="tabpanel" class="tab-pane" id="add-article">
+
+       </div>
+
+       <div role="tabpanel" class="tab-pane" id="modify-header">
+
+       </div>
+
+       <div role="tabpanel" class="tab-pane" id="read-messages">
+
+       </div>
      </div>
 </div>
 <?php
 }
-include_once 'inc/header';
+
+include_once 'inc/footer.php';
  ?>

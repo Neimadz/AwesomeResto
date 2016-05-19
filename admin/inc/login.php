@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'connect.php';
 
 $error = [];
@@ -36,7 +37,7 @@ if(!empty($_POST)){
 						'email' 	=> $user['email'],
                         'role'      => $user['role'],
 					];
-					// Je redirige vers la page "info_user.php"
+					// Je redirige vers la page "admin.php"
 					header('Location: admin.php');
 					die;
 				}
@@ -54,6 +55,5 @@ if(!empty($_POST)){
     else {
         $showErrors = true;
     }
-    var_dump($_SESSION);
 }
  ?>
