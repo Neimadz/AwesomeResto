@@ -1,14 +1,19 @@
 <?php
-require_once 'inc/connect.php';
+require_once 'connect.php';
 
 $get = [];
 $errors = [];
 
 if(!empty($_GET) && isset($_GET['keyword']) ) {
-    $keyword = array_map('strip_tags', $_GET);
-    $keyword = array_map('trim', $keyword);
+    $get = array_map('strip_tags', $_GET);
+    $get = array_map('trim', $get);
+    $keyword = $get['keyword'];
 
-    $searchKeyword = $db->prepare('SELECT * FROM ')
+    $searchKeyword = $db->prepare('SELECT * FROM WHERE title LIKE :keyword ORDER BY date DESC') ;
+    $serchKeyword->bindValue(':keyword', '%'.$keyword.'%');
+    if($searchKeyword->execute()) {
+        $searResult = $searchKeyword->fetchAll(PDO::FETCH_ASSOC); 
+    }
 
 }
 //
