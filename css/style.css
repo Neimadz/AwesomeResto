@@ -135,3 +135,20 @@ header {
     font-family: 'Courgette', sans-serif; 
     background-color: #C0392B;
 }
+
+footer{
+    text-align: center;
+    background-color:#881a1b; 
+    color:#FFF;
+    padding:25px 0;
+    font-family: 'Architects Daughter', cursive;
+}
+footer h4{
+
+    font-size:25px;
+    font-weight: 300;
+}
+footer p{
+    color:#000;
+    font-size: 15px;
+}
