@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $link = mysql_connect('localhost', 'root', '');
 if (!$link) {
@@ -12,51 +12,51 @@ if (mysql_query($sql, $link)) {
     echo 'Erreur lors de la création de la base de données : ' . mysql_error() . "\n";
 }
 
-$db = new PDO('mysql:host=localhost;dbname=restaurant;charset=utf8', 'root', ''); 
+$db = new PDO('mysql:host=localhost;dbname=restaurant;charset=utf8', 'root', '');
 
-$sql = $db->exec("CREATE TABLE IF NOT EXISTS `users` ( 
-	`id` INT NOT NULL AUTO_INCREMENT , 
-	`firstname` VARCHAR(255) NOT NULL , 
-	`lastname` VARCHAR(255) NOT NULL , 
-	`role` ENUM('admin','edit') NOT NULL , 
-	`email` VARCHAR(255) NOT NULL , 
-	`password` VARCHAR(255) NOT NULL , 
-	`date_registration` DATETIME NOT NULL , 
-	PRIMARY KEY (`id`), UNIQUE (`email`)) 
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS `users` (
+	`id` INT NOT NULL AUTO_INCREMENT ,
+	`firstname` VARCHAR(255) NOT NULL ,
+	`lastname` VARCHAR(255) NOT NULL ,
+	`role` ENUM('admin','edit') NOT NULL ,
+	`email` VARCHAR(255) NOT NULL ,
+	`password` VARCHAR(255) NOT NULL ,
+	`date_registration` DATETIME NOT NULL ,
+	PRIMARY KEY (`id`), UNIQUE (`email`))
 	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;");
-if($sql === false){	
+if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
-$sql = $db->exec("CREATE TABLE IF NOT EXISTS`recipes` ( 
-	`id` INT NOT NULL AUTO_INCREMENT , 
-	`role` ENUM('entrance','dish','dessert') NOT NULL , 
-	`title` VARCHAR(255) NOT NULL , 
-	`content` VARCHAR(255) NOT NULL , 
-	`link` VARCHAR(255) NOT NULL , 
-	`ingredients` VARCHAR(255) NOT NULL , 
-	`date_publish` DATETIME NOT NULL , 
-	PRIMARY KEY (`id`)) 
-	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;");  
-if($sql === false){	
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS`recipes` (
+	`id` INT NOT NULL AUTO_INCREMENT ,
+	`role` ENUM('entrance','dish','dessert') NOT NULL ,
+	`title` VARCHAR(255) NOT NULL ,
+	`content` VARCHAR(255) NOT NULL ,
+	`link` VARCHAR(255) NOT NULL ,
+	`ingredients` VARCHAR(255) NOT NULL ,
+	`date_publish` DATETIME NOT NULL ,
+	PRIMARY KEY (`id`))
+	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;");
+if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 
 
-$sql = $db->exec("CREATE TABLE IF NOT EXISTS `contact` ( 
-	`id` INT NOT NULL AUTO_INCREMENT , 
-	`name` VARCHAR(255) NOT NULL , 
-	`email` VARCHAR(255) NOT NULL , 
-	`message` VARCHAR(255) NOT NULL , 
-	`date_send` DATETIME NOT NULL , 
-	PRIMARY KEY (`id`)) 
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS `contact` (
+	`id` INT NOT NULL AUTO_INCREMENT ,
+	`name` VARCHAR(255) NOT NULL ,
+	`email` VARCHAR(255) NOT NULL ,
+	`message` VARCHAR(255) NOT NULL ,
+	`date_send` DATETIME NOT NULL ,
+	PRIMARY KEY (`id`))
 	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;");
-if($sql === false){	
+if($sql === false){
 	die(var_dump($bdd->errorInfo()));
 }
 // Entrée 1    Griddled vegetables & feta with tabbouleh     recette 1
 
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
 	'entrance',
 	'Griddled vegetables & feta with tabbouleh',
@@ -79,13 +79,13 @@ TABBOULEH
 1	bunch of	fresh mint
 1	big bunch of	fresh flat-leaf parsley
 ½	a	cucumber
-1	lemon', 
+1	lemon',
 '2016-19-05 11:20:5000')
 ");
 
 
 // Entrée 2    Tasty fish tacos       recette 2
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
 	'dessert',
 	'Tasty fish tacos',
@@ -110,7 +110,7 @@ olive oil
 
 
 // Entrée 3   Delicious winter salad    recette 3
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
 	'dish',
 	'Delicious winter salad',
@@ -134,7 +134,7 @@ a few	shoots from winter cabbages, such as kale or cavolo nero , optional
 
 
 
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
 	'entrance',
 	'Griddled vegetables & feta with tabbouleh',
@@ -144,7 +144,7 @@ $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link
 	'2016-19-05 11:20:5000')
 ");
 
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
 	'entrance',
 	'Griddled vegetables & feta with tabbouleh',
