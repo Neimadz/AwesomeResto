@@ -6,11 +6,7 @@ include_once '../inc/functions.php';
 // Tableau contenant l'ensemble des recettes
 $allRecipes = array_merge(selectCategory('entrance'), selectCategory('dish'), selectCategory('dessert'));
 
-//var_dump($allRecipes);
-
 include_once 'inc/header.php';
-
-var_dump($_SESSION['user']['role']);
 
 foreach($allRecipes as $plat => $recettes){
 	echo '<div class="row">';
@@ -26,6 +22,5 @@ foreach($allRecipes as $plat => $recettes){
 		echo '</div>';
 	echo '</div>';
 }
-var_dump($recettes);
 include_once 'inc/footer.php';
 ?>
