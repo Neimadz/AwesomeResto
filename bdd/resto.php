@@ -10,7 +10,7 @@ $sql = $db->exec("CREATE TABLE IF NOT EXISTS `users` (
 	`id` INT NOT NULL AUTO_INCREMENT ,
 	`firstname` VARCHAR(255) NOT NULL ,
 	`lastname` VARCHAR(255) NOT NULL ,
-	`role` ENUM('admin','edit') NOT NULL ,
+	`role` ENUM('edit', 'admin') NOT NULL ,
 	`email` VARCHAR(255) NOT NULL ,
 	`password` VARCHAR(255) NOT NULL ,
 	`date_registration` DATETIME NOT NULL ,
@@ -59,6 +59,7 @@ $sql = $db->exec("INSERT INTO `users` (
 //crée la table recipes si elle n'existe pas.
 $sql = $db->exec("CREATE TABLE IF NOT EXISTS `recipes` (
 	`id` INT NOT NULL AUTO_INCREMENT ,
+	`author_id` VARCHAR(255) NOT NULL ,
 	`role` ENUM('entrance','dish','dessert') NOT NULL ,
 	`title` VARCHAR(255) NOT NULL ,
 	`content` VARCHAR(255) NOT NULL ,
@@ -77,6 +78,7 @@ $sql = $db->exec("CREATE TABLE IF NOT EXISTS `contact` (
 	`name` VARCHAR(255) NOT NULL ,
 	`email` VARCHAR(255) NOT NULL ,
 	`message` VARCHAR(255) NOT NULL ,
+	`is_read` ENUM('not_read', 'read') NOT NULL,
 	`date_send` DATETIME NOT NULL ,
 	PRIMARY KEY (`id`))
 	ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;");
@@ -88,18 +90,21 @@ $sql = $db->exec("INSERT INTO `contact` (
 	`id`, 
 	`name`, 
 	`email`, 
-	`message`, 
+	`message`,
+	`is_read`, 
 	`date_send`) 
 	VALUES (NULL, 
 	'machado damien', 
 	'dams_m33@hotmail.fr', 
-	'Salut je recherche a manger des sushi c\'est ici ?', 
+	'Salut je recherche a manger des sushi c\'est ici ?',
+	'not_read', 
 	'2016-05-19 07:17:13')"
 );
 
 // Entrée 1    Griddled vegetables & feta with tabbouleh     recette 1
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
+	'unknow author',
 	'entrance',
 	'Griddled vegetables & feta with tabbouleh',
 	'This is a great meat-free recipe. Barbecuing a whole block of feta is a really interesting way to use it – you get a wicked texture contrast between the beautifully golden outside and the soft, creamy centre. The smoky flavour adds a subtle but beautiful twist to this delicious summery dish.',
@@ -127,8 +132,9 @@ TABBOULEH
 
 
 // Entrée 2    Tasty fish tacos       recette 2
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
+	'unknow author',
 	'entrance',
 	'Tasty fish tacos',
 	'“Just one haddock fillet provides us with a source of seven different essential vitamins and minerals, plus this colourful dish gives us three of our 5-a-day ”',
@@ -152,8 +158,9 @@ olive oil
 
 
 // Entrée 3   Delicious winter salad    recette 3
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`)
 	VALUES (NULL,
+	'unknow author',
 	'entrance',
 	'Delicious winter salad',
 	'“This is really nice served with a simple pasta, with leftover cold meats, in a sandwich or with a simple jacket potato and knob of butter. Any leftovers can be kept in the fridge then served as a really posh coleslaw. ”',
@@ -175,8 +182,9 @@ a few	shoots from winter cabbages, such as kale or cavolo nero , optional
 ");
 
 // Plat 1        Piri piri chicken    recette 4
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
+	'unknow author',
 	'dish',
 	'Piri piri chicken',
 	'“Crisp, spicy roast chicken, served with piri piri sauce, jalapeño salsa and sweet potato wedges – delicious! ”',
@@ -205,8 +213,9 @@ For the jalapeño salsa:
 
 
 // Plat 2   Wild boar burgers    recette 5
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
+	'unknow author',
 	'dish',
 	'Wild boar burgers',
 	'“These might be the best boar burgers ever! ”',
@@ -223,8 +232,9 @@ olive oil
 ");
 
 // Plat 3   Marmexican marinated pork tenderloin    recette 6
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
+	'unknow author',
 	'dish',
 	'Marmexican marinated pork tenderloin',
 	'“A great Friday night recipe with friends. Get everything in the middle of the table and tuck in.”',
@@ -264,8 +274,9 @@ Extra virgin olive oil',
 ");
 
 // Dessert 1   Epic ice cream cake   recette 7
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
+	'unknow author',
 	'dessert',
 	'Epic ice cream cake',
 	'“Choose two or three different flavours of your favourite ice cream for this cake – we went for pistachio, strawberry and vanilla. Then when you slice it open all of the amazing layers will be revealed. ”',
@@ -284,8 +295,9 @@ $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link
 ");
 
 // Dessert 2    Chocolate battenberg  recette 8
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
+	'unknow author',
 	'dessert',
 	'Chocolate battenberg',
 	'“This is made with cocoa instead of pink food colouring. Find marzipan in the supermarket baking aisle. Use the cake off-cuts in a trifle. ”',
@@ -304,8 +316,9 @@ $sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link
 ");
 
 // Dessert 3    Chocolate & salted caramel cake  recette 9
-$sql = $db->exec("INSERT INTO `recipes` (`id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
+$sql = $db->exec("INSERT INTO `recipes` (`id`,`author_id`, `role`, `title`, `content`, `link`, `ingredients`, `date_publish`) 
 	VALUES (NULL,
+	'unknow author',
 	'dessert',
 	'Chocolate & salted caramel cake',
 	'“You don’t use all the caramel, but it keeps in the fridge for a few days. ”',
