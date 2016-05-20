@@ -14,12 +14,8 @@ $formValid = false;
 			$post[$key] = trim(strip_tags($value));
 		}
 
-		if(strlen($post['name']) < 4 || strlen($post['name']) > 15){
-			$error[] = 'not a name';
-		}
-
-		if(strlen($post['phone']) != 10 ){
-			$error[] = 'not a phone';
+		if(strlen($post['adress']) < 4 || strlen($post['adress']) > 40){
+			$error[] = 'not a adress';
 		}
 
 		/*if(!filter_var($post['email']) FILTER_VALIDATE_EMAIL){
@@ -38,8 +34,9 @@ $formValid = false;
 
 				// On complète les champs
 				$res->bindValue(':img1', $post['img1']);
-				$res->bindValue(':img2', $post['img2'], PDO::PARAM_STR);
-				$res->bindValue(':img3', $post['img3'], PDO::PARAM_STR);
+				$res->bindValue(':img2', $post['img2']);
+				$res->bindValue(':img3', $post['img3']);
+				
 				$res->bindValue(':adress', $post['adress'], PDO::PARAM_STR);
 
 
