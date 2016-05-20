@@ -96,3 +96,7 @@ header {
 .img-list{
     height: 10vh;
 }
+.title-list{
+    margin-bottom: 0;
+    text-decoration: underline;
+}
