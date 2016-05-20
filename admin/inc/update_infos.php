@@ -64,7 +64,6 @@ $formValid = false;
 ?>
 
 <!-- formulaire changement à remplir pour changer coordonées user -->
-
 	<form method="POST" class="pure-form" name="update_infos">
   		<div class="form-group">
     		<label for="exampleInputFile">File input</label>

@@ -7,9 +7,12 @@
         <script src="js/script.js"></script>
     </body>
     	<footer>
-
+<?php  
+    $adr = $db->prepare('SELECT adress FROM  img_header WHERE id = 1');
+    $adr->execute();
+    $adress = $adr->fetch(PDO::FETCH_ASSOC);
+?>
 		<h4>Ristorante !</h4>
-		<p>32 rue rosa bonheur <br>33000 Bordeaux<br>0 805 62 23 45</p>
-		
+		<p> <?php echo $adress['adress'];?> </p>		
 	</footer>
 </html>
