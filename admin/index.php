@@ -35,6 +35,15 @@ include_once 'inc/header.php';
             <button type="submit" class="btn btn-primary">Se connecter</button>
         </div>
     </div>
+
+    <?php if($error > 0): ?>
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-4">
+                <button onclick="window.location.href='lost_password.php'" class="btn btn-primary">Mot de passe oublié ?</button>
+            </div>
+        </div>
+        
+    <?php endif; ?>
 </form>
 
 
