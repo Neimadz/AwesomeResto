@@ -30,7 +30,7 @@ AJAX SHOW USER
 $('#add-user').on('submit', function(e) {
     e.preventDefault();
 
-    checkUserList();
+    //checkUserList();
 
     // add user to the db
     var inputData = $( this ).serialize();
@@ -56,7 +56,8 @@ $('#add-user').on('submit', function(e) {
 /**************************
 AJAX DELETE USER
 ***************************/
-$('.remove-user').on('click', function(e) {
+$('body').on('click', '.remove-user', function(e) {
+    console.log('click');
     e.preventDefault();
     var thisId = $(this).attr('data-id');
     var liToHide = $(this).parent().attr('id');

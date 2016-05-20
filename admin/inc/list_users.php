@@ -36,5 +36,5 @@
     </div>
 
 
-    <input type="submit" class="btn btn-primary" value="Ajouter la recette">
+    <input type="submit" class="btn btn-primary" value="Ajouter user">
 </form>
