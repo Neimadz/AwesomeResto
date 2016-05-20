@@ -54,7 +54,7 @@ if(!empty($_POST)) {
                 $mail->Port = 587;                                   
 
                 $mail->setFrom($post['email'], $post['firstname'] );
-                $mail->addAddress('user@gmail.com', ' Anastasia Admin'); 
+                $mail->addAddress('baptistecousin78@gmail.com', ' Anastasia Admin'); 
         
                 $mail->isHTML(true);                                  
 
