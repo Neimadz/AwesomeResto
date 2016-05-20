@@ -89,7 +89,9 @@ header {
 }
 #add-recipe-form {
     width: 40%;
+    margin-top: 2em;
 }
+
 /*****STYLE DE "list_recipe.php"******/
 /*.wrapper-list{
     display: inline-block;
