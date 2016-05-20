@@ -4,11 +4,13 @@ require_once 'inc/functions.php';
 require_once 'inc/login.php';
 include_once 'inc/header.php';
 
+$mdp = true;
 ?>
 
 <h1 class="text-center">Connexion</h1>
 <br>
 <?php if(count($error) > 0): // Si il y a des erreurs ?>
+    <?php $mdp = false; ?>
     <div class="alert alert-danger">
         <?=implode('<br>', $error); ?>
     </div>
@@ -36,7 +38,7 @@ include_once 'inc/header.php';
         </div>
     </div>
 
-    <?php if($error > 0): ?>
+    <?php if($mdp == false): ?>
         <div class="form-group">
             <div class="col-md-4 col-md-offset-4">
                 <button onclick="window.location.href='lost_password.php'" class="btn btn-primary">Mot de passe oublié ?</button>
