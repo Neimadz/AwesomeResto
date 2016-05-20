@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'inc/connect.php';
 include_once '../inc/functions.php';
 
@@ -9,6 +10,8 @@ $allRecipes = array_merge(selectCategory('entrance'), selectCategory('dish'), se
 
 include_once 'inc/header.php';
 
+var_dump($_SESSION['user']['role']);
+
 foreach($allRecipes as $plat => $recettes){
 	echo '<div class="row">';
 		echo '<h3 class="title-list">'.$recettes['title'].'</h3><br>';
@@ -18,8 +21,8 @@ foreach($allRecipes as $plat => $recettes){
 			echo '<p class="text-right"><strong>Ajouté le : </strong>'.$recettes['date_publish']."<strong> par : </strong><em>".$recettes['author_id'].'</em></p>';
 		echo '</div>';
 		echo '<div class="wrapper-buttons col-sm-4">';
-			echo '<a href="update_article.php?='.$recettes['id'].'"><span class="glyphicon glyphicon-wrench"></span> Modifier</a><br>';
-			echo '<a href="delete_article.php?='.$recettes['id'].'" onclick="return confirm(\'Êtes vous sur de vouloir supprimer cela ?\');"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
+			echo '<a href="update_article.php?id='.$recettes['id'].'"><span class="glyphicon glyphicon-wrench"></span> Modifier</a><br>';
+			echo '<a href="delete_article.php?id='.$recettes['id'].'" onclick="return confirm(\'Êtes vous sur de vouloir supprimer cela ?\');"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
 		echo '</div>';
 	echo '</div>';
 }
