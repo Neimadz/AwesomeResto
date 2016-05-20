@@ -142,6 +142,18 @@ header {
     color: #FFF;
 }
 
+/******Styles des recipes affichage via search*****/
+
+.recipe-img{
+    border: solid black 1px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.recipe-title{
+    color: #F89406;
+}
+
 
 /******Styles du Footer*****/
 
