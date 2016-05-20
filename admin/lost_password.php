@@ -48,7 +48,7 @@ if(!empty($_POST)) {
 				$insert->bindValue(':tokenInsert', $token);
 				if($insert->execute()) {
 					// Envoi du mail contenant le lien du token et l email en GET
-					$linkChangePassword = 'lost_password.php?email=' .$post['email_password']. '&token=' .$token;
+					$linkChangePassword = 'lost_password.php?email=' .$post['email_password']. '&token=' .$token; // Vérifier si le lien est bon
 				}
 			}
 		}
@@ -61,7 +61,7 @@ if(!empty($_POST)) {
 		if(strlen($post['new_password']) < 8 || strlen($post['new_password']) > 25 ) { // Nbres de caractères modifiables 
 			$error[] = 'Votre mot de passe doit contenir entre 8 et 25 caractères';
 		}
-		if($post['new_password'] != $post['new_password_confi']) {
+		if($post['new_password'] != $post['new_password_conf']) {
 			$error[] = 'Vos mots de passe doivent correspondre';
 		}
 		if(count($error) == 0 ) { // On compte nos erreurs, vérif du token et du mail

@@ -369,3 +369,20 @@ $sql = $db->exec("INSERT INTO `img_header` (
 	'img_header3.jpg', 
 	'Ristorante ! 32 rue rosa bonheur 33000 Bordeaux 0 805 62 23 45')"
 );
+
+// Création de table tokens_password
+
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS `tokens_password` ( 
+	`id` INT NOT NULL AUTO_INCREMENT , 
+	`email` VARCHAR(255) NOT NULL , 
+	`token` VARCHAR(255) NOT NULL , 
+	`date_create` DATETIME NOT NULL , 
+	`date_exp` DATETIME NOT NULL , 
+	PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;"
+); if($sql === false){
+	die(var_dump($bdd->errorInfo()));
+}
+
+	
+
+
