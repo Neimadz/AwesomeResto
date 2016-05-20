@@ -383,6 +383,17 @@ $sql = $db->exec("CREATE TABLE IF NOT EXISTS `tokens_password` (
 	die(var_dump($bdd->errorInfo()));
 }
 
-	
+$sql = $db->exec("INSERT INTO `tokens_password` (
+	`id`, 
+	`email`, 
+	`token`, 
+	`date_create`, 
+	`date_exp`) 
+	VALUES (NULL,
+	'',
+	'',
+	'',
+	'')"
+);	
 
 
