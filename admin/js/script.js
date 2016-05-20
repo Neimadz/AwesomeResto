@@ -107,9 +107,7 @@ AJAX DELETE USER
 $('.remove-user').on('click', function(e) {
     e.preventDefault();
     var thisId = $(this).attr('data-id');
-
     var liToHide = $(this).parent().attr('id');
-    console.log(liToHide);
 
     $.ajax({
         type: "POST",
@@ -122,7 +120,32 @@ $('.remove-user').on('click', function(e) {
             $('#'+liToHide).fadeOut();
             setTimeout(function(){
                 $('#removedUserMsg').text("");
-            }, 3000);
+            }, 2000);
+        },
+        error : function() {
+            console.log('Ca va pas!');
+        }
+    });
+});
+
+/**************************
+AJAX ADD USER
+***************************/
+$('#add-user').on('submit', function(e) {
+    e.preventDefault();
+    var inputData = $( this ).serialize();
+    console.log(inputData);
+    $.ajax({
+        type: "POST",
+        url: "inc/list_users_treat.php",
+        data: inputData, // we compose $_POSt VARIABLE here
+        success : function(text){
+            showRecipeAdded(text);
+            $('#removedUserMsg').text("");
+            $('#removedUserMsg').append(text);
+            setTimeout(function(){
+                $('#removedUserMsg').text("");
+            }, 10000);
         },
         error : function() {
             console.log('Ca va pas!');
