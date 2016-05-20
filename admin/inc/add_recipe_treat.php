@@ -52,7 +52,7 @@ if(!empty($_POST)) {
 
         if($sql->execute()) {
             $formValid = true;
-            echo '<div class="alert alert-success" role="alert">Cette recette a été bien ajoutée.</ul>';
+            echo '<div class="alert alert-success" role="alert">Cette recette a été bien ajoutée.</div>';
         }
         else {
             die(print_r($sql->errorInfo()));

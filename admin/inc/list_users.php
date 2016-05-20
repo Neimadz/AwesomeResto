@@ -8,7 +8,7 @@ if(!empty($users)) {
     echo '<ul class="list-group">';
     // loop that prints all the users
     foreach ($users as $key => $value) {
-        echo '<li class="list-group-item">' .
+        echo '<li class="list-group-item" id="list'. $count . '">' .
              $count . '. '                   .
              $value['firstname']            .
              ' <span class="label '         .
@@ -16,7 +16,11 @@ if(!empty($users)) {
              (($value['role'] == "admin")?"label-success":"label-primary") .
              '">'                           .
              $value['role']                 .
-             '</span></li>';
+             '<a class="remove-user" href="#" data-id="'         .
+             $value['id']                   .
+             '"></span><span class="glyphicon glyphicon-remove">'.
+
+             '</span></a></li>';
              $count++;
     }
     echo '</ul>';
@@ -26,3 +30,5 @@ else {
 }
 
 ?>
+
+<div id="removedUserMsg"></div>

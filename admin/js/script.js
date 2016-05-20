@@ -99,3 +99,33 @@ function showMsgReaded(msg){
         $("#msgRead").text("");
     }, 3000);
 }
+
+/**************************
+AJAX DELETE USER
+***************************/
+
+$('.remove-user').on('click', function(e) {
+    e.preventDefault();
+    var thisId = $(this).attr('data-id');
+
+    var liToHide = $(this).parent().attr('id');
+    console.log(liToHide);
+
+    $.ajax({
+        type: "POST",
+        url: "inc/remove_user.php",
+        data: "&id=" + thisId, // we compose $_POSt VARIABLE here
+        success : function(text){
+            showRecipeAdded(text);
+            $('#removedUserMsg').text("");
+            $('#removedUserMsg').append(text);
+            $('#'+liToHide).fadeOut();
+            setTimeout(function(){
+                $('#removedUserMsg').text("");
+            }, 3000);
+        },
+        error : function() {
+            console.log('Ca va pas!');
+        }
+    });
+});
