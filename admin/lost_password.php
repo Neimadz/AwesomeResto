@@ -22,7 +22,7 @@ if(isset($_GET['token']) && !empty($_GET['token']) && isset($_GET['email']) && !
 // Traitement des formulaires 
 
 if(!empty($_POST)) {
-	// Nettoyade des données
+	// Nettoyage des données
 	foreach($_POST as $k => $v) {
 		$post[$k] = $v;
 	}
@@ -38,11 +38,11 @@ if(!empty($_POST)) {
 			if(!empty($ifMailExist)) {    // On search une corres avec le mail
 				$token = md5(uniqid()); // Création du token
 
-				$insert = $sql->prepare('INSERT INTO tokens_password (email, token, date_create, date_exp) VALUES (
+				$insert = $db->prepare('INSERT INTO tokens_password (email, token, date_create, date_exp) VALUES (
 					:emailInsert,
 					:tokenInsert,
 					NOW(),
-					(NOW() + INTERVAL 2 DAYS)
+					(NOW() + INTERVAL 2 DAYS))
 					');
 
 				$insert->bindValue(':emailInsert', $post['email_password']);
@@ -135,32 +135,6 @@ if(!empty($_POST)) {
  	</form> 
  <?php endif; // Fermeture du ifelse de $linkChangePassword ?>
 <?php endif; ?>
-
-
-<?php if($showFormPassword == true): // Affichage du form de changemnt du mdp ?>
-
-	<form class="form-horizontal well well-sm" method="post">
-	        <input type="hidden" name="action" value="updatePassword">
-	    <div class="form-group">
-	        <label class="col md-4 control-label" for="new_password">Votre nouveau mot de passe : </label>
-	        <div clas="col-md-4">
-	            <input type="password" name="new_password" id="new_password" class="form-control">
-	        </div>
-	    </div>
-	    <div class="form-group">
-	        <label class="col-md-4 control-label" for="new_password_conf">Confirmation du nouveau mot de passe : </label>
-	        <div class="col-md-4">
-	            <input type="password" name="new_password_conf" id="new_password_conf" class="form-control">
-	        </div>
-	    </div>
-	    <div class="form-group">
-	        <div class="col-md-4 col-md-offset-4">
-	            <button type="submit" class="btn btn-default">Mettre à jour votre nouveau mot de passe</button>
-	        </div>
-	    </div>
-	</form>
-<?php endif; ?>	
-
- </main>
+</main>
 
 
