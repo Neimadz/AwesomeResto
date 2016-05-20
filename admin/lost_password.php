@@ -11,9 +11,9 @@ $post = [];
 $showFormEmail = true;    // On affiche le 1er formulaire de saisie de l email
 $showFormPassword = false; // On affiche le 2nd formulaire de mise à jour de notre mdp
 
-
+var_dump($_POST);
 // On masque le 1er formulaire si token et email dans le GET pour afficher le 2nd
-if(isset($_GET['token']) && !empty($_GET['token']) && isset($_GET['email']) && !empty($_GET['email'])) {
+if(isset($_GET['token']) && !empty($_GET['token']) && isset($_POST['email']) && !empty($_POST['email'])) {
 	$showFormEmail = false;   
 	$showFormPassword = true;
 }
@@ -48,19 +48,19 @@ if(!empty($_POST)) {
 		        $mail->isSMTP();                                      
                 $mail->Host = 'smtp.mailgun.org';  
                 $mail->SMTPAuth = true;                               
-                $mail->Username = '';                 
-                $mail->Password = '';                           
+                $mail->Username = 'postmaster@wf3.axw.ovh';                 
+                $mail->Password = 'WF3sessionPhilo2';                           
                 $mail->SMTPSecure = 'tls';                           
                 $mail->Port = 587;                                   
 
                 $mail->setFrom($post['email'], $post['firstname'] );
-                $mail->addAddress('user@gmail.com', ' Anastasia Admin'); 
+                $mail->addAddress('baptistecousin78@gmail.com', ' Anastasia Admin'); 
         
                 $mail->isHTML(true);                                  
 
                 $mail->Subject = 'Voici un lien pour générer un nouveau mot de passe : generate_new_password.php';
-                $mail->Body    = $post['content'];
-                $mail->AltBody = $post['content'];
+                $mail->Body    = $token;
+                $mail->AltBody = $token;
 
         			if(!$mail->send()) {
             			echo 'Le message ne peut être envoyé.';
@@ -78,7 +78,7 @@ if(!empty($_POST)) {
 
 
 
-	// Traitement du 2nd formulaire concernant la maj du mdp
+// Traitement du 2nd formulaire concernant la maj du mdp
 	elseif(isset($post['action']) && $post['action'] == 'updatePassword') {
 		if(strlen($post['new_password']) < 8 || strlen($post['new_password']) > 25 ) { // Nbres de caractères modifiables 
 			$error[] = 'Votre mot de passe doit contenir entre 8 et 25 caractères';
@@ -128,19 +128,39 @@ if(!empty($_POST)) {
  	<?php endif; ?>
  	
  	<?php if(isset($showFormEmail) && $showFormEmail == true): // Affichage du 1er form?>
-    <?php if(isset($linkChangePassword)): // mail ok et token inséré?>	
+	    <?php if(isset($linkChangePassword)): // mail ok et token inséré?>	
 
- 	<p>Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien ci dessous : 
- 	<br>
- 	<a href="<?=$linkChangePassword; ?>">Modifier votre mot de passe</a>   <!-- Vérif si lien ok-->
- 	</p>
- 	<br>
+		 	<p>Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien ci dessous : 
+		 	<br>
+		 	<a href="<?=$linkChangePassword; ?>">Modifier votre mot de passe</a>   <!-- Vérif si lien ok-->
+		 	</p>
+		 	<br>
 
- 	<code><?=$linkChangePassword; ?></code>        <!-- Vérif si ok -->
+		 	<code><?=$linkChangePassword; ?></code>        <!-- Vérif si ok -->
 
- <?php else: // Affichage du form ?>
+ 		<?php else: // Affichage du form ?>
+ 			<!-- Affichage du formulaire avec notre adresse mail -->
+		 	<form class="form-horizontal well-well-sm" method="post">
+		 	    <div class="form-group">
+		 	        <label class="col-md-4 control-label" for="email">Email : </label>
+		 	        <div class="col-md-4">
+		 	            <input id="email" type="email" name="email" placeholder="votre@gmail.com" class="form-control input-md" required>
+		 	        </div>
+		 	    </div>
 
- 	<form class="form-horizontal well well-sm" method="post">
+		 	    <div class="form-group">
+		 	        <div class="col-md-4 col-md-offset-4">
+		 	            <button type='submit' class="btn btn-primary">Envoyez moi un nouveau de passe !</button>
+		 	        </div>
+		 	    </div> 
+		 	</form> 
+
+    	<?php endif; ?> 
+ 	<?php endif; // Fermeture du ifelse de $showFormEmail ?>
+
+ 	<?php if(isset($showFormPassword) && $showFormPassword == true): ?>
+
+		<form class="form-horizontal well well-sm" method="post">
             <input type="hidden" name="action" value="updatePassword">
             <input type="hidden" name="email" value="<?=$_GET['email'];?>">
             <input type="hidden" name="token" value="<?=$_GET['token'];?>">
@@ -163,10 +183,8 @@ if(!empty($_POST)) {
                     <button type="submit" class="btn btn-default">Mettre à jour mon mot de passe</button>
                 </div>
             </div>
-        </form> 
-    <?php endif; ?> 
- <?php endif; // Fermeture du ifelse de $linkChangePassword ?>
+        </form>
 
-
+ 	<?php endif; ?>
 
 

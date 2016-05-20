@@ -46,7 +46,7 @@ require_once 'functions.php';
                 <li><a href="admin.php">Accueil<span class="sr-only">(current)</span></a></li>
 
                 <li><a href="#"></a></li>
-                <li><a href="#">Lire les articles</a></li>
+                <li><a href="list_recipe.php">Liste des recettes</a></li>
                 <li><a href="inc/logout.php">Log out</a></li>
               </ul>
 

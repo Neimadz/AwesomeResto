@@ -14,12 +14,16 @@ function showArticles($art) {
 }
 
 function showSearchResult($art, $key) {
-    echo '<article class="search-recipe">';
-	echo '<h1 class="recipe-title">' . str_ireplace($key, '<span class="search-keyword">' . $key . '</span>', $art['title']) . '</h1>';
-	echo '<p class="recipe-date">Publié le ' . $art['date_publish'] . '</p>';
-	echo '<img class="recipe-img" src="' . $art['link'] . '">';
-	echo '<p>' . str_ireplace($key, '<span class="recipe-keyword">' . $key . '</span>', $art['content']) . '</p>';
+    echo '<article>';
+    echo '<div class="recipe_search">';
+	echo '<h3 class="title-list">' . str_ireplace($key, '<span class="letterOnSearch">' . $key . '</span>', $art['title']) . '</h3>';
+	echo '<p class="publishSearch"><strong> Publié le ' . $art['date_publish'] . '</strong> </p>';
+	echo '<img class="img-search" src="' . $art['link'] . '">';
+	echo '<p class="search-article">' . str_ireplace($key, ' <span> ' . $key . ' </span> ', $art['content']) . '</p>';
+	echo '</div>';
 	echo '</article>';
+	echo '<br> <hr>';
+
 }
 
 /********Fonction permétant de sélectionner les recettes en fonctions de leur role***********/
@@ -72,7 +76,7 @@ function cutString($string, $start, $length, $endStr = '[&hellip]'){
 }
 
 /***************Fonction de vérification d'accès*******************/
-function logged_only($role){
+/*function logged_only($role){
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start(); 
 		}
@@ -81,9 +85,43 @@ function logged_only($role){
 			header('location: login.php');
 			exit();
 	}
-}
+}*/
 
 /*************Fonction pour récupérer le role (de plat)************/
+function recupRole($role){
+	if($role == 'entrance'){
+		echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option selected value="entrance">Entrée</option>';
+            echo '<option value="dish">Plat</option>';
+            echo '<option value="dessert">Dessert</option>';
+        echo '</select>';
+	}
+	if($role == 'dish'){
+		echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option value="entrance">Entrée</option>';
+            echo '<option selected value="dish">Plat</option>';
+            echo '<option value="dessert">Dessert</option>';
+        echo '</select>';
+	}
+	if($role == 'dessert'){
+		echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option value="entrance">Entrée</option>';
+            echo '<option value="dish">Plat</option>';
+            echo '<option selected value="dessert">Dessert</option>';
+        echo '</select>';
+	}
+}
 
-
+/************SIMPLIFICATION DES PREG_MATCH*********/
+function verif($conditions, $verification){
+	if(!preg_match($conditions, $verification)) {
+    	return true;
+    }
+    else{
+    	return false;
+    }
+}
 ?>
