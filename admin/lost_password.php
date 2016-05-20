@@ -11,9 +11,9 @@ $post = [];
 $showFormEmail = true;    // On affiche le 1er formulaire de saisie de l email
 $showFormPassword = false; // On affiche le 2nd formulaire de mise à jour de notre mdp
 
-
+var_dump($_POST);
 // On masque le 1er formulaire si token et email dans le GET pour afficher le 2nd
-if(isset($_GET['token']) && !empty($_GET['token']) && isset($_GET['email']) && !empty($_GET['email'])) {
+if(isset($_GET['token']) && !empty($_GET['token']) && isset($_POST['email']) && !empty($_POST['email'])) {
 	$showFormEmail = false;   
 	$showFormPassword = true;
 }
@@ -153,7 +153,8 @@ if(!empty($_POST)) {
 		 	            <button type='submit' class="btn btn-primary">Envoyez moi un nouveau de passe !</button>
 		 	        </div>
 		 	    </div> 
-		 	</form>    
+		 	</form> 
+
     	<?php endif; ?> 
  	<?php endif; // Fermeture du ifelse de $showFormEmail ?>
 
