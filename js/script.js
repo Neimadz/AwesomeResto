@@ -70,3 +70,15 @@ function showMsg(msg){
 
 
 // CONTACT FORM
+
+
+
+/**************************************/
+//Page 2 loader LAZYLOAD
+
+/*$("img.lazy").lazyload({
+    event : "scroll",
+    effect : "fadeIn",
+    threshold : 200
+});*/
+/*************************************/
