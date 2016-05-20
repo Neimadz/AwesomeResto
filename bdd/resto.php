@@ -364,8 +364,8 @@ $sql = $db->exec("INSERT INTO `img_header` (
 	`img3`, 
 	`adress`) 
 	VALUES (NULL, 
-	'http://localhost/resto/img/img_header/img_header1.jpg', 
-	'http://localhost/resto/img/img_header/img_header2.jpg', 
-	'http://localhost/resto/img/img_header/img_header3.jpg', 
-	'Ristorante ! 32 rue rosa bonheur 33000 Bordeaux 0 805 62 23 45 ')"
+	'img_header1.jpg', 
+	'img_header2.jpg', 
+	'img_header3.jpg', 
+	'Ristorante ! 32 rue rosa bonheur 33000 Bordeaux 0 805 62 23 45')"
 );
