@@ -1,6 +1,6 @@
 
 <?php if($showFormPassword == true): // Affichage du form de changemnt du mdp ?>
-<main>
+
 	<form class="form-horizontal well well-sm" method="post">
 	        <input type="hidden" name="action" value="updatePassword">
 	    <div class="form-group">

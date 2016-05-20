@@ -17,10 +17,7 @@ if(isset($_GET['token']) && !empty($_GET['token']) && isset($_GET['email']) && !
 	$showFormEmail = false;   
 	$showFormPassword = true;
 }
-
-
 // Traitement des formulaires 
-
 if(!empty($_POST)) {
 	// Nettoyage des données
 	foreach($_POST as $k => $v) {
@@ -32,7 +29,6 @@ if(!empty($_POST)) {
 			$sql = $db->prepare('SELECT email from users WHERE email= :email');
 			$sql->bindValue(':email', $post['email_password']);
 			$sql->execute();
-
 			$ifMailExist = $sql->fetchColumn();
 
 			if(!empty($ifMailExist)) {    // On search une corres avec le mail
@@ -44,19 +40,44 @@ if(!empty($_POST)) {
 					NOW(),
 					(NOW() + INTERVAL 2 DAYS))
 					');
-
 				$insert->bindValue(':emailInsert', $post['email_password']);
 				$insert->bindValue(':tokenInsert', $token);
 				if($insert->execute()) {
-					// Envoi du mail contenant le lien du token et l email en GET
-					$linkChangePassword = 'lost_password.php?email=' .$post['email_password']. '&token=' .$token; // Vérifier si le lien est bon
-				}
-			}
-		}
-		else {
-			$error[] = 'Votre adresse email semble incorrecte';
+					
+		        $mail = new PHPMAILER;
+		        $mail->isSMTP();                                      
+                $mail->Host = 'smtp.mailgun.org';  
+                $mail->SMTPAuth = true;                               
+                $mail->Username = '';                 
+                $mail->Password = '';                           
+                $mail->SMTPSecure = 'tls';                           
+                $mail->Port = 587;                                   
+
+                $mail->setFrom($post['email'], $post['firstname'] );
+                $mail->addAddress('user@gmail.com', ' Anastasia Admin'); 
+        
+                $mail->isHTML(true);                                  
+
+                $mail->Subject = 'Voici un lien pour générer un nouveau mot de passe : generate_new_password.php';
+                $mail->Body    = $post['content'];
+                $mail->AltBody = $post['content'];
+
+        			if(!$mail->send()) {
+            			echo 'Le message ne peut être envoyé.';
+           				 echo 'Mailer Error: ' . $mail->ErrorInfo;
+        				} else {
+           				 echo 'Le message a bien été envoyé et nous vous remercions';
+        				}		
+					}
+			}		
 		}
 	}
+
+
+
+
+
+
 	// Traitement du 2nd formulaire concernant la maj du mdp
 	elseif(isset($post['action']) && $post['action'] == 'updatePassword') {
 		if(strlen($post['new_password']) < 8 || strlen($post['new_password']) > 25 ) { // Nbres de caractères modifiables 
@@ -120,21 +141,32 @@ if(!empty($_POST)) {
  <?php else: // Affichage du form ?>
 
  	<form class="form-horizontal well well-sm" method="post">
- 	    <input type="hidden" name="action" value="generateToken">
- 	    <div class="form-group"> 	    
- 	            <label class="col md-4 control-label" for="email_password">Votre adresse email : </label>
- 	        <div class="col md-4">
- 	            <input type="email" name="email_password" id="email_password" class="form-control">
- 	        </div>
- 	    </div>
- 	    <div class="form-group">
- 	        <div class="col md-4 col-md offset-4">
- 	            <button type="submit" class="btn btn-default">Réinitialiser votre mot de passe</button>
- 	        </div> 
- 	    </div>
- 	</form> 
+            <input type="hidden" name="action" value="updatePassword">
+            <input type="hidden" name="email" value="<?=$_GET['email'];?>">
+            <input type="hidden" name="token" value="<?=$_GET['token'];?>">
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="new_password">Votre nouveau mot de passe</label>
+                <div class="col-md-4">
+                    <input type="password" name="new_password" id="new_password" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="new_password_conf">Confirmation du mot de passe</label>
+                <div class="col-md-4">
+                    <input type="password" name="new_password_conf" id="new_password_conf" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-default">Mettre à jour mon mot de passe</button>
+                </div>
+            </div>
+        </form> 
+    <?php endif; ?> 
  <?php endif; // Fermeture du ifelse de $linkChangePassword ?>
-<?php endif; ?>
-</main>
+
+
 
 
