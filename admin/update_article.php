@@ -30,11 +30,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 				$post[$key] = trim(strip_tags($value));
 			}
 			// verification
-		    if(strlen($post['title']) < 5 || strlen($post['title']) > 200) {
-		      $errors[] = 'Le titre de la recette doit comporter entre 5 et 200 cractères';
+		    if(verif(("#^.{5,140}$#"), $post['title'])){
+		      $errors[] = 'Le titre de la recette doit comporter entre 5 et 140 cractères';
 		    }
-		    if(empty($post['content'])) {
-		      $errors[] = 'Le contenu ne peut être vide';
+		    if(verif(("#^.{20,}$#"), $post['content'])){
+		      $errors[] = 'Le contenu doit faire au moins 20 caractères';
 		    }
 		    if(!filter_var($post['link'], FILTER_VALIDATE_URL)) {
 		      $errors[] = 'Le lien de l\'image n\'est pas valide';
