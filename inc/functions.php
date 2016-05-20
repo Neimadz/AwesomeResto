@@ -5,6 +5,7 @@ require_once 'connect.php';
 function showArticles($art) {
     echo '<h2 class="article-title">'.$art['title'].'</h2>';
     echo '<p class="article-date">'.$art['date_publish'].'</p>';
+    echo '<p class="article-author">Auteur :'.$art['author_id'].'</p>';
     echo '<p class="article-ingr">'.$art['ingredients'].'</p>';
     echo '<p class="article-p">'.$art['content'].'</p>';
     echo '<img src="'.$art['link'].'">';
@@ -49,9 +50,9 @@ function cutString($string, $start, $length, $endStr = '[&hellip]'){
 	// attendue on la retourne telle qu'elle
 	if( strlen( $string ) <= $length ) return $string;
 	// autrement on continue
- 
+
 	// permet de couper la phrase aux caractères définis tout
-	// en prenant en compte la taille de votre $endStr et en 
+	// en prenant en compte la taille de votre $endStr et en
 	// re-précisant l'encodage du contenu récupéré
 	$str = mb_substr( $string, $start, $length - strlen( $endStr ) + 1, 'UTF-8');
 	// retourne la chaîne coupée avant la dernière espace rencontrée
