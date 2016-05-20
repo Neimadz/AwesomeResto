@@ -74,10 +74,12 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
             <div class="row">
                 <header>
                     <div class="owl-carousel">
+
                         <div class="item carousel-item-1"><img src="<?php $_SERVER['HTTP_HOST'];?>/resto/img/img_header/<?php echo $image['img1'];?>" alt=""></div>
                         <div class="item carousel-item-2"><img src="<?php $_SERVER['HTTP_HOST'];?>/resto/img/img_header/<?php echo $image['img2'];?>" alt=""></div>
                         <div class="item carousel-item-3"><img src="<?php $_SERVER['HTTP_HOST'];?>/resto/img/img_header/<?php echo $image['img3'];?>" alt=""></div>
                     </div>
                 </header>
+                
             </div>
             <div id="wrapper">
