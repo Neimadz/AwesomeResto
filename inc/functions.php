@@ -72,7 +72,7 @@ function cutString($string, $start, $length, $endStr = '[&hellip]'){
 }
 
 /***************Fonction de vérification d'accès*******************/
-function logged_only($role){
+/*function logged_only($role){
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start(); 
 		}
@@ -81,9 +81,34 @@ function logged_only($role){
 			header('location: login.php');
 			exit();
 	}
-}
+}*/
 
 /*************Fonction pour récupérer le role (de plat)************/
-
+function recupRole($role){
+	if($role == 'entrance'){
+		echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option selected value="entrance">Entrée</option>';
+            echo '<option value="dish">Plat</option>';
+            echo '<option value="dessert">Dessert</option>';
+        echo '</select>';
+	}
+	if($role == 'dish'){
+		echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option value="entrance">Entrée</option>';
+            echo '<option selected value="dish">Plat</option>';
+            echo '<option value="dessert">Dessert</option>';
+        echo '</select>';
+	}
+	if($role == 'dessert'){
+		echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option value="entrance">Entrée</option>';
+            echo '<option value="dish">Plat</option>';
+            echo '<option selected value="dessert">Dessert</option>';
+        echo '</select>';
+	}
+}
 
 ?>

@@ -90,9 +90,14 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
 	include_once 'inc/header.php';
 
-	if($formValid){ // Si tout est ok, on affiche notre victoire !
-		echo '<div class="alert alert-success" role="alert">Cette recette a été bien mise à jour.</ul></div>';
-	}
+	if($formValid):// Si tout est ok, on affiche notre victoire ! ?>
+	
+		<div class="alert alert-success" role="alert">Cette recette a été bien mise à jour.</div>
+			
+		<div class="form-group">
+            <button onclick="window.location.href='list_recipe.php'" class="btn btn-primary">Retour liste article</button>
+        </div>
+	<?php endif;
 
 	if($displayErr){ // Si on a des erreurs, on les affiche
 		echo '<div class="alert alert-danger" role="alert"></ul>';
@@ -110,15 +115,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
 	<h1>Modifier une recette</h1>
 
-	<form id="add-recipe-form" method="POST">
+	<form id="add-recipe-form" method="post">
 	    <div class="form-group">
 	        <label for="role">Catégorie :</label>
-	        <select name="role" id="add-role" class="form-control" size="1">
-	            <option>Choisir une catégorie :</option>
-	            <option value="entrance">Entrée</option>
-	            <option value="dish">Plat</option>
-	            <option value="dessert">Dessert</option>
-	        </select>
+	        <?php recupRole($recette['role']) ?>	
 	    </div>
 
 	    <div class="form-group">
@@ -139,9 +139,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 	    <div class="form-group">
 	        <label for="ingredients">Vos ingrédients : </label><br>
 	        <textarea name="ingredients" id="add-ingredients" class="form-control" row="60" cols="50" ><?php echo $recette['ingredients'] ?></textarea>
+	    	<?php echo '<input type="hidden" name="id_recette" value="'.$recette['id'].'">';?>
 	    </div>
 
-	    <?php echo '<input type="hidden" name="id_recette" value="'.$recette['id'].'">'; ?>
 	    <input type="submit" class="btn btn-primary" value="Modifier la recette">
 	</form>
 <?php } ?>
