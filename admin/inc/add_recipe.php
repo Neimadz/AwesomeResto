@@ -52,35 +52,41 @@ if(!empty($_POST)) {
 
 <h1>Ajouter une recette</h1>
 
-<form method="POST">
+<form id="add-recipe-form" method="POST">
+    <div class="form-group">
+        <label for="role">Catégorie :</label>
+    </div>
+    <div class="form-group">
+        <select name="role" class="form-control" size="1">
+            <option>Choisir une catégorie :</option>
+            <option value="entrance">Entrée</option>
+            <option value="dish">Plat</option>
+            <option value="dessert">Dessert</option>
+        </select>
+    </div>
 
-      <label for="role">Catégorie :</label>
+    <div class="form-group">
+        <label for="title">Titre : </label>
+        <input type="text" id="title" class="form-control" name="title" placeholder="Entrez votre titre ">
+    </div>
 
-      <select name="role" size="1">
-        <option>Choisir une catégorie :</option>
-        <option value="entrance">Entrée</option>
-        <option value="dish">Plat</option>
-        <option value="dessert">Dessert</option>
-      </select>
-      <br><br>
+    <div class="form-group">
+        <label for="content">Description : </label><br>
+        <textarea name="content" class="form-control" row="60" cols="50"></textarea>
+    </div>
 
-      <label for="title">Titre : </label>
-      <input type="text" id="title" name="title" placeholder="Entrez votre titre ">
-      <br><br>
+    <div class="form-group">
+        <label for="link">Votre image : </label>
+        <input type="text" id="link" class="form-control" name="link"  placeholder="Insérez votre image ici">
+    </div>
 
-      <label for="content">Description : </label><br>
-      <textarea name="content" row="60" cols="50"></textarea>
-      <br><br>
+    <div class="form-group">
+        <label for="ingredients">Vos ingrédients : </label><br>
+        <textarea name="ingredients" class="form-control" row="60" cols="50"></textarea>
+    </div>
 
-      <label for="link">Votre image : </label>
-      <input type="text" id="link" name="link"  placeholder="Insérez votre image ici">
-      <br><br>
+    <input type="submit" class="btn btn-primary" value="Ajouter la recette">
 
-      <label for="ingredients">Vos ingrédients : </label><br>
-      <textarea name="ingredients" row="60" cols="50"></textarea>
-      <br><br>
-
-      <input type="submit" value="Ajouter la recette">
 </form>
 
 <?php
