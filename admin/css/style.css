@@ -99,6 +99,12 @@ header {
     margin-top: 2em;
 }
 
+/*********Style Add recipe***********/
+#add-recipe-msg{
+    margin-top: 15px;
+    width: 40%;
+}
+
 /*****STYLE DE "list_recipe.php"******/
 .img-list{
     height: 10vh;
