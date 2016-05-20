@@ -363,7 +363,7 @@ $sql = $db->exec("INSERT INTO `img_header` (
 	`img2`, 
 	`img3`, 
 	`adress`) 
-	VALUES (NULL, 
+	VALUES (1, 
 	'http://localhost/resto/img/img_header/img_header1.jpg', 
 	'http://localhost/resto/img/img_header/img_header2.jpg', 
 	'http://localhost/resto/img/img_header/img_header3.jpg', 

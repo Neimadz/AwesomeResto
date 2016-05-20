@@ -1,6 +1,6 @@
 <?php
-require_once 'bdd/resto.php';
 require_once 'inc/functions.php';
+require_once 'inc/connect.php';
 
 $img = $db->prepare('SELECT * FROM  img_header WHERE id = 1');
 $img->execute();
@@ -57,7 +57,6 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
                   <ul class="dropdown-menu">
                     <li><a href="#">Entrées</a></li>
 
-
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Plats</a></li>
                     <li role="separator" class="divider"></li>
@@ -75,9 +74,9 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
             <div class="row">
                 <header>
                     <div class="owl-carousel">
-                        <div style="background-image:<?php echo $image['img1'];?>"></div>
-                        <div class="item carousel-item-2"></div>
-                        <div class="item carousel-item-3"></div>
+                        <div class="item carousel-item-1"><img src="http://localhost/resto/img/img_header/<?php echo $image['img1'];?>" alt=""></div>
+                        <div class="item carousel-item-2"><img src="http://localhost/resto/img/img_header/<?php echo $image['img2'];?>" alt=""></div>
+                        <div class="item carousel-item-3"><img src="http://localhost/resto/img/img_header/<?php echo $image['img3'];?>" alt=""></div>
                     </div>
                 </header>
 
