@@ -1,5 +1,5 @@
 <?php
-
+require_once 'connect.php';
 // On instancie nos variables qu'on utilisera plus tard
 $post = array();
 $error = array();
@@ -36,7 +36,6 @@ $formValid = false;
 				$res->bindValue(':img1', $post['img1']);
 				$res->bindValue(':img2', $post['img2']);
 				$res->bindValue(':img3', $post['img3']);
-				
 				$res->bindValue(':adress', $post['adress'], PDO::PARAM_STR);
 
 
@@ -57,7 +56,7 @@ $formValid = false;
 	$res->execute();
 
 	// $changeprofil contient mon article extrait de la bdd
-	$changeprofil = $res->fetch(PDO::FETCH_ASSOC);
+	$image = $res->fetch(PDO::FETCH_ASSOC);
 
 	if($formValid){ // Si tout est ok, on affiche notre victoire !
 		echo '<p style="color:green;"> GREAT !!</p>';
@@ -88,7 +87,7 @@ $formValid = false;
     		<input name="img3" type="file" id="exampleInputFile">
     		<p class="help-block">Example block-level help text here.</p>
   		</div>
-  		<input name="adress_resto" type="text" class="form-control" placeholder="Adress">
+  		<input name="adress" type="text" class="form-control" placeholder="Adress">
 
   		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
