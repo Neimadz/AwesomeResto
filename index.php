@@ -1,23 +1,9 @@
 <?php
 require_once 'inc/connect.php';
-
-// Déclaration variable
-function selectCategory($role){
-	global $db; // Va chercher la variable $db qui se trouve hors de la fonction
-
-	// Prépare et execute la requète SQL
-	$debut = $db->prepare('SELECT * FROM recipes WHERE role = :assoc ORDER BY date_publish DESC LIMIT 1');
-	$debut->bindValue(':assoc', $role);
-	$debut->execute();
-
-	// Retourne tous les roles de la table "recipes" indiqué dans la fonction sous forme de array()
-	return $debut->fetchAll(PDO::FETCH_ASSOC);
-}
-
 include_once 'inc/header.php';
 ?>
 
-<div id="wrapper-index">
+<div class="wrapper-index">
 	<h1 id="title-index" class="text-center">Les recettes des chefs</h1>
 	<div id="wrapper-recettes" class="container">
 		<div class="recette col-sm-4 text-center">

@@ -98,7 +98,7 @@ header {
 
 /******Styles de index.php******/
 
-#wrapper-index{
+.wrapper-index{
     background-color: #96281B;
     height: 100%;
 }
