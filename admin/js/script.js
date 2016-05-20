@@ -30,8 +30,7 @@ AJAX SHOW USER
 $('#add-user').on('submit', function(e) {
     e.preventDefault();
 
-    //checkUserList();
-
+    checkUserList();
     // add user to the db
     var inputData = $( this ).serialize();
     $.ajax({
@@ -44,7 +43,7 @@ $('#add-user').on('submit', function(e) {
             $('#addedUserMsg').append(text);
             setTimeout(function(){
                 $('#addedUserMsg').text("");
-            }, 10000);
+            }, 2000);
             checkUserList();
         },
         error : function() {
