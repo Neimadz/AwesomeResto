@@ -14,11 +14,11 @@ function showArticles($art) {
 }
 
 function showSearchResult($art, $key) {
-    echo '<article class="search-recipe">';
-	echo '<h1 class="recipe-title">' . str_ireplace($key, '<span class="search-keyword">' . $key . '</span>', $art['title']) . '</h1>';
-	echo '<p class="recipe-date">Publié le ' . $art['date_publish'] . '</p>';
-	echo '<img class="recipe-img" src="' . $art['link'] . '">';
-	echo '<p>' . str_ireplace($key, '<span class="recipe-keyword">' . $key . '</span>', $art['content']) . '</p>';
+    echo '<article>';
+	echo '<h1>' . str_ireplace($key, '<span style="padding:5px;background-color:#E08283;color:#fff;">' . $key . '</span>', $art['title']) . '</h1>';
+	echo '<p class="art-date">Publié le ' . $art['date_publish'] . '</p>';
+	echo '<img class="article-img" src="' . $art['link'] . '">';
+	echo '<p>' . str_ireplace($key, '<span style="padding:0 5px;background-color:#E08283;color:#fff;">' . $key . '</span>', $art['content']) . '</p>';
 	echo '</article>';
 }
 
@@ -110,5 +110,4 @@ function recupRole($role){
         echo '</select>';
 	}
 }
-
 ?>
