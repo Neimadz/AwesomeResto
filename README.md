@@ -5,3 +5,5 @@ Projet en équipe Webforce3
 Anastasia, Myriam, Damien M, Noé
 
 ## Notes :
+
+Before using the site  connect to the <strong>http://localhost/AwesomeResto/bdd/resto.php</strong>
