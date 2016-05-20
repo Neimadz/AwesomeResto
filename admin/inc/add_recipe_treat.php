@@ -37,7 +37,7 @@ if(!empty($_POST)) {
         foreach ($error as $err) {
             echo '<li>'. $err . '</li>';
         }
-      echo '</ul></div>';
+        echo '</ul></div>';
     } else {
         // get authors id of logged user
         $authorId = $_SESSION['user']['id'];

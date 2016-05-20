@@ -19,17 +19,21 @@ if(!empty($_POST)) {
     if(strlen($post['user-add-lastname']) < 3 || strlen($post['user-add-lastname']) > 50) {
       $errors[] = 'Nom doit comporter entre 3 et 50 cractères';
     }
-    $email = $post['user-add-email'];
-    if(!preg_match('/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]/', $email)) {
-      $errors[] = 'Email n\'est pas correct';
+
+    if(verif('/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]/', $post['user-add-email'])) {
+        $errors[] = 'Email n\'est pas correct';
     }
-    $password = $post['user-add-email'];
-    if(!preg_match('/^[\w\d]{6,20}$/', $password)) {
-      $errors[] = 'Password doit comporter entre 8 et 20 characteres';
+
+    if(verif('/^[\w\d]{6,20}$/', $post['user-add-email'])) {
+        $errors[] = 'Password doit comporter entre 8 et 20 characteres';
     }
     // ACTION!
     if(count($errors) > 0) {
-        var_dump($errors);
+        echo '<div class="alert alert-danger" role="alert"></ul>';
+        foreach ($errors as $err) {
+            echo '<li>'. $err . '</li>';
+        }
+        echo '</ul></div>';
     }
     else {
 
@@ -39,7 +43,12 @@ if(!empty($_POST)) {
         $addUser->bindValue(':newRole', $post['user-add-role']);
         $addUser->bindValue(':newEmail', $post['user-add-email']);
         $addUser->bindValue(':newPassword', password_hash($post['user-add-password'], PASSWORD_DEFAULT));
-        $addUser->execute();
+        if($addUser->execute()) {
+            echo '<div class="alert alert-success" role="alert">Cet user a été bien ajoutée.</div>';
+        }
+        else {
+            echo '<div class="alert alert-success" role="alert">Cet user n\'a pas été ajoutée.</div>';
+        }
     }
 
 }
