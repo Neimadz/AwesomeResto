@@ -4,6 +4,85 @@ $('#myTabs a').click(function (e) {
   $(this).tab('show');
 });
 
+function checkUserList() {
+    $.ajax({
+        type: "POST",
+        url: "inc/show_user.php",
+        // data: inputData, // we compose $_POSt VARIABLE here
+        success : function(text){
+            $('#user-container').text("");
+            $('#user-container').append(text);
+        },
+        error : function() {
+            console.log('Ca va pas!');
+        }
+    });
+}
+
+$(document).ready(function() {
+    checkUserList();
+});
+
+/**************************
+AJAX SHOW USER
+***************************/
+
+$('#add-user').on('submit', function(e) {
+    e.preventDefault();
+
+    checkUserList();
+
+    // add user to the db
+    var inputData = $( this ).serialize();
+    $.ajax({
+        type: "POST",
+        url: "inc/list_users_treat.php",
+        data: inputData, // we compose $_POSt VARIABLE here
+        success : function(text){
+            // showRecipeAdded(text);
+            $('#addedUserMsg').text("");
+            $('#addedUserMsg').append(text);
+            setTimeout(function(){
+                $('#addedUserMsg').text("");
+            }, 10000);
+            checkUserList();
+        },
+        error : function() {
+            console.log('Ca va pas!');
+        }
+    });
+});
+
+/**************************
+AJAX DELETE USER
+***************************/
+$('.remove-user').on('click', function(e) {
+    e.preventDefault();
+    var thisId = $(this).attr('data-id');
+    var liToHide = $(this).parent().attr('id');
+    console.log(thisId);
+
+    $.ajax({
+        type: "POST",
+        url: "inc/remove_user.php",
+        data: "&id=" + thisId, // we compose $_POSt VARIABLE here
+        success : function(text){
+            showRecipeAdded(text);
+            console.log(text);
+            $('#removedUserMsg').text("");
+            $('#removedUserMsg').append(text);
+            $('#'+liToHide).fadeOut();
+            setTimeout(function(){
+                $('#removedUserMsg').text("");
+            }, 2000);
+        },
+        error : function() {
+            console.log('Ca va pas!');
+        }
+    });
+});
+
+
 
 /**************************
 AJAX FOR ADD RECIPES
@@ -99,56 +178,3 @@ function showMsgReaded(msg){
         $("#msgRead").text("");
     }, 3000);
 }
-
-/**************************
-AJAX DELETE USER
-***************************/
-
-$('.remove-user').on('click', function(e) {
-    e.preventDefault();
-    var thisId = $(this).attr('data-id');
-    var liToHide = $(this).parent().attr('id');
-
-    $.ajax({
-        type: "POST",
-        url: "inc/remove_user.php",
-        data: "&id=" + thisId, // we compose $_POSt VARIABLE here
-        success : function(text){
-            showRecipeAdded(text);
-            $('#removedUserMsg').text("");
-            $('#removedUserMsg').append(text);
-            $('#'+liToHide).fadeOut();
-            setTimeout(function(){
-                $('#removedUserMsg').text("");
-            }, 2000);
-        },
-        error : function() {
-            console.log('Ca va pas!');
-        }
-    });
-});
-
-/**************************
-AJAX ADD USER
-***************************/
-$('#add-user').on('submit', function(e) {
-    e.preventDefault();
-    var inputData = $( this ).serialize();
-    console.log(inputData);
-    $.ajax({
-        type: "POST",
-        url: "inc/list_users_treat.php",
-        data: inputData, // we compose $_POSt VARIABLE here
-        success : function(text){
-            showRecipeAdded(text);
-            $('#removedUserMsg').text("");
-            $('#removedUserMsg').append(text);
-            setTimeout(function(){
-                $('#removedUserMsg').text("");
-            }, 10000);
-        },
-        error : function() {
-            console.log('Ca va pas!');
-        }
-    });
-});

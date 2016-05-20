@@ -1,5 +1,6 @@
 <?php
 require_once 'connect.php';
+require_once 'functions.php';
 $post = [];
 $errors = [];
 $possibleRole = ['admin', 'edit'];
@@ -24,7 +25,7 @@ if(!empty($_POST)) {
         $errors[] = 'Email n\'est pas correct';
     }
 
-    if(verif('/^[\w\d]{6,20}$/', $post['user-add-email'])) {
+    if(verif("#[a-zA-Z0-9]{8,20}$#", $post['user-add-password'])) {
         $errors[] = 'Password doit comporter entre 8 et 20 characteres';
     }
     // ACTION!
@@ -47,7 +48,7 @@ if(!empty($_POST)) {
             echo '<div class="alert alert-success" role="alert">Cet user a été bien ajoutée.</div>';
         }
         else {
-            echo '<div class="alert alert-success" role="alert">Cet user n\'a pas été ajoutée.</div>';
+            echo '<div class="alert alert-danger" role="alert">Utilisez un autre email, svp.</div>';
         }
     }
 

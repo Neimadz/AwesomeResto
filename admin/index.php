@@ -1,5 +1,4 @@
 <?php
-
 require_once 'inc/functions.php';
 require_once 'inc/login.php';
 include_once 'inc/header.php';
@@ -44,7 +43,7 @@ $mdp = true;
                 <a href="lost_password.php" class="btn btn-primary">Mot de passe oublié ?</a>
             </div>
         </div>
-        
+
     <?php endif; ?>
 </form>
 
