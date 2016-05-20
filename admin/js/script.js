@@ -27,16 +27,16 @@ $('.ajax-read-msg').on('submit', function(event) {
 function readMsg(div, id){
     // get data
     var msg = id;
-    console.log(msg);
     var divToHide = div;
 
     $.ajax({
         type: "GET",
         url: "inc/read_messages_treat.php",
-        data: "msg=" + msg,
+        data: "msg=" + msg, // we compose $_GET VARIABLE here
         success : function(text){
             if (text == "success"){
-                msgWasReadedSuccess(divToHide);
+                showMsgReaded("Le message a été marqué comme lu!");
+                $('.'+div).css('display', 'none');
             } else {
                 showMsgReaded(text);
             }
@@ -47,16 +47,10 @@ function readMsg(div, id){
     });
 }
 
-function msgWasReadedSuccess(div){
-    console.log(div);
-    showMsgReaded("Le message a été marqué comme lu!");
-    $('.'+div).css('display', 'none');
-}
-
 function showMsgReaded(msg){
     $("#msgRead").text(""); // to clear div
     $("#msgRead").append(msg);
-    setTimeout(function() {
+    setTimeout(function() { // to hide any message
         $("#msgRead").text("");
     }, 3000);
 }

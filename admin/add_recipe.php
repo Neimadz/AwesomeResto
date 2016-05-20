@@ -24,7 +24,7 @@ if(!empty($_POST)) {
       $error[] = 'La listes d\'ingrédients doit être complète';
     }
     if(empty($post['role']) || !in_array($post['role'], $possibleRole)) {
-      $error[] = 'Présicez la catégorie, svp';
+      $error[] = 'Précisez la catégorie, svp';
     }
     if(count($error) > 0) {
       $displayErr = true;
@@ -43,7 +43,7 @@ if(!empty($_POST)) {
             $formValid = true;
         }
         else {
-              die(print_r($sql->errorInfo()));
+             die(print_r($sql->errorInfo()));
         }
     }
 }
