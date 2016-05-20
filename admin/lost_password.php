@@ -147,7 +147,7 @@ if(!empty($_POST)) {
 	        </div>
 	    </div>
 	    <div class="form-group">
-	        <label class="col-md-4 control-label" for="new_password_conf">Confirmation du mot de passe : </label>
+	        <label class="col-md-4 control-label" for="new_password_conf">Confirmation du nouveau mot de passe : </label>
 	        <div class="col-md-4">
 	            <input type="password" name="new_password_conf" id="new_password_conf" class="form-control">
 	        </div>
