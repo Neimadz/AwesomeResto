@@ -143,15 +143,31 @@ header {
 }
 
 /******Styles des recipes affichage via search*****/
-
-.recipe-img{
-    border: solid black 1px;
-    border-radius: 10px;
-    margin: 25px 0;
+.recipe_search{
+    text-align: center;
+}
+.img-search{
+    height: 300px;
+  
+}
+.title-list{
+    font-size: 32px;
+    color: #1abc9c; 
 }
 
-.recipe-title{
-    color: #F89406;
+.publishSearch{
+   
+}
+.search-article{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 450px;
+    background-color: #ecf0f1;
+}
+
+/*ma lettre surlignée*/
+.letterOnSearch{ 
+    background-color: #bdc3c7;
 }
 
 
