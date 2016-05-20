@@ -68,7 +68,14 @@ header {
     background-image: url(../img/img_header/img_header3.jpg)
 }
 
-
+/*ci dessous css de update-infos*/
+.update-info-title{
+    margin-top: 5px;
+    font-size: 22px;
+} 
+.help-block{
+    font-size: 14px;
+}
 
 .owl-prev,
 .owl-next {

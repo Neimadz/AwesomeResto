@@ -14,7 +14,7 @@ $formValid = false;
 			$post[$key] = trim(strip_tags($value));
 		}
 
-		if(strlen($post['adress']) < 4 || strlen($post['adress']) > 40){
+		if(strlen($post['adress']) < 4 || strlen($post['adress']) > 200){
 			$error[] = 'not an adress';
 		}
 
