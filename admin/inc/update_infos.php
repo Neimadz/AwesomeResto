@@ -18,20 +18,14 @@ $formValid = false;
 			$error[] = 'not a adress';
 		}
 
-		/*if(!filter_var($post['email']) FILTER_VALIDATE_EMAIL){
-			$error[] = 'not an email'; vérifier l'email
-		}*/
-
 		if(count($error) > 0){
 			$displayErr = true;
 		}
-
 			else {
 
 				// Ici je suis sur de ne pas avoir d'erreurs, donc je peux faire du traitement.
-
 				$res = $db->prepare('UPDATE img_header SET img1 = :img1, img2 = :img2, img3 = :img3, adress = :adress WHERE id = 1');
-
+				
 				// On complète les champs
 				$res->bindValue(':img1', $post['img1']);
 				$res->bindValue(':img2', $post['img2']);
@@ -56,7 +50,7 @@ $formValid = false;
 	$res->execute();
 
 	// $changeprofil contient mon article extrait de la bdd
-	$image = $res->fetch(PDO::FETCH_ASSOC);
+	$changeprofil = $res->fetch(PDO::FETCH_ASSOC);
 
 	if($formValid){ // Si tout est ok, on affiche notre victoire !
 		echo '<p style="color:green;"> GREAT !!</p>';
