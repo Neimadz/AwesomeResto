@@ -2,6 +2,11 @@
 require_once 'bdd/resto.php';
 require_once 'inc/functions.php';
 
+$img = $db->prepare('SELECT * FROM  img_header WHERE id = 1');
+$img->execute();
+
+$image = $img->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +75,7 @@ require_once 'inc/functions.php';
             <div class="row">
                 <header>
                     <div class="owl-carousel">
-                        <div class="item carousel-item-1"></div>
+                        <div style="background-image:<?php echo $image['img1'];?>"></div>
                         <div class="item carousel-item-2"></div>
                         <div class="item carousel-item-3"></div>
                     </div>
