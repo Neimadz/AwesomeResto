@@ -15,11 +15,11 @@ if(!empty($_GET) && isset($_GET['keyword']) ) {
     $searchKeyword->execute();
     if($searchResult = $searchKeyword->fetchAll(PDO::FETCH_ASSOC)) {
         foreach ($searchResult as $article) {
-            showArticles($article);
+            showSearchResult($article, $keyword);
         }
     }
     else {
-        echo '<p class="noresult-search">Désolé, votre demande de <span class="keyword">' . $keyword . '</span> est introuvable</p>';
+        echo '<p class="noresult-search">Désolé, votre demande de <span class="keyword" style="font-weight:bold">' . $keyword . '</span> est introuvable</p>';
     }
 }
 

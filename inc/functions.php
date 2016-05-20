@@ -3,12 +3,23 @@
 require_once 'connect.php';
 
 function showArticles($art) {
-    echo '<h2 class="article-title">'.$art['title'].'</h2>';
-    echo '<p class="article-date">'.$art['date_publish'].'</p>';
-    echo '<p class="article-author">Auteur :'.$art['author_id'].'</p>';
-    echo '<p class="article-ingr">'.$art['ingredients'].'</p>';
-    echo '<p class="article-p">'.$art['content'].'</p>';
+    echo '<article>';
+    echo '<h2 class="recipe-title">'.$art['title'].'</h2>';
+    echo '<p class="recipe-date">'.$art['date_publish'].'</p>';
+    echo '<p class="recipe-author">Auteur :'.$art['author_id'].'</p>';
+    echo '<p class="recipe-ingr">'.$art['ingredients'].'</p>';
+    echo '<p class="recipe-p">'.$art['content'].'</p>';
     echo '<img src="'.$art['link'].'">';
+    echo '</article>';
+}
+
+function showSearchResult($art, $key) {
+    echo '<article>';
+	echo '<h1>' . str_ireplace($key, '<span style="padding:5px;background-color:#E08283;color:#fff;">' . $key . '</span>', $art['title']) . '</h1>';
+	echo '<p class="art-date">Publié le ' . $art['date_publish'] . '</p>';
+	echo '<img class="article-img" src="' . $art['link'] . '">';
+	echo '<p>' . str_ireplace($key, '<span style="padding:0 5px;background-color:#E08283;color:#fff;">' . $key . '</span>', $art['content']) . '</p>';
+	echo '</article>';
 }
 
 /********Fonction permétant de sélectionner les recettes en fonctions de leur role***********/
