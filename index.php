@@ -10,7 +10,7 @@ include_once 'inc/header.php';
 			<a class="link-index" href="#entree">Liste de nos entrées</a>
 			<br>
 			<?php
-				foreach(selectCategory('entrance') as $entree) {
+				foreach(selectCategoryIndex('entrance') as $entree) {
 					echo '<img class="img-accueil" src="'.$entree['link'].'">'; // Lien image entrée
 					echo '<br>';
 					echo '<a class="link-index" href="#">'.$entree['title']."</a>"; // Nom de l'entrée
@@ -21,7 +21,7 @@ include_once 'inc/header.php';
 			<a class="link-index" href="#plats">Liste de nos plats</a>
 			<br>
 			<?php
-				foreach (selectCategory('dish') as $plat) {
+				foreach (selectCategoryIndex('dish') as $plat) {
 					echo '<img class="img-accueil" src="'.$plat['link'].'">'; // Lien image entrée
 					echo '<br>';
 					echo '<a class="link-index" href="#">'.$plat['title']."</a>"; // Nom de l'entrée
@@ -32,7 +32,7 @@ include_once 'inc/header.php';
 			<a class="link-index" href="#desserts">Liste de nos desserts</a>
 			<br>
 			<?php
-				foreach (selectCategory('dessert') as $dessert) {
+				foreach (selectCategoryIndex('dessert') as $dessert) {
 					echo '<img class="img-accueil" src="'.$dessert['link'].'">'; // Lien image entrée
 					echo '<br>';
 					echo '<a class="link-index" href="#">'.$dessert['title']."</a>"; // Nom de l'entrée

@@ -23,6 +23,19 @@ function selectCategory($role){
 	return $debut->fetchAll(PDO::FETCH_ASSOC);
 }
 
+//Fonction pour la page index
+function selectCategoryIndex($role){
+	global $db; // Va chercher la variable $db qui se trouve hors de la fonction
+
+	// Prépare et execute la requète SQL
+	$debut = $db->prepare('SELECT * FROM recipes WHERE role = :assoc ORDER BY date_publish ASC LIMIT 1');
+	$debut->bindValue(':assoc', $role);
+	$debut->execute();
+
+	// Retourne tous les roles de la table "recipes" indiqué dans la fonction sous forme de array()
+	return $debut->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 /*******Fonction permettant de limiter le nombre de caractères affichés***********/
 
