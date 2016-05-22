@@ -18,6 +18,8 @@ require_once 'inc/header.php';
 								echo '<h2><a href="">'.$entree['title'].'</a></h2><br>';
 								echo '<p>'.$entree['content'].'</p>';
 							echo '</div><br>';
+							// En récupérant l'id de l'article, je peux le passer en GET afin d'avoir un seul et même fichier pour lire chaque article individuellement 
+							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$entree['id'].'"> READ THE RECIPE </a>';
 						echo '</div>';
 					}
 				?>

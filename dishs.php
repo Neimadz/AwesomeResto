@@ -17,6 +17,7 @@ require_once 'inc/header.php';
 								echo '<h2><a href="">'.$plats['title'].'</a></h2><br>';
 								echo '<p>'.$plats['content'].'</p>';
 							echo '</div><br>';
+							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$plats['id'].'"> READ THE RECIPE </a>';
 						echo '</div>';
 					}
 				?>
