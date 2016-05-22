@@ -19,7 +19,7 @@ if(!empty($users)) {
              $value['role']                 .
              '<a class="remove-user" href="#" data-id="'         .
              $value['id']                   .
-             '"></span><span class="glyphicon glyphicon-remove">'.
+             '"></span><span class="glyphicon glyphicon-remove cross-remove-user">'.
 
              '</span></a></li>';
              $count++;

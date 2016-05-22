@@ -1,13 +1,24 @@
-<div id="msgRead"></div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <div id="msg-container">
+            <?php
+                $allMsgs = checkNotReadMsg();
+                foreach ($allMsgs as $key => $msg) {
+                    showMessages($msg);
+                }
+            ?>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+        <div id="msgRead"></div>
+    </div>
+</div>
+
+
 <?php
-//require_once 'connect.php';
-
-$allMsgs = checkNotReadMsg();
-foreach ($allMsgs as $key => $msg) {
-    showMessages($msg);
-}
-
 if (empty($allMsgs)) {
-    echo 'Vouz n\'avez pas de messages';
+    echo '<p class="noresult-msg">Vouz n\'avez pas de messages</p>';
 }
 ?>

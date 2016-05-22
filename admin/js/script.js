@@ -43,7 +43,7 @@ $('#add-user').on('submit', function(e) {
             $('#addedUserMsg').append(text);
             setTimeout(function(){
                 $('#addedUserMsg').text("");
-            }, 2000);
+            }, 7000);
             checkUserList();
         },
         error : function() {
@@ -134,42 +134,36 @@ function showRecipeAdded(msg){
 /**************************
 AJAX FOR READING MESSAGES
 ***************************/
-$('.ajax-read-msg').on('submit', function(event) {
+$('.mark-as-read').on('click', function(event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
         showMsgReaded("Ça va pas...");
     } else {
         // everything looks good!
         event.preventDefault();
-        var selectedDiv = $(this).parent().attr('class');
-        var idToPass = parseInt($(this).find(".ajax-read-msg-id").val());
-        readMsg(selectedDiv, idToPass);
+        var selectedDiv = $(this).parent().attr('id');
+        var msgId = parseInt($(this).attr('data-message-id'));
+
+        $.ajax({
+            type: "GET",
+            url: "inc/read_messages_treat.php",
+            data: "msg=" + msgId, // we compose $_GET VARIABLE here
+            success : function(text){
+                if (text == "success"){
+                    showMsgReaded("Le message a été marqué comme lu!");
+                    $('#'+selectedDiv).fadeOut();
+                } else {
+                    showMsgReaded(text);
+                }
+            },
+            error : function() {
+                console.log('Ca va pas!');
+            }
+        });
+        showMsgNotification();
     }
 });
 
-// ajax query
-function readMsg(div, id){
-    // get data
-    var msg = id;
-    var divToHide = div;
-
-    $.ajax({
-        type: "GET",
-        url: "inc/read_messages_treat.php",
-        data: "msg=" + msg, // we compose $_GET VARIABLE here
-        success : function(text){
-            if (text == "success"){
-                showMsgReaded("Le message a été marqué comme lu!");
-                $('.'+div).css('display', 'none');
-            } else {
-                showMsgReaded(text);
-            }
-        },
-        error : function() {
-            console.log('Ca va pas!');
-        }
-    });
-}
 
 function showMsgReaded(msg){
     $("#msgRead").text(""); // to clear div
@@ -178,3 +172,20 @@ function showMsgReaded(msg){
         $("#msgRead").text("");
     }, 3000);
 }
+
+function showMsgNotification() {
+    if ($('#msg-container').find('div.admin-msg').length == 0) {
+        $('#msg-bell').css('display', 'none');
+        $('#msgRead').text("Vous n'avez aucun message");
+        console.log('Hidden');
+
+    }
+    else {
+        console.log('Shown');
+        $('#msg-bell').css('display', 'inline');
+    }
+    console.log('Hello');
+    console.log($('#msg-container').find('div.admin-msg'));
+}
+
+showMsgNotification();

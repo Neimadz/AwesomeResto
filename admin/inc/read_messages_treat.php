@@ -16,6 +16,7 @@ if(!empty($allMsgs)){
         else {
             echo 'Message n\'étais pas marqué comme lu';
         }
+
     }
 }
 else {

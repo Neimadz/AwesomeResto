@@ -21,7 +21,7 @@ if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin') {
  ?>
         <li role="presentation"><a href="#user_list" aria-controls="modify-article" role="tab" data-toggle="tab">Liste d'utilisateurs</a></li>
         <li role="presentation"><a href="#modify-header" aria-controls="modify-header" role="tab" data-toggle="tab">Modifier header</a></li>
-        <li role="presentation"><a href="#read-messages" aria-controls="read-messages" role="tab" data-toggle="tab">Lire les messages <?php if(!empty($allMsgs)){echo '<span class="glyphicon glyphicon-bell"></span>';} ?></a></li>
+        <li role="presentation"><a href="#read-messages" aria-controls="read-messages" role="tab" data-toggle="tab">Lire les messages <span id="msg-bell" class="glyphicon glyphicon-bell"></span></a></li>
 <?php } // show li only for admin ?>
     </ul>
 
