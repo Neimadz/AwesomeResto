@@ -11,7 +11,7 @@ $post = [];
 $showFormEmail = true;    // On affiche le 1er formulaire de saisie de l email
 $showFormPassword = false; // On affiche le 2nd formulaire de mise à jour de notre mdp
  
-if(isset($_GET['token']) && !empty($_GET['token']) && isset($_POST['email']) && !empty($_POST['email'])) {
+if(isset($_GET['token']) && !empty($_GET['token']) && isset($_GET['email']) && !empty($_GET['email'])) {
 	$showFormEmail = false;   
 	$showFormPassword = true;
 }
@@ -27,12 +27,11 @@ if(!empty($_POST)) {
 if(isset($post['action']) && $post['action'] == 'generateToken') {
 var_dump($post);
 	if(filter_var($post['email_password'], FILTER_VALIDATE_EMAIL)) {
-		$req = $db->prepare('SELECT email from users WHERE email= :email');
+		$req = $db->prepare('SELECT email FROM users WHERE email= :email');
 		$req->bindValue(':email', $post['email_password']);
 		$req->execute();
 
 		$emailExist = $req->fetchColumn();
-
 		if(!empty($emailExist)) {    // On search une corres avec le mail
 
 			$token = md5(uniqid()); // Création du token
@@ -58,7 +57,7 @@ var_dump($post);
 	        	$mail->Port = 587;                                    // TCP port to connect to
 
 	        	$mail->setFrom('contact@monsupersite.fr', 'contact du site'); //expéditeur
-	        	$mail->addAddress('contact.myriambugnazet@gmail.com', 'millaa');  // Add a recipient// Name is optional
+	        	$mail->addAddress('contact.myriambugnazet@gmail.com', '');  // Add a recipient// Name is optional
 	        	$mail->addReplyTo('info@example.com', 'Information');// si on l'enlève ça renvoie auto à l'expéditeur
 
 	       	 	$mail->isHTML(true);                                  // Set email format to HTML
@@ -129,7 +128,9 @@ var_dump($post);
 <main class="container">
 <h1 class="text-center">Mot de passe oublié ?</h1>
 <br>
-<?php if(!empty($error)): // Affichage des erreurs si êrror n est pas vide ?>
+<?php 
+
+if(!empty($error)): // Affichage des erreurs si êrror n est pas vide ?>
 	<div class="alert alert-danger">
 	    <?=implode('<br>', $error); ?>
 	</div>
