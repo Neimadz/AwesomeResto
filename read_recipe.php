@@ -28,7 +28,7 @@ if(!empty($_GET)){
 	echo '<br>';
 	echo '<h2>' .$recipe['title'] . '</h2>';
 	echo '<br>';
-	echo '<p>Publié le : ' .date('d/ m/ Y', strtotime($recipe ['date_add']));
+	echo '<p>Publié le : ' .date('d/ m/ Y', strtotime($recipe['date_add']));
 	echo '<br><br>';
 	echo '<img class="imgonerecipe" src="'.$recipe['link'].'">';
 	echo '<br><br>';
