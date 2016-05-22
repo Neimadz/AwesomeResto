@@ -17,7 +17,7 @@ include_once 'inc/header.php';
 						}
 					?>
 					<p>
-						<a class="index-recipe-link-all" href="#entree">Voir tous nos entrées <span class="glyphicon glyphicon-arrow-right"></span></a>
+						<a class="index-recipe-link-all" href="entrances.php">Voir tous nos entrées <span class="glyphicon glyphicon-arrow-right"></span></a>
 					</p>
 				</div>
 			</div>
@@ -30,7 +30,7 @@ include_once 'inc/header.php';
 						}
 					?>
 					<p>
-						<a class="index-recipe-link-all" href="#plats">Voir tous nos plats <span class="glyphicon glyphicon-arrow-right"></span></a>
+						<a class="index-recipe-link-all" href="dishs.php">Voir tous nos plats <span class="glyphicon glyphicon-arrow-right"></span></a>
 					</p>
 				</div>
 			</div>
@@ -43,7 +43,7 @@ include_once 'inc/header.php';
 						}
 					?>
 					<p>
-						<a class="index-recipe-link-all" href="#desserts">Voir tous nos desserts <span class="glyphicon glyphicon-arrow-right"></span></a>
+						<a class="index-recipe-link-all" href="desserts.php">Voir tous nos desserts <span class="glyphicon glyphicon-arrow-right"></span></a>
 					</p>
 				</div>
 			</div>
