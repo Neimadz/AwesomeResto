@@ -52,6 +52,14 @@ function selectCategoryIndex($role){
 	return $debut->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function showRecipe($recipe) {
+
+    echo '<a class="index-recipe-link" href="#">'.$recipe['title']."</a>"; // Dish name
+    echo '<div class="index-recipe-img-container">';
+    echo '<img class="index-recipe-img" src="'.$recipe['link'].'">'; // Img source
+    echo '<div class="index-recipe-ingredients">'.$recipe['ingredients'].'</div></div>';
+
+}
 
 /*******Fonction permettant de limiter le nombre de caractères affichés***********/
 
@@ -78,7 +86,7 @@ function cutString($string, $start, $length, $endStr = '[&hellip]'){
 /***************Fonction de vérification d'accès*******************/
 /*function logged_only($role){
 		if (session_status() == PHP_SESSION_NONE) {
-			session_start(); 
+			session_start();
 		}
 		if (!isset($_SESSION['users'])) {
 			$_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder a cette page !";

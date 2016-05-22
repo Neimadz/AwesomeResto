@@ -31,7 +31,7 @@ require_once 'functions.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="admin.php"><?php if(isset($_SESSION)) {echo 'Hello ' . $_SESSION['user']['firstname'] . ' '. $_SESSION['user']['lastname'];}?></a>
+              <a class="navbar-brand" href="admin.php"><?php if(isset($_SESSION['user'])) {echo 'Hello ' . $_SESSION['user']['firstname'] . ' '. $_SESSION['user']['lastname'];}else{echo 'Log in, svp'}?></a>
             </div>
 
             <!-- <form id="header_search" class="navbar-form navbar-right" role="search" method="GET">

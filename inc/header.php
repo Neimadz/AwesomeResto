@@ -18,6 +18,7 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/style.css">
 
@@ -45,13 +46,16 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
             <form id="header_search" class="navbar-form navbar-right" role="search" method="GET">
               <div class="form-group">
                 <input type="text" id="header_keyword" class="form-control" name="header_keyword" placeholder="Search">
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+
             </form>
+
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Accueil<span class="sr-only">(current)</span></a></li>
+                <li><a href="index.php">Accueil<span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recettes<span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -70,16 +74,18 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
-        <div class="container-fluid">
-            <div class="row">
-                <header>
-                    <div class="owl-carousel">
 
-                        <div class="item carousel-item-1"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img1'];?>" alt=""></div>
-                        <div class="item carousel-item-2"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img2'];?>" alt=""></div>
-                        <div class="item carousel-item-3"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img3'];?>" alt=""></div>
-                    </div>
-                </header>
+            <header>
+                <div class="owl-carousel">
 
-            </div>
+                    <div class="item carousel-item-1"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img1'];?>" alt="food"></div>
+                    <div class="item carousel-item-2"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img2'];?>" alt="food"></div>
+                    <div class="item carousel-item-3"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img3'];?>" alt="food"></div>
+                </div>
+                <div class="online-reserve">
+                    Reserver en ligne <a href="#">Reserver</a>
+                </div>
+            </header>
+
+
             <div id="wrapper">

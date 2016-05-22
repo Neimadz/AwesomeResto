@@ -3,47 +3,58 @@ require_once 'inc/connect.php';
 include_once 'inc/header.php';
 ?>
 
-<div class="wrapper-index">
+<section class="wrapper-index">
 	<h1 id="title-index" class="text-center">Les recettes des chefs</h1>
-	<div id="wrapper-recettes" class="container">
-		<div class="recette col-sm-4 text-center">
-			<a class="link-index" href="#entree">Liste de nos entrées</a>
-			<br>
-			<?php
-				foreach(selectCategoryIndex('entrance') as $entree) {
-					echo '<img class="img-accueil" src="'.$entree['link'].'">'; // Lien image entrée
-					echo '<br>';
-					echo '<a class="link-index" href="#">'.$entree['title']."</a>"; // Nom de l'entrée
-				}
-			?>
-		</div>
-		<div class="recette col-sm-4 text-center">
-			<a class="link-index" href="#plats">Liste de nos plats</a>
-			<br>
-			<?php
-				foreach (selectCategoryIndex('dish') as $plat) {
-					echo '<img class="img-accueil" src="'.$plat['link'].'">'; // Lien image entrée
-					echo '<br>';
-					echo '<a class="link-index" href="#">'.$plat['title']."</a>"; // Nom de l'entrée
-				}
-			?>
-		</div>
-		<div class="recette col-sm-4 text-center">
-			<a class="link-index" href="#desserts">Liste de nos desserts</a>
-			<br>
-			<?php
-				foreach (selectCategoryIndex('dessert') as $dessert) {
-					echo '<img class="img-accueil" src="'.$dessert['link'].'">'; // Lien image entrée
-					echo '<br>';
-					echo '<a class="link-index" href="#">'.$dessert['title']."</a>"; // Nom de l'entrée
-				}
-			?>
+	<div class="container">
+		<div class="row">
+
+			<div class="index-recipe col-xs-12 col-sm-4 text-center">
+				<div class="thumbnail">
+
+					<?php
+						foreach(selectCategoryIndex('entrance') as $ent) {
+							showRecipe($ent);
+						}
+					?>
+					<p>
+						<a class="index-recipe-link-all" href="#entree">Voir tous nos entrées <span class="glyphicon glyphicon-arrow-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="index-recipe col-xs-12 col-sm-4 text-center">
+				<div class="thumbnail">
+					<?php
+						foreach (selectCategoryIndex('dish') as $plat) {
+							showRecipe($plat);
+						}
+					?>
+					<p>
+						<a class="index-recipe-link-all" href="#plats">Voir tous nos plats <span class="glyphicon glyphicon-arrow-right"></span></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="index-recipe col-xs-12 col-sm-4 text-center">
+				<div class="thumbnail">
+					<?php
+						foreach (selectCategoryIndex('dessert') as $dessert) {
+							showRecipe($dessert);
+						}
+					?>
+					<p>
+						<a class="index-recipe-link-all" href="#desserts">Voir tous nos desserts <span class="glyphicon glyphicon-arrow-right"></span></a>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div id="bouton-recettes" class="text-center">
-		<a class="btn btn-default btn-recettes" href="page2.php" role="button" href="">Découvrir toutes <br> les recettes des chefs</a>
-	</div>
-</div>
+</section>
+
+<section id="index-our-chef">
+	<a class="btn btn-default see-all-recipes-index" href="page2.php" role="button" href="#">Découvrir toutes <br> les recettes des chefs</a>
+</section>
+
 <?php
 	include_once 'inc/footer.php';
 ?>

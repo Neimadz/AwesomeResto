@@ -1,6 +1,6 @@
 *{
     line-height: normal;            /*hauteur de ligne*/
-    font-weight: 500;
+    /*font-weight: 500;*/
     box-sizing: border-box;          /*gestion des boites et marges avec la taille des bordures incluse*/
     margin: 0;
     padding: 0; /*Reset des bordures*/
@@ -10,13 +10,15 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    background-color: #fdfdfd;
 }
 
-.container-fluid {
-    padding: 0;
-    margin: 0;
-}
+
+/******************
+NAVBAR style
+******************/
 
 .navbar {
     margin-bottom: 0;
@@ -28,11 +30,8 @@ body {
 
 nav {
     padding: .5em;
-
 }
-/*.navbar-default .navbar-nav>li>a {
-    color: #fff;
-}*/
+
 nav li a,
 .navbar-brand {
     color: #fff;
@@ -46,25 +45,82 @@ nav li a:hover,
     color: #fff;
 }
 
-header {
-    width: 100%;
-    height: 40vh;
-    background-size: fixed;
-}
-
-#msgInsert {
+.navbar form {
     position: relative;
 }
 
+.navbar form button {
+    position: absolute;
+    top: .7em;
+    right: 1em;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar form button {
+        top: 0;
+    }
+}
+
+.navbar-toggle .icon-bar{
+    background-color: #fff;
+}
+
+/* end of nabar */
+
+/******************
+  HEADER style
+******************/
+
+header {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    height: 65vh;
+}
+
+.online-reserve {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 2em;
+    width: 100%;
+    background-color: rgba(10,10,10,.7);
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 300;
+    z-index: 1;
+}
+
+.online-reserve a {
+    display: inline-block;
+    margin-left: 1em;
+    padding: .5em;
+    border: 1px solid #fff;
+    border-radius: .5em;
+    color: #fff;
+}
+
+.online-reserve a:hover,
+.online-reserve a:focus {
+    background-color: #b17070;
+    border-color: #b17070;
+    text-decoration: none;
+    transition: all 500ms ease;
+}
+
+/****** Header's carousel styling ******/
 
 .item {
     width: 100%;
-    height: 40vh;
+    height: 65vh;
     background-size: cover;
-    background-position: center-center;
+    background-position: center center;
 }
 
-/* .carousel-item-1 {
+ .carousel-item-1 {
     background-image: url(../img/img_header/img_header1.jpg)
 }
 
@@ -75,8 +131,6 @@ header {
 .carousel-item-3 {
     background-image: url(../img/img_header/img_header3.jpg)
 }
- */
-
 
 .owl-prev,
 .owl-next {
@@ -85,61 +139,121 @@ header {
 }
 .owl-prev {
     position: absolute;
-    top: 50%;
+    top: 35%;
     margin-left: 1em;
 }
 
 .owl-next {
     position: absolute;
-    top: 50%;
+    top: 35%;
     right: 0;
     margin-right: 1em;
 }
+/******End of header ******/
 
-/******Styles de index.php******/
+/******************
+  INDEX.php style
+******************/
 
-.wrapper-index{
-    background-color: #96281B;
-    height: 100%;
-}
 #title-index{
     font-family: 'Courgette', sans-serif;
     font-weight: bold;
-    color: #FFF;
     font-size: 3em;
-    margin-top: 0;
-    padding-top: 60px;
-    padding-bottom: 50px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
 }
-#wrapper-recettes{
-    /*height: 75%;*/
-    margin-bottom: 50px;
-    width: 80%;
-}
-.link-index{
-    color: #FFF;
+
+.index-recipe-link{
+    display: inline-block;
+    margin-top: 1.5em;
+    margin-bottom: 1.2em;
+    color: #2f4f4f;
+    font-size: 1.1em;
     font-weight: bold;
 }
-.link-index:hover, .link-index:focus{
-    color: #F89406;
-    text-decoration: none;
+
+.index-recipe-link:hover,
+.index-recipe-link:focus{
+    color: #2f4f4f;
     font-weight: bold;
 }
-.img-accueil{
-    border: solid black 1px;
-    border-radius: 10px;
-    margin: 25px 0;
+
+.index-recipe-img-container {
+    position: relative;
 }
-.btn-recettes{
-    margin-top: 75px;
-    margin-bottom: 50px;
-    font-family: 'Courgette', sans-serif; 
-    background-color: #C0392B;
+
+.index-recipe-img{
+    width: 97%;
+    border-radius: .3em;
+}
+.index-recipe-ingredients {
+    position: absolute;
+    top: 0;
+    left: 1.5%;
+    padding: 2em;
+    width: 97%;
+    height: 100%;
+    background-color: #881a1b;
+    color: #fff;
+    border-radius: .3em;
+    font-weight: 300;
+    line-height: 2;
+    opacity: 0;
+}
+
+.index-recipe-ingredients:hover {
+    opacity: .75;
+    transition: all 500ms ease;
+}
+
+.index-recipe-link-all {
+    display: inline-block;
+    margin-top: 1em;
+    color: #2f4f4f;
+}
+
+
+section#index-our-chef {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background: url(../img/index-chef.jpeg) top center no-repeat;
+    background-size: cover;
+}
+
+.see-all-recipes-index {
+    position: absolute;
+    top: 65%;
+    left: 5%;
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: .4em;
+    font-family: 'Courgette', sans-serif;
+    font-size: 1.5em;
+    background-color: #ead7c7;
+    color: #fff;
+}
+
+.see-all-recipes-index:hover {
+    background-color: #cfbaa9;
+    transition: all 700ms ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+    .see-all-recipes-index {
+        top: 15%;
+        left: 5%;
+        padding: 1em 2em;
+    }
 }
 
 /*****Styles de la page2.php****/
 .titre-p2{
     color: #FFF;
+}
+
+#msgInsert {
+    position: relative;
 }
 
 /******Styles des recipes affichage via search*****/
@@ -154,7 +268,7 @@ header {
 
 .title-list{
     font-size: 24px;
-    color: #1abc9c; 
+    color: #1abc9c;
 }
 
 .publishSearch{
@@ -168,7 +282,7 @@ header {
 }
 
 /*ma lettre surlignée*/
-.letterOnSearch{ 
+.letterOnSearch{
     background-color: #bdc3c7;
 }
 
@@ -177,9 +291,9 @@ header {
 
 footer{
     text-align: center;
-    background-color:#881a1b; 
-    color:#FFF;
-    padding:25px 0;
+    background-color: #3a2d2d;
+    color: #fff;
+    padding: 25px 0;
     font-family: 'Architects Daughter', cursive;
 }
 footer h4{
@@ -188,6 +302,6 @@ footer h4{
     font-weight: 300;
 }
 footer p{
-    color:#000;
+    color: #fff;
     font-size: 15px;
 }
