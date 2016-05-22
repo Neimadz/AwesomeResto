@@ -120,7 +120,7 @@ header {
     background-position: center center;
 }
 
- .carousel-item-1 {
+ /*.carousel-item-1 {
     background-image: url(../img/img_header/img_header1.jpg)
 }
 
@@ -130,7 +130,7 @@ header {
 
 .carousel-item-3 {
     background-image: url(../img/img_header/img_header3.jpg)
-}
+}*/
 
 .owl-prev,
 .owl-next {
@@ -247,7 +247,9 @@ section#index-our-chef {
     }
 }
 
-/*****Styles de la page2.php****/
+/******************
+  page2.php style
+******************/
 .titre-p2{
     color: #FFF;
 }
@@ -264,23 +266,32 @@ section#index-our-chef {
 
 /******Styles des recipes affichage via search*****/
 
-.recipe_search{
+
+#wrapper {
+}
+
+.search-result{
+    margin: 1em auto;
+    padding: 2em 3em;
+    width: 80%;
+    background-color: #ECF0F1;
+    border-radius: .4em;
+}
+
+.search-recipe-title {
+    font-size: 2.5em;
+    color: #1abc9c;
     text-align: center;
 }
 
-.img-search{
+.search-recipe-date {
+}
+
+.search-recipe-image {
     height: 300px;
 }
 
-.title-list{
-    font-size: 24px;
-    color: #1abc9c;
-}
-
-.publishSearch{
-   color: #34495e;
-}
-.search-article{
+.search-recipe-content {
     margin: 0 auto;
     margin-top: 20px;
     width: 450px;
@@ -288,10 +299,10 @@ section#index-our-chef {
 }
 
 /*ma lettre surlignée*/
-.letterOnSearch{
-    background-color: #bdc3c7;
+.search-recipe-keyword {
+   color: #34495e;
+   background-color: #bdc3c7;
 }
-
 
 /******Styles du Footer*****/
 

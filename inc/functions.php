@@ -14,16 +14,12 @@ function showArticles($art) {
 }
 
 function showSearchResult($art, $key) {
-    echo '<article>';
-    echo '<div class="recipe_search">';
-	echo '<h3 class="title-list">' . str_ireplace($key, '<span class="letterOnSearch">' . $key . '</span>', $art['title']) . '</h3>';
-	echo '<p class="publishSearch"><strong> Publié le ' . $art['date_publish'] . '</strong> </p>';
-	echo '<img class="img-search" src="' . $art['link'] . '">';
-	echo '<p class="search-article">' . str_ireplace($key, ' <span> ' . $key . ' </span> ', $art['content']) . '</p>';
-	echo '</div>';
+    echo '<article class="search-result">';
+	echo '<h3 class="search-recipe-title">' . str_ireplace($key, '<span class="search-recipe-keyword">' . $key . '</span>', $art['title']) . '</h3>';
+	echo '<p class="search-recipe-date">Publié le ' . date('d/m/Y', strtotime($art['date_publish'])) . '</p>';
+	echo '<img class="search-recipe-img" src="' . $art['link'] . '">';
+	echo '<p class="search-recipe-content">' . str_ireplace($key, ' <span class="search-recipe-keyword"> ' . $key . ' </span> ', $art['content']) . '</p>';
 	echo '</article>';
-	echo '<br> <hr>';
-
 }
 
 /********Fonction permétant de sélectionner les recettes en fonctions de leur role***********/
