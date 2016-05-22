@@ -32,8 +32,8 @@ if(!empty($_GET)){
 	echo '<br><br>';
 	echo '<img class="" src="'.$recipe['link'].'">';
 	echo '<br><br>';
-	echo '<p class="readContent">' .$recipe['content'].'</p>';
-	echo '<br>';
+	echo '<center><p style="width: 570px">' .$recipe['content'].'</p></center>';
+	echo '<br><br>';
 	echo '</div>';
 
 	} else {
