@@ -262,6 +262,7 @@ section#index-our-chef {
 .img-list{
     max-height: 300px;
     width: 100%;
+    object-fit: cover;
 }
 
 /******Styles des recipes affichage via search*****/
