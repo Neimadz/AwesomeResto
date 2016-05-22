@@ -3,11 +3,11 @@
 <div id="removedUserMsg"></div>
 <div id="addedUserMsg"></div>
 
-<h1>Ajouter un nouvel utilisatuer</h1>
+<h1>Ajouter un nouvel utilisateur</h1>
 
 <form id="add-user" method="post">
     <div class="form-group">
-        <label for="user-add-role">Role :</label>
+        <label for="user-add-role">Rôle :</label>
         <select id="user-add-role" name="user-add-role" class="form-control" size="1">
             <option value="zero">Choisir une catégorie :</option>
             <option value="admin">Admin</option>

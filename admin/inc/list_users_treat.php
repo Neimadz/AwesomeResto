@@ -15,18 +15,18 @@ if(!empty($_POST)) {
         $errors[] = 'Le role ne doit pas etre vide.';
     }
     if(strlen($post['user-add-firstname']) < 3 || strlen($post['user-add-firstname']) > 50) {
-      $errors[] = 'Prenom doit comporter entre 3 et 50 cractères';
+      $errors[] = 'Votre prenom doit comporter entre 3 et 50 caractères';
     }
     if(strlen($post['user-add-lastname']) < 3 || strlen($post['user-add-lastname']) > 50) {
-      $errors[] = 'Nom doit comporter entre 3 et 50 cractères';
+      $errors[] = 'Votre nom doit comporter entre 3 et 50 caractères';
     }
 
     if(verif('/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]/', $post['user-add-email'])) {
-        $errors[] = 'Email n\'est pas correct';
+        $errors[] = 'Votre email n\'est pas correct';
     }
 
     if(verif("#[a-zA-Z0-9]{8,20}$#", $post['user-add-password'])) {
-        $errors[] = 'Password doit comporter entre 8 et 20 characteres';
+        $errors[] = 'Le mot de passe doit comporter entre 8 et 20 caractères';
     }
     // ACTION!
     if(count($errors) > 0) {

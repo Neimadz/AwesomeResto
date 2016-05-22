@@ -19,7 +19,7 @@ if(!empty($allMsgs)){
     }
 }
 else {
-    echo 'Vouz n\'avez aucaun message';
+    echo 'Vous n\'avez aucun message';
 }
 
 ?>
