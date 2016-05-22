@@ -256,6 +256,12 @@ section#index-our-chef {
     position: relative;
 }
 
+/*******Liste des plats********/
+.img-list{
+    max-height: 300px;
+    width: 100%;
+}
+
 /******Styles des recipes affichage via search*****/
 
 .recipe_search{

@@ -59,12 +59,12 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recettes<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Entrées</a></li>
+                    <li><a href="entrances.php">Entrées</a></li>
 
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Plats</a></li>
+                    <li><a href="dishs.php">Plats</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Desserts</a></li>
+                    <li><a href="desserts.php">Desserts</a></li>
                   </ul>
                 </li>
                 <li><a href="contact.php">Contactez-nous</a></li>

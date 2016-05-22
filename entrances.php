@@ -10,7 +10,15 @@ require_once 'inc/header.php';
 				<br>
 				<?php
 					foreach(selectCategory('entrance') as $entree) {
-						showRecipe($entree);
+						echo '<div class="row">';
+							echo '<div class="recette col-sm-6 text-center">';
+								echo '<img class="img-list" src="'.$entree['link'].'"><br><br>';
+							echo '</div>';
+							echo '<div class="recette col-sm-6">';
+								echo '<h2><a href="">'.$entree['title'].'</a></h2><br>';
+								echo '<p>'.$entree['content'].'</p>';
+							echo '</div><br>';
+						echo '</div>';
 					}
 				?>
 		</div>

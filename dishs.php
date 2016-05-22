@@ -4,20 +4,22 @@ require_once 'inc/header.php';
 ?>
 
 <div class="wrapper-index">
-	<h1 id="title-index" class="text-center">Toutes les entrées de nos chefs</h1>
+	<h1 id="title-index" class="text-center">Toutes les plats de nos chefs</h1>
 	<div id="wrapper-recettes" class="container">
-		<div class="row">
 				<br>
 				<?php
-					foreach(selectCategory('dish') as $entree) {
-						echo '<div class="recette col-sm-4 text-center">';
-							echo '<img class="img-list" src="'.$entree['link'].'"><br><br>';
-							echo '<h2>'.cutString($entree['title'],0, 30, '...').'</h2><br>';
-							echo '<p>'.cutString($entree['content'],0, 100, '...').'</p><hr>';
+					foreach(selectCategory('dish') as $plats) {
+						echo '<div class="row">';
+							echo '<div class="recette col-sm-6 text-center">';
+								echo '<img class="img-list" src="'.$plats['link'].'"><br><br>';
+							echo '</div>';
+							echo '<div class="recette col-sm-6">';
+								echo '<h2><a href="">'.$plats['title'].'</a></h2><br>';
+								echo '<p>'.$plats['content'].'</p>';
+							echo '</div><br>';
 						echo '</div>';
 					}
 				?>
-		</div>
 	</div>
 </div>
 <?php
