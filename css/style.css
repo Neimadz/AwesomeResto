@@ -258,6 +258,24 @@ section#index-our-chef {
     position: relative;
 }
 
+/**********Style de la page read_recipe **********/
+.imgOneRecipe {
+    text-align: center;
+}
+
+.readTitle{
+    color: #3E2A1F;
+}
+
+.readPublish{
+    color: #008080;
+}
+
+.readContent{
+    width: 350px;
+}
+
+
 /*******Liste des plats********/
 .img-list{
     max-height: 300px;
