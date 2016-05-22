@@ -14,7 +14,7 @@ require_once 'inc/header.php';
 						echo '<img class="img-list" src="'.$plats['link'].'"><br><br>';
 						echo '</div>';
 						echo '<div class="recette col-sm-8">';
-						echo '<h2><a href="read_recipe.php?id=">'.$plats['title'].'</a></h2><br>';
+						echo '<h2><a href="read_recipe.php?id='.$plats['id'].'">'.$plats['title'].'</a></h2><br>';
 						echo '<p>'.$plats['content'].'</p>';
 						echo '</div><br>';
 						echo '</div>';
