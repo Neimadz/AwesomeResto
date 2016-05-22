@@ -19,7 +19,7 @@ if(!empty($_GET) && isset($_GET['keyword']) ) {
         }
     }
     else {
-        echo '<p class="noresult-search">Désolé, votre demande de <span class="keyword" style="font-weight:bold">' . $keyword . '</span> est introuvable</p>';
+        echo '<p class="noresult-search">Désolé, votre demande de <span class="search-recipe-keyword" style="font-weight:bold">' . $keyword . '</span> est introuvable</p>';
     }
 }
 

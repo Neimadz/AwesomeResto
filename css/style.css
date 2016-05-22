@@ -280,14 +280,12 @@ section#index-our-chef {
 .img-list{
     max-height: 300px;
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
 }
 
 /******Styles des recipes affichage via search*****/
 
-
-#wrapper {
-}
 
 .search-result{
     margin: 1em auto;
@@ -295,6 +293,7 @@ section#index-our-chef {
     width: 80%;
     background-color: #ECF0F1;
     border-radius: .4em;
+    text-align: center;
 }
 
 .search-recipe-title {
@@ -304,23 +303,35 @@ section#index-our-chef {
 }
 
 .search-recipe-date {
+    margin-left: 13%;
+    text-align: left;
 }
 
-.search-recipe-image {
-    height: 300px;
+.search-recipe-img {
+    width: 45em;
+    height: 37em;
+    -o-object-fit: cover;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
 .search-recipe-content {
     margin: 0 auto;
     margin-top: 20px;
-    width: 450px;
+    width: 75%;
     background-color: #ecf0f1;
+    font-size: 1.2em;
+    text-align: left;
 }
 
 /*ma lettre surlignée*/
 .search-recipe-keyword {
    color: #34495e;
    background-color: #bdc3c7;
+}
+
+.noresult-search {
+    padding: 4em;
 }
 
 /******Styles du Footer*****/
