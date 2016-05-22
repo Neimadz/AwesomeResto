@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="how_many" class="col-sm-2 control-label">Nombre de personnes</label>
                     <div class="col-sm-10">
-                        <input type="how_many" class="form-control" id="hom_many" name="how_many" placeholder="Combien de personnes?">  
+                        <input type="how_many" class="form-control" id="how_many" name="how_many" placeholder="Combien de personnes?">  
                     </div>
                 </div>
 
