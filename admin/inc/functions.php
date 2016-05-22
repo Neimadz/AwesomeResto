@@ -22,12 +22,12 @@ function checkNotReadMsg() {
 }
 
 /************SIMPLIFICATION DES PREG_MATCH*********/
-function verif($conditions, $verification){
+
+/*function verif($conditions, $verification){
     if(!preg_match($conditions, $verification)) {
         return true;
     }
     else{
         return false;
     }
-}
-?>
+}*/
