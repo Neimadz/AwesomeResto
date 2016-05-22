@@ -83,7 +83,7 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
                     <div class="item carousel-item-3"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img3'];?>" alt="food"></div>
                 </div>
                 <div class="online-reserve">
-                    Reserver en ligne <a href="#">Reserver</a>
+                    Reserver en ligne <a href="reserve_online.php">Reserver</a>
                 </div>
             </header>
 
