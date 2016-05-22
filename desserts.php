@@ -11,10 +11,10 @@ require_once 'inc/header.php';
 				<?php
 					foreach(selectCategory('dessert') as $dessert) {
 						echo '<div class="row">';
-							echo '<div class="recette col-sm-6 text-center">';
+							echo '<div class="recette col-sm-4 text-center">';
 								echo '<img class="img-list" src="'.$dessert['link'].'"><br><br>';
 							echo '</div>';
-							echo '<div class="recette col-sm-6">';
+							echo '<div class="recette col-sm-8">';
 								echo '<h2><a href="">'.$dessert['title'].'</a></h2><br>';
 								echo '<p>'.$dessert['content'].'</p>';
 							echo '</div><br>';
