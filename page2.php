@@ -15,6 +15,9 @@ require_once 'inc/header.php';
 						echo '<h2>'.cutString($entree['title'],0, 30, '...').'</h2><br>';
 						echo '<img class="img" src="'.$entree['link'].'"><br><br>';
 						echo '<p>'.cutString($entree['content'],0, 100, '...').'</p><hr>';
+						echo '<br>';
+						// En récupérant l'id de l'article, je peux le passer en GET afin d'avoir un seul et même fichier pour lire chaque article individuellement 
+						echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$entree['id'].'"> READ THE RECIPE </a>';
 					}
 				?>
 			</div>
@@ -26,6 +29,7 @@ require_once 'inc/header.php';
 						echo '<h2>'.cutString($plat['title'],0, 30, '...').'</h2><br>';
 						echo '<img class="img" src="'.$plat['link'].'"><br><br>';
 						echo '<p>'.cutString($plat['content'],0, 100, '...').'</p><hr>';
+						echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$plat['id'].'"> READ THE RECIPE </a>';
 					}
 				?>
 			</div>
@@ -37,6 +41,7 @@ require_once 'inc/header.php';
 						echo '<h2>'.cutString($dessert['title'],0, 30, '...').'</h2><br>';
 						echo '<img class="img" src="'.$dessert['link'].'"><br><br>';
 						echo '<p>'.cutString($dessert['content'],0, 100, '...').'</p><hr>';
+						echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$dessert['id'].'"> READ THE RECIPE </a>';
 					}
 				?>
 			</div>
