@@ -21,6 +21,12 @@ if(!empty($_POST)) {
     if(strlen($post['user-add-lastname']) < 3 || strlen($post['user-add-lastname']) > 50) {
       $errors[] = 'Votre nom doit comporter entre 3 et 50 caractères';
     }
+    if(verif("/^[A-Za-z]/", $post['user-add-firstname'])){
+        $errors[] = 'Votre prénom doit commencer par une majuscule';
+    }
+    if(verif("/^[A-Za-z]/", $post['user-add-lastname'])){
+        $errors[] = 'Votre nom doit commencer par une majuscule';
+    }
 
     if(verif('/[a-zA-Z0-9-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]/', $post['user-add-email'])) {
         $errors[] = 'Votre email n\'est pas correct';

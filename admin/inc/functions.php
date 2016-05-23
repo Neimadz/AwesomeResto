@@ -59,3 +59,12 @@ function cutString($string, $start, $length, $endStr = '[&hellip]'){
     // à laquelle s'ajoute notre $endStr
     return substr( $str, 0, strrpos( $str,' ') ).$endStr;
 }
+function verif($conditions, $verification){
+    if(!preg_match($conditions, $verification)) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+?>
