@@ -326,6 +326,18 @@ section#index-our-chef {
     margin: 0 auto;
 }
 
+.title_cat {
+    font-family: 'Courgette', sans-serif;
+    color: #D91E18;
+}
+.reco_sites {
+    display: inline-block;
+}
+.reco_site {
+    display: inline;
+    margin-right: 2em;
+}
+
 
 /******Styles des recipes affichage via search*****/
 
