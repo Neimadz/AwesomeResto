@@ -29,8 +29,8 @@ $password = password_hash( 'test', PASSWORD_DEFAULT);
 
 $users = array(
 	[
-		'firstname' => 'Admin',
-		'lastname'  => 'Admin',
+		'firstname' => 'Captain',
+		'lastname'  => 'Obvious',
 		'role' 		=> 'admin',
 		'email' 	=> 'test@gmail.com',
 		'password' 	=>  $password,
@@ -43,6 +43,13 @@ $users = array(
 		'email' 	=> 'user@gmail.com',
 		'password' 	=>  $password,
 		'date_registration' => '2016-05-18 04:05:06',
+	],[
+		'firstname' => 'SMogogo',
+		'lastname'  => 'gogo',
+		'role' 		=> 'edit',
+		'email' 	=> 'lol@gmail.com',
+		'password' 	=>  $password,
+		'date_registration' => '2016-05-18 14:15:06',
 	]
 );
 
