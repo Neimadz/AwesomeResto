@@ -14,7 +14,6 @@ require_once 'inc/header.php';
 					foreach(selectCategory('entrance') as $entree) {
 						echo '<div class="page2-recette">';
 							echo '<br>';
-							echo 'ENTRÉE';
 							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$entree['id'].'"> <h2>'.cutString($entree['title'],0, 25, '...').'</h2> <br> </a>'; 
 							echo '<img class="index-recipe-img" src="'.$entree['link'].'"><br><br>';
 							echo '<p>'.cutString($entree['content'],0, 100, '...').'</p>';
@@ -30,7 +29,6 @@ require_once 'inc/header.php';
 					foreach (selectCategory('dish') as $plat) {
 						echo '<div class="page2-recette">';
 							echo '<br>';
-							echo 'PLAT';
 							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$plat['id'].'"> <h2>'.cutString($plat['title'],0, 25, '...').'</h2> <br> </a>';
 							echo '<img class="index-recipe-img" src="'.$plat['link'].'"><br><br>';
 							echo '<p>'.cutString($plat['content'],0, 100, '...').'</p>';
@@ -45,7 +43,6 @@ require_once 'inc/header.php';
 					foreach (selectCategory('dessert') as $dessert) {
 						echo '<div class="page2-recette">';
 							echo '<br>';
-							echo 'DESSERT';
 							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$dessert['id'].'"> <h2>'.cutString($dessert['title'],0, 25, '...').'</h2> <br> </a>';
 							echo '<img class="index-recipe-img" src="'.$dessert['link'].'"><br><br>';
 							echo '<p>'.cutString($dessert['content'],0, 100, '...').'</p>';
