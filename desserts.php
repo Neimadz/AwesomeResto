@@ -31,8 +31,4 @@ include_once 'inc/footer.php';
 
 
 
-            <div class="img_print">
-		        <p><i class="fa fa-print" aria-hidden="true"></i> Print it</p>
-		        <p><a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i> Share it</a></p>
-		        <p><a href="https://fr.pinterest.com/"><i class="fa fa-pinterest-p" aria-hidden="true"></i>Pint it</a></p>
-		    </div>
+            
