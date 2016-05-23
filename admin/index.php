@@ -3,6 +3,7 @@ require_once 'inc/functions.php';
 require_once 'inc/login.php';
 include_once 'inc/header.php';
 
+
 $mdp = true;
 ?>
 
@@ -16,6 +17,11 @@ $mdp = true;
 <?php endif; ?>
 
 <form class="form-horizontal well well-sm" method="post">
+
+<?php if(isset($_SESSION['user'])): ?>
+<?php header('Location: admin.php');?>    
+<?php else: ?>
+
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="email">Email</label>
@@ -36,6 +42,7 @@ $mdp = true;
             <button type="submit" class="btn btn-primary">Se connecter</button>
         </div>
     </div>
+    <?php endif; ?>
 
     <?php if($mdp == false): ?>
         <div class="form-group">
