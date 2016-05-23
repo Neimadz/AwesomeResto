@@ -2,7 +2,7 @@
 
 require_once 'inc/connect.php';
 
-require_once 'inc/header.php';
+
 
 /* On vérifie que l'ID de la recette existe et n'est pas vide
 Si l'id n'est pas de type numérique, on force la valeur à 1
@@ -24,21 +24,32 @@ if(!empty($_GET)){
 	// $recipe contient mon recipe extrait de la bdd
 	$recipe = $res->fetch(PDO::FETCH_ASSOC);
 
-	echo '<div class="imgOneRecipe">';
-	echo '<br>';
-	echo '<h2 class="readTitle">' .$recipe['title'] . '</h2>';
-	echo '<br>';
-	echo '<p class="readPublish">Publié le : '.$recipe['date_publish']; 
-	echo '<br><br>';
-	echo '<img class="" src="'.$recipe['link'].'">';
-	echo '<br><br>';
-	echo '<center><p style="width: 570px">' .$recipe['content'].'</p></center>';
-	echo '<br><br>';
-	echo '</div>';
-
 	} else {
 		echo 'Article introuvable !';
 	}
 }
+require_once 'inc/header.php'
+?>
+	<div class="container">
+		<div class="row">
+			<div class="imgOneRecipe text-center">
+				<br>
+					<h2 class="readTitle"><?php echo $recipe['title'];?></h2>
+				<br>
+					<p class="readPublish">Publié le :<?php echo $recipe['date_publish'];?></p>
+				<br>
+					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+						<div class="thumbnail center-block">
+							<div class="index-recipe-img-container text-center">
+						    	<img class="index-recipe-img" src="<?php echo $recipe['link'];?>">
+						    	<div class="index-recipe-ingredients"><?php echo $recipe['ingredients'];?></div>
+					    	</div>
+							<?php echo $recipe['content'];?>
+					    </div>
+				  	</div>
+			</div>
+		</div>
+	</div>
+<?php  
 
 require_once 'inc/footer.php';
