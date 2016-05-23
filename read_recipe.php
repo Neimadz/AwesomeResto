@@ -58,14 +58,15 @@ require_once 'inc/header.php'
 			<div class="imgOnejoin text-center">
 				<br>
 					<h2 class="readTitle"><?php echo $join['title'];?></h2>
-				 	<h2 class="readTitle"> Publié par <?php echo $join['firstname'];?></h2>
 				<br>
+				 	<h4 class="readTitle"> Publié par <?php echo $join['firstname'];?></h4>
 					<p class="readPublish"> Disponible depuis le :<?php echo $join['date_publish'];?></p>
 				<br>
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<div class="thumbnail center-block">
 							<div class="index-join-img-container text-center">
 						    	<img class="index-join-img" src="<?php echo $join['link'];?>">
+						    	<br>
 						    	<div class="index-join-ingredients"><?php echo $join['ingredients'];?></div>
 					    	</div>
 							<?php echo $join['content'];?>
