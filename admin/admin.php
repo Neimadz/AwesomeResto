@@ -1,7 +1,7 @@
 <?php
-session_start();
-require_once 'inc/functions.php';
 include_once 'inc/header.php';
+include_once 'inc/functions.php';
+logged_only();
 
 $allMsgs = checkNotReadMsg();
 ?>

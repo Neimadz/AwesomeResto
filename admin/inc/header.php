@@ -47,7 +47,10 @@ require_once 'connect.php';
 
                 <li><a href="#"></a></li>
                 <li><a href="list_recipe.php">Liste des recettes</a></li>
+                <?php if(!isset($_SESSION['user'])): ?>
+                <?php else: ?>
                 <li><a href="inc/logout.php">Log out</a></li>
+              <?php endif; ?>
               </ul>
 
 

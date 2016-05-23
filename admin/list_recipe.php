@@ -1,7 +1,7 @@
 <?php 
-session_start();
 require_once 'inc/connect.php';
 include_once 'inc/functions.php';
+logged_only();
 
 // Tableau contenant l'ensemble des recettes
 $allRecipes = array_merge(selectCategory('entrance'), selectCategory('dish'), selectCategory('dessert'));
