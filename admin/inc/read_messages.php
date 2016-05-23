@@ -6,6 +6,7 @@
                 $allMsgs = checkNotReadMsg();
                 foreach ($allMsgs as $key => $msg) {
                     showMessages($msg);
+                    echo '<hr>';
                 }
             ?>
         </div>

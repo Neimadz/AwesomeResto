@@ -16,17 +16,17 @@ if(!empty($_POST)) {
       
     // Check if name has been entered
     if (!$post['name']) {
-        $error[] = 'Please enter your name';
+        $error[] = 'Entrez votre nom';
     }
         
     // Check if email has been entered and is valid
     if (!$post['email'] || !filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
-        $error[] = 'Please enter a valid email address';
+        $error[] = 'Entrez une adresse valide';
     }
     
     //Check if message has been entered
     if (!$post['message']) {
-        $error[] = 'Please enter your message';
+        $error[] = 'Entrez un message';
     }
     
     if(count($error) > 0){

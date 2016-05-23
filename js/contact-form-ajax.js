@@ -36,7 +36,7 @@ function submitForm(){
 
 function formSuccess(){
     $("#contact-form")[0].reset();
-    submitMSG("Message sent");
+    submitMSG("Message Envoyé");
 }
 
 function submitMSG(msg){

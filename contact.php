@@ -35,8 +35,8 @@ require_once 'inc/header.php';
                         </div>
                     </div>
                 </form> 
-                <div 
-            <div id="msgSubmit"></div>
+                <div> 
+            <div class="alert alert-success" id="msgSubmit"></div>
         </div>
     </div>   
     

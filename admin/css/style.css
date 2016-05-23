@@ -22,6 +22,7 @@ nav {
     padding: .5em;
 
 }
+
 /*.navbar-default .navbar-nav>li>a {
     color: #fff;
 }*/
@@ -123,12 +124,17 @@ header {
     padding: 3em;
 }
 
+/*********read_message***********/
+
 .msg-read {
-    background-color: #999;
+    color: #231F20;
 }
 
 .msg-not-read {
-    background-color: #666;
+    color: #231f20;
+    background-color: #ecf0f1;
+
+
 }
 
 #update_infos {
