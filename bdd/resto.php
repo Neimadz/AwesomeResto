@@ -331,6 +331,24 @@ $sql = $db->exec("INSERT INTO `tokens_password` (
 /************************************END TABLE TOKENS_PASSWORD*******************************/
 
 
+/************************************TABLE RESERVE_ONLINE**********************************************************/
+$sql = $db->exec("CREATE TABLE IF NOT EXISTS `reserve_online` ( 
+	`id` INT NOT NULL AUTO_INCREMENT , 
+	`name` VARCHAR(255) NOT NULL , 
+	`firstname` VARCHAR(255) NOT NULL , 
+	`how_many` INT NOT NULL , 
+	`num` INT(10) NOT NULL , 
+	`date` DATE NOT NULL , 
+	`hour` TIME NOT NULL , 
+	`message` VARCHAR(255) NOT NULL , 
+	`date_creation` DATETIME NOT NULL , 
+	PRIMARY KEY (`id`)) ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_general_ci;"
+); if($sql === false){
+	die(var_dump($db->errorInfo()));
+}
+
+/*********************************END TABLE RESERVE_ONLINE***************************************************************/
+
 if($upValid){
 	echo '<br><br><center><strong>Base de données bien mise a jour</strong></center><br><br>';
 	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></center><br><br>';
