@@ -7,44 +7,49 @@ require_once 'inc/header.php';
 	<h1 id="title-index" class="text-center">Toutes nos recettes de chef</h1>
 	<div id="wrapper-recettes" class="container">
 		<div class="row">
-			<div class="recette col-sm-4 text-center">
+			<div class=" col-xs-12 col-sm-4 text-center">
 				<h2 class="titre-p2">Nos entrées</h2>
 				<br>
 				<?php
 					foreach(selectCategory('entrance') as $entree) {
-						echo '<br>';
-						echo 'ENTRÉE';
-						echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$entree['id'].'"> <h2>'.cutString($entree['title'],0, 30, '...').'</h2> <br> </a>'; 
-						echo '<img class="img" src="'.$entree['link'].'"><br><br>';
-						echo '<p>'.cutString($entree['content'],0, 100, '...').'</p><hr>';
-						echo '<br>';
-						
+						echo '<div class="page2-recette">';
+							echo '<br>';
+							echo 'ENTRÉE';
+							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$entree['id'].'"> <h2>'.cutString($entree['title'],0, 25, '...').'</h2> <br> </a>'; 
+							echo '<img class="index-recipe-img" src="'.$entree['link'].'"><br><br>';
+							echo '<p>'.cutString($entree['content'],0, 100, '...').'</p>';
+							echo '<br>';
+						echo '</div>';
 					}
 				?>
 			</div>
-			<div class="recette col-sm-4 text-center">
+			<div class="page2-recette col-xs-12 col-sm-4 text-center">
 				<h2 class="titre-p2">Nos plats</h2>
 				<br>
 				<?php
 					foreach (selectCategory('dish') as $plat) {
-						echo '<br>';
-						echo 'PLATS';
-						echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$plat['id'].'"> <h2>'.cutString($plat['title'],0, 30, '...').'</h2> <br> </a>';
-						echo '<img class="img" src="'.$plat['link'].'"><br><br>';
-						echo '<p>'.cutString($plat['content'],0, 100, '...').'</p><hr>';
+						echo '<div class="page2-recette">';
+							echo '<br>';
+							echo 'PLAT';
+							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$plat['id'].'"> <h2>'.cutString($plat['title'],0, 25, '...').'</h2> <br> </a>';
+							echo '<img class="index-recipe-img" src="'.$plat['link'].'"><br><br>';
+							echo '<p>'.cutString($plat['content'],0, 100, '...').'</p>';
+						echo '</div>';
 					}
 				?>
 			</div>
-			<div class="recette col-sm-4 text-center">
+			<div class="page2-recette col-xs-12 col-sm-4 text-center">
 				<h2 class="titre-p2">Nos desserts</h2>
 				<br>
 				<?php
 					foreach (selectCategory('dessert') as $dessert) {
-						echo '<br>';
-						echo 'DESSERTS';
-						echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$dessert['id'].'"> <h2>'.cutString($dessert['title'],0, 30, '...').'</h2> <br> </a>';
-						echo '<img class="img" src="'.$dessert['link'].'"><br><br>';
-						echo '<p>'.cutString($dessert['content'],0, 100, '...').'</p><hr>';
+						echo '<div class="page2-recette">';
+							echo '<br>';
+							echo 'DESSERT';
+							echo '<p> <a class="btnrecipe" href="read_recipe.php?id='.$dessert['id'].'"> <h2>'.cutString($dessert['title'],0, 25, '...').'</h2> <br> </a>';
+							echo '<img class="index-recipe-img" src="'.$dessert['link'].'"><br><br>';
+							echo '<p>'.cutString($dessert['content'],0, 100, '...').'</p>';
+						echo '</div>';
 					}
 				?>
 			</div>

@@ -258,6 +258,9 @@ section#index-our-chef {
     position: relative;
 }
 
+.page2-recette{
+    min-height: 45em;
+}
 /**********Style de la page read_recipe **********/
 .imgOneRecipe {
     text-align: center;
