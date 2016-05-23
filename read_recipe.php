@@ -2,7 +2,7 @@
 
 require_once 'inc/connect.php';
 
-
+/************VERSION BASIQUE*******************/
 
 /* On vérifie que l'ID de la recette existe et n'est pas vide
 Si l'id n'est pas de type numérique, on force la valeur à 1
@@ -23,27 +23,28 @@ if(!empty($_GET)){
 
 	// $recipe contient mon recipe extrait de la bdd
 	$recipe = $res->fetch(PDO::FETCH_ASSOC);*/
+	
 
 /********************************VERSION INNER JOIN SQL ***************************************/
 
 if(isset($_GET['id']) && !empty($_GET['id'])){
-	$userRecipes = $_GET['id']; 
+	$userRecipes = intval($_GET['id']); 
 	if(!is_numeric($userRecipes)){
 		$userRecipes = 1;
 	}
 }
-
+$recipe = [];
 if(!empty($_GET)){
 	if(isset($userRecipes)){
-	$res = $db->prepare('SELECT * FROM recipes INNER JOIN users WHERE recipes.id = users.id and users.id = :id ');
+
+	$res = $db->prepare('SELECT recipes.id, recipes.title, recipes.date_publish, recipes.link, recipes.ingredients, recipes.content, users.id, users.firstname, users.lastname 
+	FROM recipes INNER JOIN users ON recipes.author_id = users.id WHERE recipes.id = :id');
 	$res->bindParam(':id', $userRecipes, PDO::PARAM_INT);
 	if($res->execute()){
 		// $recipe contient mon recipe extrait de la bdd
-		$recipe = $res->fetch(PDO::FETCH_ASSOC);
+		$recipe = $res->fetch(PDO::FETCH_ASSOC);	
 	}
-
-	
-	} else {
+} else {
 		echo 'Article introuvable !';
 	}
 }
