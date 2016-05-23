@@ -295,6 +295,11 @@ section#index-our-chef {
     width: 350px;
 }
 
+.readAuthors{
+    color: #495c60;
+    font-size: 24px;
+}
+
 
 /*******Liste des plats********/
 .img-list{
