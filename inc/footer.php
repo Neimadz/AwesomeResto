@@ -13,5 +13,6 @@
 ?>
 		<h4>Ristorante !</h4>
 		<p> <?php echo $adress['adress'];?> </p>
+        <a href="page_infos.php">Plus d'infos</a>
 	</footer>
 </html>
