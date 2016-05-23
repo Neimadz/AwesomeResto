@@ -1,6 +1,6 @@
 <?php
 require_once 'connect.php';
-require_once 'functions.php';
+
 
 ?>
 <!DOCTYPE html>
@@ -43,11 +43,14 @@ require_once 'functions.php';
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="admin.php">Accueil<span class="sr-only">(current)</span></a></li>
+                <li><a href="index.php">Accueil<span class="sr-only">(current)</span></a></li>
 
                 <li><a href="#"></a></li>
                 <li><a href="list_recipe.php">Liste des recettes</a></li>
+                <?php if(!isset($_SESSION['user'])): ?>
+                <?php else: ?>
                 <li><a href="inc/logout.php">Log out</a></li>
+              <?php endif; ?>
               </ul>
 
 

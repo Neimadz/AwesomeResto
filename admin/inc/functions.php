@@ -73,4 +73,30 @@ function verif($conditions, $verification){
         return false;
     }
 }
+function recupRole($role){
+    if($role == 'entrance'){
+        echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option selected value="entrance">Entrée</option>';
+            echo '<option value="dish">Plat</option>';
+            echo '<option value="dessert">Dessert</option>';
+        echo '</select>';
+    }
+    if($role == 'dish'){
+        echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option value="entrance">Entrée</option>';
+            echo '<option selected value="dish">Plat</option>';
+            echo '<option value="dessert">Dessert</option>';
+        echo '</select>';
+    }
+    if($role == 'dessert'){
+        echo '<select name="role" id="add-role" class="form-control" size="1">';
+            echo '<option>Choisir une catégorie :</option>';
+            echo '<option value="entrance">Entrée</option>';
+            echo '<option value="dish">Plat</option>';
+            echo '<option selected value="dessert">Dessert</option>';
+        echo '</select>';
+    }
+}
 ?>

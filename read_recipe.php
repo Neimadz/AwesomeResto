@@ -56,7 +56,7 @@ require_once 'inc/header.php'
 				<br>
 					<h2 class="readTitle"><?php echo $recipe['title'];?></h2>
 				<br>
-				<h2 class="readTitle"><?php echo $recipe['firstname']. ' ' .$recipe['lastname'];?></h2>
+				<p class="readAuthors"><?php echo $recipe['firstname']. ' ' .$recipe['lastname'];?></p>
 				<br>
 					<p class="readPublish"> Disponible depuis le :<?php echo $recipe['date_publish'];?></p>
 				<br>

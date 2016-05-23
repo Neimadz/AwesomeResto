@@ -1,7 +1,7 @@
 <?php 
-session_start();
 require_once 'inc/connect.php';
-include_once '../inc/functions.php';
+include_once 'inc/functions.php';
+logged_only();
 
 $deleteOk = false;
 if(!empty($_GET)){
