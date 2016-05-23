@@ -50,7 +50,7 @@ function selectCategoryIndex($role){
 
 function showRecipe($recipe) {
 
-    echo '<a class="index-recipe-link" href="#">'.$recipe['title']."</a>"; // Dish name
+    echo '<a class="index-recipe-link" href="read_recipe.php?id='.$recipe['title'].'">'.$recipe['title']."</a>"; // Dish name
     echo '<div class="index-recipe-img-container">';
     echo '<img class="index-recipe-img" src="'.$recipe['link'].'">'; // Img source
     echo '<div class="index-recipe-ingredients">'.$recipe['ingredients'].'</div></div>';
