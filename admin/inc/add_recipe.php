@@ -93,11 +93,11 @@ if(!empty($_POST)){ // On vérifie que le formulaire est soumis
     }
     if(isset($showErrors) && $showErrors == true){
         // Afficher mes erreurs
-        echo '<ul style="color:red">';
+        echo '<div class="alert alert-danger"><ul>';
         foreach($error as $err){
             echo '<li>'.$err.'</li>';
         }
-        echo '</ul>';
+        echo '</ul></div>';
         // Moins sexy, mais fonctionnel :
         //echo implode('<br>', $error);
     }

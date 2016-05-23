@@ -1,8 +1,7 @@
-<?php
-require_once 'connect.php';
-
-
+<?php 
+require_once 'connect.php'; 
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,7 +30,7 @@ require_once 'connect.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="admin.php"><?php if(isset($_SESSION['user'])) {echo 'Hello ' . $_SESSION['user']['firstname'] . ' '. $_SESSION['user']['lastname'];}else{echo '</a><p class="navbar-brand"> Log in, svp<p>';}?>
+              <a class="navbar-brand" href="admin.php"><?php if(isset($_SESSION['user'])) {echo 'Hello ' . $_SESSION['user']['firstname'] . ' '. $_SESSION['user']['lastname'].'</a>';}else{echo 'Log in, svp';}?>
             </div>
 
             <!-- <form id="header_search" class="navbar-form navbar-right" role="search" method="GET">
@@ -47,10 +46,7 @@ require_once 'connect.php';
 
                 <li><a href="#"></a></li>
                 <li><a href="list_recipe.php">Liste des recettes</a></li>
-                <?php if(!isset($_SESSION['user'])): ?>
-                <?php else: ?>
                 <li><a href="inc/logout.php">Log out</a></li>
-              <?php endif; ?>
               </ul>
 
 
