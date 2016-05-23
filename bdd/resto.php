@@ -333,8 +333,8 @@ $sql = $db->exec("INSERT INTO `tokens_password` (
 
 if($upValid){
 	echo '<br><br><center><strong>Base de données bien mise a jour</strong></center><br><br>';
-	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/">Cliquer pour continuer vers le site</a></strong></center><br><br>';
+	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></center><br><br>';
 }else{
 	echo '<br><br><center><strong>Arrete de recharger la page clique plutot sur ce lien</strong></center><br><br>';
-	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/">Cliquer pour continuer vers le site</a></strong></center><br><br>';
+	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></center><br><br>';
 }
