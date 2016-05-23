@@ -12,7 +12,9 @@ function showMessages($msg) {
     echo '<h3 class="msg-author">'.$msg['name'].'</h3>';
     echo '<p class="msg-email">'.$msg['email'].'</p>';
     echo '<p class="msg-content">'.$msg['message'].'</p>';
-    echo '<a class="mark-as-read" href="#" data-message-id="'.$msg['id'].'">Marquer comme lu</a>';
+    if($msg['is_read'] == 'not_read') {
+        echo '<a class="mark-as-read" href="#" data-message-id="'.$msg['id'].'">Marquer comme lu</a>';
+    }
     echo '</div>';
 }
 
@@ -26,7 +28,7 @@ function checkNotReadMsg() {
 
 function logged_only(){
     if (session_status() == PHP_SESSION_NONE) {
-            session_start(); 
+            session_start();
         }
     if (!isset($_SESSION['user'])) {
         echo "<div class='alert alert-danger'>Vous n'avez pas le droit d'accéder a cette page !</div>";

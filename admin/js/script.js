@@ -188,3 +188,7 @@ function showMsgNotification() {
 }
 
 showMsgNotification();
+
+$('.mark-as-read').on('click', function(){
+    $(this).fadeOut();
+})

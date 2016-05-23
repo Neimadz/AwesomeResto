@@ -127,10 +127,12 @@ header {
 /*********read_message***********/
 
 .msg-read {
+    padding: 1em;
     color: #231F20;
 }
 
 .msg-not-read {
+    padding: 1em;
     color: #231f20;
     background-color: #ecf0f1;
 
