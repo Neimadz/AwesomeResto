@@ -72,7 +72,7 @@ require_once 'inc/header.php'
 							<?php echo $join['content'];?>
 					    </div>
 				  	</div>
-			</div>
+			</div>			
 		</div>
 	</div>
 <?php  
