@@ -19,8 +19,8 @@ if(!empty($allMsgs)){
 
     }
 }
-else {
-    echo 'Vous n\'avez aucun message';
-}
+// else {
+//     echo 'Vous n\'avez aucun message';
+// }
 
 ?>

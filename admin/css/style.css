@@ -72,7 +72,7 @@ header {
 .update-info-title{
     margin-top: 5px;
     font-size: 22px;
-} 
+}
 .help-block{
     font-size: 14px;
 }
@@ -112,4 +112,25 @@ header {
 .title-list{
     margin-bottom: 0;
     text-decoration: underline;
+}
+
+/*****USER LIST"******/
+#removedUserMsg,
+#addedUserMsg,
+.noresult-msg,
+#msgRead,
+#msg-container {
+    padding: 3em;
+}
+
+.msg-read {
+    background-color: #999;
+}
+
+.msg-not-read {
+    background-color: #666;
+}
+
+#update_infos {
+    width: 40%;
 }

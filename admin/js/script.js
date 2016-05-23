@@ -151,7 +151,7 @@ $('.mark-as-read').on('click', function(event) {
             success : function(text){
                 if (text == "success"){
                     showMsgReaded("Le message a été marqué comme lu!");
-                    $('#'+selectedDiv).fadeOut();
+                    $('#'+selectedDiv).removeClass('msg-not-read').addClass('msg-read');
                 } else {
                     showMsgReaded(text);
                 }
@@ -174,18 +174,17 @@ function showMsgReaded(msg){
 }
 
 function showMsgNotification() {
-    if ($('#msg-container').find('div.admin-msg').length == 0) {
+    if ($('#msg-container').has('.msg-not-read').length > 0) {
+        console.log('Shown');
+        $('#msg-bell').css('display', 'inline-block');
+    }
+    else {
         $('#msg-bell').css('display', 'none');
         $('#msgRead').text("Vous n'avez aucun message");
         console.log('Hidden');
-
-    }
-    else {
-        console.log('Shown');
-        $('#msg-bell').css('display', 'inline');
     }
     console.log('Hello');
-    console.log($('#msg-container').find('div.admin-msg'));
+    console.log($('#msg-container').find('div.admin-msg.msg-shown'));
 }
 
 showMsgNotification();

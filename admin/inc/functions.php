@@ -2,7 +2,13 @@
 require_once 'connect.php';
 
 function showMessages($msg) {
-    echo '<div class="admin-msg" id="message-div-'.$msg['id'].'">';
+    if ($msg['is_read'] == 'read') {
+        echo '<div class="admin-msg msg-read"';
+    }
+    else {
+        echo '<div class="admin-msg msg-not-read"';
+    }
+    echo 'id="message-div-'.$msg['id'].'">';
     echo '<h3 class="msg-author">'.$msg['name'].'</h3>';
     echo '<p class="msg-email">'.$msg['email'].'</p>';
     echo '<p class="msg-content">'.$msg['message'].'</p>';
@@ -12,8 +18,8 @@ function showMessages($msg) {
 
 function checkNotReadMsg() {
     global $db;
-    $showMessages = $db->prepare('SELECT * FROM contact WHERE is_read = :role');
-    $showMessages->bindValue(':role', 'not_read');
+    $showMessages = $db->prepare('SELECT * FROM contact');
+    // $showMessages->bindValue(':role', 'not_read');
     $showMessages->execute();
     return $showMessages->fetchAll(PDO::FETCH_ASSOC);
 }
