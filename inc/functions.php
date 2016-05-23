@@ -79,18 +79,6 @@ function cutString($string, $start, $length, $endStr = '[&hellip]'){
 	return substr( $str, 0, strrpos( $str,' ') ).$endStr;
 }
 
-/***************Fonction de vérification d'accès*******************/
-/*function logged_only($role){
-		if (session_status() == PHP_SESSION_NONE) {
-			session_start();
-		}
-		if (!isset($_SESSION['users'])) {
-			$_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder a cette page !";
-			header('location: login.php');
-			exit();
-	}
-}*/
-
 /*************Fonction pour récupérer le role (de plat)************/
 function recupRole($role){
 	if($role == 'entrance'){

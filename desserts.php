@@ -4,7 +4,7 @@ require_once 'inc/header.php';
 ?>
 
 <div class="wrapper-index">
-	<h1 id="title-index" class="text-center">Toutes les desserts de nos chefs</h1>
+	<h1 id="title-index" class="text-center">Tous les desserts de nos chefs</h1>
 	<div id="wrapper-recettes" class="container">
 		<div class="row">
 				<br>
