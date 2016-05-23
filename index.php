@@ -17,7 +17,7 @@ include_once 'inc/header.php';
 						}
 					?>
 					<p>
-						<a class="index-recipe-link-all" href="entrances.php">Voir tous nos entrées <span class="glyphicon glyphicon-arrow-right"></span></a>
+						<a class="index-recipe-link-all" href="entrances.php">Voir toutes nos entrées <span class="glyphicon glyphicon-arrow-right"></span></a>
 					</p>
 				</div>
 			</div>
