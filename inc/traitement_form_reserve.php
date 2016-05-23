@@ -42,13 +42,29 @@ if(!empty($_POST)) {
 	else {
 		$formValid = true;
 
-		$res = $db->prepare('INSERT INTO ')
-	}
+		$res = $db->prepare('INSERT INTO `reserve_online` (
+			`id`, 
+			`name`, 
+			`firstname`, 
+			`how_many`, 
+			`num`, 
+			`date`, `hour`, 
+			`message`, 
+			`date_creation`) 
+		VALUES (NULL,
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		'',
+		''
+		)
+');
 
+	}
 	if ($displayErr) {
 		echo '<p>' .implode('<br>', $error). '</p>';
 	}
-
-
-
 }
