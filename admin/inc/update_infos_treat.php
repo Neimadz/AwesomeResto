@@ -1,5 +1,7 @@
 <?php
 require_once 'connect.php';
+include_once 'functions.php';
+logged_only();
 // On instancie nos variables qu'on utilisera plus tard
 $post = array();
 $error = array();

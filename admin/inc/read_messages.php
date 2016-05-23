@@ -1,4 +1,4 @@
-
+<?php include_once 'functions.php'; logged_only(); ?>
 <div class="row">
     <div class="col-xs-12 col-sm-8">
         <div id="msg-container">

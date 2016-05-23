@@ -1,7 +1,7 @@
 <?php
-session_start();
 require_once 'connect.php'; // dosn't work without
 include_once 'functions.php';
+logged_only();
 
 $post = array();
 $error = array();

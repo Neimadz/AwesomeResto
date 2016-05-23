@@ -1,3 +1,5 @@
+<?php include_once 'functions.php';
+logged_only(); ?>
 <h1>Liste d'utilisateurs</h1>
 
 <div class="row">

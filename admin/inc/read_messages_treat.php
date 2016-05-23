@@ -1,6 +1,7 @@
 <?php
 require_once 'connect.php';
 require_once 'functions.php';
+logged_only();
 
 $allMsgs = checkNotReadMsg();
 if(!empty($allMsgs)){

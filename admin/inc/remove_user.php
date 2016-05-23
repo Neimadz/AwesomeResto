@@ -1,6 +1,7 @@
 <?php
 require_once 'connect.php';
-
+include_once 'functions.php';
+logged_only();
 $post = [];
 $errors = [];
 if(!empty($_POST)) {

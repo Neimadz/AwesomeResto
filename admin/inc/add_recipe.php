@@ -1,6 +1,7 @@
 <?php  
 include_once 'functions.php';
 require_once 'connect.php';
+logged_only();
 
 $post = []; // Le tableau qui contiendra les données de mon formulaire nettoyées
 $error = []; // J'instancie mon tableau d'erreurs

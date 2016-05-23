@@ -1,5 +1,7 @@
 <?php
 require_once 'connect.php';
+include_once 'functions.php';
+logged_only();
 
 $getUsers = $db->prepare('SELECT * FROM users');
 $getUsers->execute();

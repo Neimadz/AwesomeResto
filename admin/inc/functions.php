@@ -23,3 +23,14 @@ function checkNotReadMsg() {
     $showMessages->execute();
     return $showMessages->fetchAll(PDO::FETCH_ASSOC);
 }
+
+    function logged_only(){
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start(); 
+        }
+        if (!isset($_SESSION['user'])) {
+            echo "<div class='alert alert-danger'>Vous n'avez pas le droit d'accéder a cette page !</div>";
+          /*  header('Location: ../index.php');*/
+            exit();
+    }
+}

@@ -1,3 +1,5 @@
+<?php include_once 'functions.php';
+logged_only(); ?>
 
 <!-- formulaire changement à remplir pour changer coordonées user -->
 	<p class="update-info-title"> Mettez vos nouvelles photos et adresse! <p>
