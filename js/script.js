@@ -50,7 +50,6 @@ function sendForm(){
             } else {
                 showMsg(text);
             }
-            history.pushState(null, '', url+'?'+keyword);
         },
         error : function() {
             console.log('Ca va pas!');
