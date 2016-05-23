@@ -24,7 +24,22 @@
                 <div class="form-group">
                     <label for="how_many" class="col-sm-2 control-label"><i class="fa fa-users" aria-hidden="true"></i></label>                    
                     <div class="col-sm-10">
-                        <input type="how_many" class="form-control" id="how_many" name="how_many" placeholder="Combien de personnes?">  
+                        <select id="how_many" name="how_many">
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <select> 
                     </div>
                 </div>
 
