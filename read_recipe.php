@@ -25,6 +25,9 @@ if(!empty($_GET)){
 	$recipe = $res->fetch(PDO::FETCH_ASSOC);
 */
 
+
+/********************************VERSION INNER JOIN SQL ***************************************/
+
 if(isset($_GET['id']) && !empty($_GET['id'])){
 	$userRecipes = $_GET['id']; 
 	if(!is_numeric($userRecipes)){
