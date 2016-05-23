@@ -378,11 +378,11 @@ $sql = $db->exec("CREATE TABLE IF NOT EXISTS `reserve_online` (
 /*********************************END TABLE RESERVE_ONLINE***************************************************************/
 
 if($upValid){
-	echo '<br><br><center><strong>Base de données bien mise a jour</strong></center><br><br>';
+	echo '<br><br><center><p style="font-size: 20px;"<strong>Base de données bien mise a jour</strong></p></center><br>';
 	echo '<center><img src="https://media.giphy.com/media/iwVHUKnyvZKEg/giphy.gif"></center>';
-	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></center><br><br>';
+	echo '<br><center><p style="font-size: 20px;"<strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></p></center><br><br>';
 }else{
-	echo '<br><br><center><strong>Arrete de recharger la page clique plutot sur ce lien</strong></center><br><br>';
+	echo '<br><br><center><p style="font-size: 20px;"<strong>Arrete de recharger la page clique plutot sur ce lien</strong></p></center><br>';
 	echo '<center><img src="https://media.giphy.com/media/3t7RAFhu75Wwg/giphy.gif"></center>';
-	echo '<br><br><center><strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></center><br><br>';
+	echo '<br><center><p style="font-size: 20px;"<strong><a href="http://'.$_SERVER['HTTP_HOST'].'/AwesomeResto/index.php">Cliquer pour continuer vers le site</a></strong></p></center><br><br>';
 }
