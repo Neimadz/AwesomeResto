@@ -23,14 +23,3 @@ function checkNotReadMsg() {
     $showMessages->execute();
     return $showMessages->fetchAll(PDO::FETCH_ASSOC);
 }
-
-/************SIMPLIFICATION DES PREG_MATCH*********/
-
-function verif($conditions, $verification){
-    if(!preg_match($conditions, $verification)) {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
