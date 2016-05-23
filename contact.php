@@ -44,6 +44,8 @@ require_once 'inc/header.php';
                         </div>
                     </div>
                 </form> 
+            </div>
+        </div>
     </div>   
     
 <?php include_once 'inc/footer.php'; ?>
