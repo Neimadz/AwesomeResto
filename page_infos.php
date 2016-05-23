@@ -1,3 +1,8 @@
+<?php
+require_once 'inc/header.php';
+
+?>
+
 <div class="wrapper-infos">
         <h1 id="title-infos" class="text-center">Informations sur notre restaurant</h1>
     <div clas="info-cuisine">
@@ -33,9 +38,10 @@ Samedi
     <br>Lieu : Europe  >  France  >  Aquitaine  >  Gironde  >  Bordeaux
     <br>Téléphone : 0 805 62 23 45</p>
     </div>
+
+    <div class="reco">
+<h1>Recommandé par :</h1>
+</div> 
 </div>
 
-<div class="reco">
-<h1>Recommander par :</h1>
-<
-</div>    
+   
