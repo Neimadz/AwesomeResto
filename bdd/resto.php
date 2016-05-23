@@ -97,6 +97,27 @@ $contacts = array(
 		'message' 	=> 'Salut je recherche a manger des sushi c\'est ici ?',
 		'is_read' 	=> 'not_read',
 		'date_send' => '2016-05-19 07:17:13',
+	],[
+		'id'		=> '2',
+		'name' 		=> 'ok',
+		'email' 	=> 'dams_m33@hotmail.fr',
+		'message' 	=> 'Salut je recherche a manger des sushi c\'est ici ?',
+		'is_read' 	=> 'not_read',
+		'date_send' => '2016-05-19 07:17:13',
+	],[
+		'id'		=> '3',
+		'name' 		=> 'not ok',
+		'email' 	=> 'dams_m33@hotmail.fr',
+		'message' 	=> 'Salut je recherche a manger des sushi c\'est ici ?',
+		'is_read' 	=> 'not_read',
+		'date_send' => '2016-05-19 07:17:13',
+	],[
+		'id'		=> '4',
+		'name' 		=> 'personne',
+		'email' 	=> 'dams_m33@hotmail.fr',
+		'message' 	=> 'Salut je recherche a manger des sushi c\'est ici ?',
+		'is_read' 	=> 'not_read',
+		'date_send' => '2016-05-19 07:17:13',
 	],
 );
 
@@ -148,7 +169,7 @@ if($sql === false){
 $recipes = array(
 	[
 		'id' 			=> '1',
-		'author_id' 	=> 'Jean-marc',
+		'author_id' 	=> '1',
 		'role' 			=> 'entrance',
 		'title' 		=> 'Griddled vegetables & feta with tabbouleh',
 		'content' 		=> 'This is a great meat-free recipe. Barbecuing a whole block of feta is a really interesting way to use it – you get a wicked texture contrast between the beautifully golden outside and the soft, creamy centre. The smoky flavour adds a subtle but beautiful twist to this delicious summery dish.',
@@ -158,7 +179,7 @@ $recipes = array(
 	],
 	[
 		'id' 			=> '2',
-		'author_id' 	=> 'Booba',
+		'author_id' 	=> '2',
 		'role' 			=> 'entrance',
 		'title' 		=> 'Tasty fish tacos',
 		'content' 		=> '“Just one haddock fillet provides us with a source of seven different essential vitamins and minerals, plus this colourful dish gives us three of our 5-a-day ”',
@@ -168,7 +189,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '3',
-		'author_id' 	=> 'Le roi lion',
+		'author_id' 	=> '3',
 		'role' 			=> 'entrance',
 		'title' 		=> 'Delicious winter salad',
 		'content' 		=> '“This is really nice served with a simple pasta, with leftover cold meats, in a sandwich or with a simple jacket potato and knob of butter. Any leftovers can be kept in the fridge then served as a really posh coleslaw. ”',
@@ -179,7 +200,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '4',
-		'author_id' 	=> 'Vegeta',
+		'author_id' 	=> '1',
 		'role' 			=> 'dish',
 		'title' 		=> 'Piri piri chicken',
 		'content' 		=> '“Crisp, spicy roast chicken, served with piri piri sauce, jalapeño salsa and sweet potato wedges – delicious! ”',
@@ -189,7 +210,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '5',
-		'author_id' 	=> 'SwagLordDu13',
+		'author_id' 	=> '2',
 		'role' 			=> 'dish',
 		'title' 		=> 'Wild boar burgers',
 		'content' 		=> '“These might be the best boar burgers ever! ”',
@@ -199,7 +220,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '6',
-		'author_id' 	=> 'Millaa',
+		'author_id' 	=> '3',
 		'role' 			=> 'dish',
 		'title' 		=> 'Marmexican marinated pork tenderloin',
 		'content' 		=> '“A great Friday night recipe with friends. Get everything in the middle of the table and tuck in.”',
@@ -209,7 +230,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '7',
-		'author_id' 	=> 'Nikokosh',
+		'author_id' 	=> '1',
 		'role' 			=> 'dessert',
 		'title' 		=> 'Epic ice cream cake',
 		'content' 		=> '“Choose two or three different flavours of your favourite ice cream for this cake – we went for pistachio, strawberry and vanilla. Then when you slice it open all of the amazing layers will be revealed. ”',
@@ -219,7 +240,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '8',
-		'author_id' 	=> 'Bapetiste',
+		'author_id' 	=> '2',
 		'role' 			=> 'dessert',
 	
 	
@@ -232,7 +253,7 @@ $recipes = array(
 	],	
 	[
 		'id' 			=> '9',
-		'author_id' 	=> 'Abrakadams',
+		'author_id' 	=> '3',
 		'role' 			=> 'dessert',
 		'title' 		=> 'Chocolate & salted caramel cake',
 		'content' 		=> '“You don’t use all the caramel, but it keeps in the fridge for a few days. ”',
