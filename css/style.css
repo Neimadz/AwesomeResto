@@ -160,7 +160,8 @@ header {
     padding-right: .5em;
     color: #E4F1FE;
     -webkit-border-radius: 25px;
-border-radius: 25px;     
+   border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px; 
     background-color:rgba(10,10,5,.7);
     font-family: 'Courgette', sans-serif;
 
