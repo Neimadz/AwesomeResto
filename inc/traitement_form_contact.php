@@ -41,13 +41,13 @@ if(!empty($_POST)) {
         $res->bindValue(':email', $post['email']);
         $res->bindValue(':message', $post['message']);
         if($success = $res->execute()){
-                echo 'success';
+                echo '<p class="alert alert-success"> Votre message à bien été envoyé!';
         }
             // the message has been sent to the data base  
     }// end else
     
     if ($displayErr){
-        echo '<p>' .implode('<br>', $error). '<p>';
+        echo '<p class="alert alert-danger">' .implode('<br>', $error). '<p>';
         }
 }//end emty
 ?>
