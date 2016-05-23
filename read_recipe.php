@@ -35,7 +35,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
 if(!empty($_GET)){
 	if(isset($userRecipes)){
-	$res = $db->prepare('SELECT * FROM recipes INNER JOIN users WHERE recipes.autors_id = users.id and users.id = :id ');
+	$res = $db->prepare('SELECT * FROM recipes INNER JOIN users WHERE recipes.id = users.id and users.id = :id ');
 	$res->bindParam(':id', $userRecipes, PDO::PARAM_INT);
 	if($res->execute()){
 		// $recipe contient mon recipe extrait de la bdd
