@@ -72,11 +72,22 @@ nav li a:hover,
 ******************/
 
 header {
-    position: relative;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    height: 65vh;
+        position: relative;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        height: 65vh;
+}
+
+@media print {
+  header {
+    display: none !important;
+  }
+  .show-one-image .index-recipe-img {
+      height: 10em;
+      -o-object-fit: cover; 
+      object-fit: cover;
+  }
 }
 
 .online-reserve {
@@ -160,7 +171,7 @@ header {
     padding-right: .5em;
     color: #E4F1FE;
     -webkit-border-radius: 25px;
-border-radius: 25px;     
+border-radius: 25px;
     background-color:rgba(10,10,5,.7);
     font-family: 'Courgette', sans-serif;
 
