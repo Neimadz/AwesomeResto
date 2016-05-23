@@ -79,9 +79,9 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
             <header>
                 <div class="owl-carousel">
 
-                    <div class="item carousel-item-1"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img1'];?>" alt="food"><h1 class="promo"><i class="fa fa-glass" aria-hidden="true"></i>Pour la Saint-Valentin: coupes de champagne offertes pour tous les couples!</h1></div>
-                    <div class="item carousel-item-2"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img2'];?>" alt="food"><h1 class="promo"><i class="fa fa-globe" aria-hidden="true"></i>Tentez de gagner un voyage au coeur de la gastronomie italienne.</h1></div>
-                    <div class="item carousel-item-3"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img3'];?>" alt="food"><h1 class="promo"><i class="fa fa-heart" aria-hidden="true"></i>Pour la fête des mères: un dessert à moitié prix pour satisfaire la gourmandise de nos mamans.</h1></div>
+                    <div class="item carousel-item-1"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img1'];?>" alt="food"><h1 class="promo"><i class="fa fa-glass" aria-hidden="true"></i> Pour la Saint-Valentin: coupes de champagne offertes pour tous les couples! </h1></div>
+                    <div class="item carousel-item-2"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img2'];?>" alt="food"><h1 class="promo"><i class="fa fa-globe" aria-hidden="true"></i> Tentez de gagner un voyage au coeur de la gastronomie italienne. </h1></div>
+                    <div class="item carousel-item-3"><img src="<?php $_SERVER['HTTP_HOST'];?>/AwesomeResto/img/img_header/<?php echo $image['img3'];?>" alt="food"><h1 class="promo"><i class="fa fa-heart" aria-hidden="true"></i> Pour la fête des mères: un dessert à moitié prix pour satisfaire la gourmandise de nos mamans. </h1></div>
                 </div>
                 <div class="online-reserve">
                     Réserver en ligne <a href="reserve_online.php">Réserver</a>
