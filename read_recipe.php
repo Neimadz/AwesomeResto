@@ -64,10 +64,10 @@ require_once 'inc/header.php'
 				<br>
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 						<div class="thumbnail center-block">
-							<div class="index-join-img-container text-center">
-						    	<img class="index-join-img" src="<?php echo $join['link'];?>">
+							<div class="index-recipe-img-container text-center">
+						    	<img class="index-recipe-img" src="<?php echo $join['link'];?>">
 						    	<br>
-						    	<div class="index-join-ingredients"><?php echo $join['ingredients'];?></div>
+						    	<div class="index-recipe-ingredients"><?php echo $join['ingredients'];?></div>
 					    	</div>
 							<?php echo $join['content'];?>
 					    </div>
