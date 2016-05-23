@@ -8,9 +8,9 @@ require_once 'inc/header.php';
                 <h1 class="page-header text-center"> Contactez nous </h1>
                 <form id="contact-form" class="form-horizontal" role="form" method="post">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Name</label>
+                        <label for="name" class="col-sm-2 control-label">Nom Prénom</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name">   
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nom & prénom">   
                         </div>
                     </div>
                     <div class="form-group">
@@ -27,7 +27,7 @@ require_once 'inc/header.php';
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10 col-sm-offset-2">
-                            <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+                            <input id="submit" name="submit" type="submit" value="Envoyer" class="btn btn-primary">
                         </div>
                     </div>
                     <div class="form-group">
