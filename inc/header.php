@@ -19,6 +19,7 @@ $image = $img->fetch(PDO::FETCH_ASSOC);
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/style.css">
 

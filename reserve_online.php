@@ -22,37 +22,37 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="how_many" class="col-sm-2 control-label">Nombre de personnes</label>
+                    <label for="how_many" class="col-sm-2 control-label"><i class="fa fa-users" aria-hidden="true"></i></label>                    
                     <div class="col-sm-10">
                         <input type="how_many" class="form-control" id="how_many" name="how_many" placeholder="Combien de personnes?">  
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="num" class="col-sm-2 control-label">Votre numéro de téléphone</label>
+                    <label for="num" class="col-sm-2 control-label"><i class="fa fa-phone" aria-hidden="true"></i></label>
                     <div class="col-sm-10">
                         <input type="num" class="form-control" id="num" name="num" placeholder="Votre numéro de téléphone">  
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="date" class="col-sm-2 control-label">Votre date</label>
+                    <label for="date" class="col-sm-2 control-label"><i class="fa fa-calendar" aria-hidden="true"></i></label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control" id="date" name="date">  
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="hour" class="col-sm-2 control-label">Votre heure</label>
+                    <label for="hour" class="col-sm-2 control-label"><i class="fa fa-clock-o" aria-hidden="true"></i></label>
                     <div class="col-sm-10">
                         <input type="time" class="form-control" id="hour" name="hour">  
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message" class="col-sm-2 control-label">Autre chose ?</label>
+                    <label for="message" class="col-sm-2 control-label"><i class="fa fa-commenting-o" aria-hidden="true"></i></label>
                     <div class="col-sm-10">
-                        <textarea id="message" class="form-control" rows="5" name="message"></textarea>     
+                        <textarea id="message" class="form-control" rows="5" name="message" placeholder="Autre chose à préciser?"></textarea>     
                     </div>
                 </div>
 
