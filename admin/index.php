@@ -40,7 +40,7 @@ $mdp = true;
     <?php if($mdp == false): ?>
         <div class="form-group">
             <div class="col-md-4 col-md-offset-4">
-                <a href="lost_password.php" class="btn btn-primary">Mot de passe oublié ?</a>
+                <a href="getNewPassword.php" class="btn btn-primary">Mot de passe oublié ?</a>
             </div>
         </div>
 
