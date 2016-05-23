@@ -12,22 +12,22 @@ if(!empty($_POST)) {
 	foreach ($_POST as $key => $value) {
 		$post[$key] = trim(strip_tags($value));		
 	}
-	if(!$post['name']) {
+	if(!strlen($post['name']) <3 || strlen($post['name']) >15 ) {
 		$error[] = 'Veuillez saisir votre nom';
 	}
-	if(!$post['firstname']) {
+	if(!strlen($post['firstname']) <3 || strlen($post['firstname']) > 20 ){
 		$error[] = 'Veuillez saisir votre prénom';
 	}
 	if(!is_numeric($post['how_many']) || empty($post['how_many'])) {
-		$error[] = 'Veuillez saisir un nombre de personnes supérieur à 1';
+		$error[] = 'Veuillez choisir un nombre de personnes supérieur à 1';
 	}
-	if(!$post['num']) {
+	if(!strlen($post['num']) != 10) {
 		$error[] = 'Veuillez saisir un numéro de téléphone correct';		
 	}
-	if(!$post['date']) {
+	if(!empty($post['date'])) {
 		$error[] = 'Veuillez sélectionner une date';		
 	}
-	if(!$post['hour']) {
+	if(!empty($post['hour'])) {
 		$error[] = 'Veuillez sélectionner une heure';		
 	}
 	if(!empty($post['message']) {
@@ -37,12 +37,16 @@ if(!empty($_POST)) {
 
 	if(count($error) > 0 ) {
 		$displayErr = true;
+		echo 'Il ya des erreurs !';		
 	}
-
 	else {
 		$formValid = true;
 
-		$res = $db->prepare('INSERT INTO')
+		$res = $db->prepare('INSERT INTO ')
+	}
+
+	if ($displayErr) {
+		echo '<p>' .implode('<br>', $error). '</p>';
 	}
 
 
